@@ -12,3 +12,10 @@
         }
     }
 }
+
+.nav-content {
+    &::before,
+    &::after {
+        @apply !hidden;
+    }
+}
