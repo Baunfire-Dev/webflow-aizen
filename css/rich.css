@@ -6,5 +6,9 @@
 
     .nav-mobile-actions {
         @apply max-[1280px]:!flex gap-[15px] order-1 justify-end items-center;
+
+        .w-nav-button {
+            @apply max-[1280px]:!block !order-1;
+        }
     }
 }
