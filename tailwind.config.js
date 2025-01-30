@@ -1,72 +1,20 @@
-const theme = require("./assets/json/variables.json");
-import fluid, { extract, screens, fontSize } from "fluid-tailwind";
-
 module.exports = {
     corePlugins: {
         container: false,
     },
-    content: {
-        files: [
-            "./*.php",
-            "./blocks/**/*.twig",
-            "./blocks/**/*.php",
-            "./blocks/**/*.js",
-            "./blocks/**/*.css",
-            "./template-parts/*.php",
-            "./template-parts/*.twig",
-            "./template-parts/**/*.php",
-            "./template-parts/**/*.twig",
-            "./templates/*.php",
-            "./templates/*.twig",
-            "./partials/*.php",
-            "./partials/*.twig",
-            "./partials/**/*.php",
-            "./partials/**/*.twig",
-            "./components/*.php",
-            "./components/*.twig",
-            "./components/**/*.php",
-            "./components/**/*.twig",
-        ],
-        extract,
-    },
-    safelist: [
-        'bg-green',
-        'bg-blue',
-        'bg-beige',
-        'stroke-black',
-        'text-black',
-        'stroke-white',
-        'text-white'
-    ],
     theme: {
-        fontSize,
-        screens: {
-            sm: "36rem", //576px
-            md: "48rem", //768px
-            lg: "62rem", //992px
-            xl: "75rem", //1200px
-            "2xl": "87.5rem", //1400px
-            "3xl": "100rem", //1400px
-        },
         extend: {
-            borderRadius: {
-                corners: theme.corners,
-            },
             fontFamily: {
-                "kh": ["kh-teka", "sans-serif"],
-                bricolage: ["bricolage", "sans-serif"],
-                barlow: ["barlow", "sans-serif"],
-                "pp-editorial": ["pp-editorial", "sans-serif"],
+                // 'satoshi-regular': ['satoshi-regular', 'sans-serif'],
+                // 'satoshi-medium': ['satoshi-medium', 'sans-serif'],
             },
-            colors: theme.colors,
+            colors: {
+                transparent: 'transparent',
+                'white': '#ffffff',
+            }
         },
     },
-    darkMode: "selector",
     plugins: [
-        function ({ addVariant }) {
-            addVariant("child", "& > *");
-            addVariant("child-hover", "& > *:hover");
-        },
         function ({ matchUtilities, theme }) {
             matchUtilities(
                 {
@@ -103,6 +51,5 @@ module.exports = {
                 },
             });
         },
-        fluid,
     ],
 };
