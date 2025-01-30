@@ -1,5 +1,5 @@
 .navbar {
-    .cta-block,
+    .cta-block:not(.mobile-cta),
     .nav-content .nav-menu {
         @apply max-[1280px]:!hidden;
     }
