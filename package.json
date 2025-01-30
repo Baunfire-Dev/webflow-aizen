@@ -1,0 +1,14 @@
+{
+	"devDependencies": {
+		"autoprefixer": "latest",
+		"postcss": "latest",
+		"postcss-import": "latest",
+		"postcss-nested": "latest",
+		"postcss-nesting": "latest",
+		"tailwindcss": "3.4.17"
+	},
+	"scripts": {
+		"tw": "npx tailwindcss -i css/tailwind.css -o css/styles.css --postcss --watch --poll --minify",
+		"build": "npx tailwindcss -i css/tailwind.css -o css/styles.css --postcss --minify"
+	}
+}
