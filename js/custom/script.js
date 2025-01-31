@@ -5,8 +5,8 @@ $(document).ready(function () {
         const heroDescriptionBlock = $(".hero-description-block");
         const heroImage = $(".hero-image");
 
-        const logoCarouselContainer = document.querySelector(".logo-carousel-container");
-        const thinBannerSection = document.querySelector(".thin-banner-block");
+        const logoCarouselContainer = $(".logo-carousel-container");
+        const thinBannerSection = $(".thin-banner-block");
 
         const entranceTL = gsap.timeline({
             defaults: {
