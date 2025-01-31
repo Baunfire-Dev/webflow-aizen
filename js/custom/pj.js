@@ -525,7 +525,7 @@ $(document).ready(function () {
     
 
     initializeCarousels();
-    homeButtonsHighlight();
+    // homeButtonsHighlight();
 
     syncSearchFields('.search-field', '.search-field-floating-open');
     handleFormSubmission();
