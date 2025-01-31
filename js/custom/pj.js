@@ -197,6 +197,38 @@ $(document).ready(function () {
         });
     };
 
+    const scrollTextReveal = () => {
+        const splitTypes = document.querySelectorAll('.reveal-type');
+
+        splitTypes.forEach((char) => {
+            const bg = char.dataset.bgColor;
+            const fg = char.dataset.fgColor;
+
+            const text = new SplitType(char, { types: 'words' });
+
+            if (text) {
+                gsap.fromTo(text.words,
+                    {
+                        color: bg,
+                    },
+                    {
+                        color: fg,
+                        duration: 0.3,
+                        stagger: 0.02,
+                        scrollTrigger: {
+                            trigger: char,
+                            start: 'top 80%',
+                            end: 'top 20%',
+                            scrub: true,
+                            markers: false,
+                            toggleActions: 'play play reverse reverse'
+                        }
+                    }
+                );
+            }
+        });
+    };
+
     // ANIMATION
     function initAnimations() {
         // Navbar animation
@@ -268,41 +300,6 @@ $(document).ready(function () {
                 }
             });
         }
-
-
-    };
-
-    //   Reveal on scroll animation
-    function initRevealOnScroll() {
-        const splitTypes = document.querySelectorAll('.reveal-type');
-
-        splitTypes.forEach((char) => {
-            const bg = char.dataset.bgColor;
-            const fg = char.dataset.fgColor;
-
-            const text = new SplitType(char, { types: 'chars' });
-            if (text) {
-                gsap.fromTo(text.chars,
-                    {
-                        color: bg,
-                    },
-                    {
-                        color: fg,
-                        duration: 0.3,
-                        stagger: 0.02,
-                        scrollTrigger: {
-                            trigger: char,
-                            start: 'top 80%',
-                            end: 'top 20%',
-                            scrub: true,
-                            markers: false,
-                            toggleActions: 'play play reverse reverse'
-                        }
-                    }
-                );
-            }
-
-        });
 
 
     };
@@ -517,6 +514,7 @@ $(document).ready(function () {
     initializeCarousels();
     homeButtonsHighlight();
     animatePrivacyPolicyElements();
+    scrollTextReveal();
 
     syncSearchFields('.search-field', '.search-field-floating-open');
     handleFormSubmission();
@@ -573,7 +571,6 @@ $(document).ready(function () {
     animateElementWithScrollTrigger(".instruction-container", ".instruction-container", .3);
 
     initAnimations();
-    initRevealOnScroll();
 
 
     $(".ac-dropdown").click(function (e) {
