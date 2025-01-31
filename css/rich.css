@@ -42,3 +42,9 @@
 .thin-banner-block {
     @apply opacity-0;
 }
+
+.owl-dots {
+    &:is(empty) {
+        @apply hidden;
+    }
+}
