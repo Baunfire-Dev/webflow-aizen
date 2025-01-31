@@ -34,7 +34,7 @@ $(document).ready(function () {
             entranceTL.fromTo(heroDescriptionBlock,
                 { y: 100, opacity: 0 },
                 { y: 0, opacity: 1 },
-                "<0.2"
+                "<0.4"
             );
         }
 
@@ -42,7 +42,7 @@ $(document).ready(function () {
             entranceTL.fromTo(heroImage,
                 { y: 100, opacity: 0 },
                 { y: 0, opacity: 1 },
-                "<0.2"
+                "<0.4"
             );
         }
 
