@@ -48,8 +48,8 @@ $(document).ready(function () {
 
         if (logoCarouselContainer.length) {
             entranceTL.fromTo(logoCarouselContainer,
-                { opacity: 0 },
-                { opacity: 1 },
+                { y: 100, opacity: 0 },
+                { y: 0, opacity: 1 },
                 "<0.4"
             );
         }
