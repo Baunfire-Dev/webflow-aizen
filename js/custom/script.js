@@ -10,21 +10,22 @@ $(document).ready(function () {
 
         const entranceTL = gsap.timeline({
             defaults: {
-                ease: "power2.out"
+                ease: "power2.out",
+                duration: 0.8
             }
         })
 
         if (navbar.length) {
             entranceTL.fromTo(navbar,
                 { y: -100, opacity: 0 },
-                { duration: 1, y: 0, opacity: 1, delay: 0.4 }
+                { y: 0, opacity: 1, delay: 0.4 }
             );
         }
 
         if (heroContainer.length) {
             entranceTL.fromTo(heroContainer,
                 { opacity: 0 },
-                { opacity: 1, duration: 1 },
+                { opacity: 1 },
                 "<0.2"
             );
         }
@@ -32,7 +33,7 @@ $(document).ready(function () {
         if (heroDescriptionBlock.length) {
             entranceTL.fromTo(heroDescriptionBlock,
                 { y: 100, opacity: 0 },
-                { y: 0, opacity: 1, duration: 1 },
+                { y: 0, opacity: 1 },
                 "<0.2"
             );
         }
@@ -40,7 +41,7 @@ $(document).ready(function () {
         if (heroImage.length) {
             entranceTL.fromTo(heroImage,
                 { y: 100, opacity: 0 },
-                { y: 0, opacity: 1, duration: 1 },
+                { y: 0, opacity: 1 },
                 "<0.2"
             );
         }
