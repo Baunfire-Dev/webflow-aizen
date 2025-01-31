@@ -47,9 +47,10 @@ $(document).ready(function () {
         }
 
         if (logoCarouselContainer.length) {
-            gsap.fromTo(logoCarouselContainer,
+            entranceTL.fromTo(logoCarouselContainer,
                 { opacity: 0 },
-                { opacity: 1, duration: 1, delay: 0.8, ease: "power2.out" }
+                { opacity: 1 },
+                "<0.6"
             );
         }
 
