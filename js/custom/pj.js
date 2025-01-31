@@ -120,6 +120,10 @@ $(document).ready(function () {
         }, 10000);
     }
 
+    if (window.matchMedia("(min-width: 992px)").matches) {
+        DTCTTabloopDesktop();
+    }
+
     const homeButtonsHighlight = () => {
         const els = $(".home-button-highlight-container");
         if (!els.length) return;
@@ -158,15 +162,31 @@ $(document).ready(function () {
         }
     };
 
-    // PRIVACY POLICY
-    // Set initial opacity for elements
+    const animatePrivacyPolicyElements = () => {
+        const elements = [
+            { selector: "#TOC-M1", trigger: "#title1" },
+            { selector: "#TOC-M2", trigger: "#title2" },
+            { selector: "#TOC-M3", trigger: "#title3" },
+            { selector: "#TOC-M4", trigger: "#title4" },
+            { selector: "#TOC-M5", trigger: "#title5" },
+            { selector: "#TOC-M6", trigger: "#title6" },
+            { selector: "#TOC-M7", trigger: "#title7" },
+            { selector: "#TOC-M8", trigger: "#title8" },
+            { selector: "#TOC-M9", trigger: "#title9" },
+            { selector: "#TOC-M10", trigger: "#title10" },
+            { selector: "#TOC-M11", trigger: "#title11" },
+            { selector: "#TOC-M12", trigger: "#title12" },
+            { selector: "#TOC-M13", trigger: "#title13" },
+            { selector: "#TOC-M14", trigger: "#title14" },
+            { selector: "#TOC-M15", trigger: "#title15" },
+            { selector: "#TOC-M16", trigger: "#title16" },
+            { selector: "#TOC-M17", trigger: "#title17" }
+        ];
 
-    function animatePrivacyPolicyElements(elements) {
         elements.forEach(({ selector, trigger }) => {
             const ppelement = document.querySelector(selector);
             const pptriggerElement = document.querySelector(trigger);
 
-            // Check if both the element and its trigger exist
             if (ppelement && pptriggerElement) {
                 gsap.set(ppelement, { opacity: 0.35, color: "rgba(21, 21, 21)" });
 
@@ -195,27 +215,6 @@ $(document).ready(function () {
             }
         });
     }
-
-
-    const privacyPolicyElements = [
-        { selector: "#TOC-M1", trigger: "#title1" },
-        { selector: "#TOC-M2", trigger: "#title2" },
-        { selector: "#TOC-M3", trigger: "#title3" },
-        { selector: "#TOC-M4", trigger: "#title4" },
-        { selector: "#TOC-M5", trigger: "#title5" },
-        { selector: "#TOC-M6", trigger: "#title6" },
-        { selector: "#TOC-M7", trigger: "#title7" },
-        { selector: "#TOC-M8", trigger: "#title8" },
-        { selector: "#TOC-M9", trigger: "#title9" },
-        { selector: "#TOC-M10", trigger: "#title10" },
-        { selector: "#TOC-M11", trigger: "#title11" },
-        { selector: "#TOC-M12", trigger: "#title12" },
-        { selector: "#TOC-M13", trigger: "#title13" },
-        { selector: "#TOC-M14", trigger: "#title14" },
-        { selector: "#TOC-M15", trigger: "#title15" },
-        { selector: "#TOC-M16", trigger: "#title16" },
-        { selector: "#TOC-M17", trigger: "#title17" }
-    ];
 
     // ANIMATION
     function initAnimations() {
@@ -290,10 +289,6 @@ $(document).ready(function () {
         }
 
 
-    }
-
-    if (window.matchMedia("(min-width: 992px)").matches) {
-        DTCTTabloopDesktop();
     }
 
     //   Reveal on scroll animation
@@ -524,6 +519,7 @@ $(document).ready(function () {
 
     initializeCarousels();
     homeButtonsHighlight();
+    animatePrivacyPolicyElements();
 
     syncSearchFields('.search-field', '.search-field-floating-open');
     handleFormSubmission();
@@ -579,7 +575,6 @@ $(document).ready(function () {
     animateElementWithScrollTrigger("#featured-5", "#featured-5", .3);
     animateElementWithScrollTrigger(".instruction-container", ".instruction-container", .3);
 
-    animatePrivacyPolicyElements(privacyPolicyElements);
     initAnimations();
     initRevealOnScroll();
 
