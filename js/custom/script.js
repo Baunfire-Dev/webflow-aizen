@@ -24,21 +24,24 @@ $(document).ready(function () {
         if (heroContainer.length) {
             entranceTL.fromTo(heroContainer,
                 { opacity: 0 },
-                { opacity: 1, duration: 1 }
+                { opacity: 1, duration: 1 },
+                "<0.2"
             );
         }
 
         if (heroDescriptionBlock.length) {
             entranceTL.fromTo(heroDescriptionBlock,
                 { y: 100, opacity: 0 },
-                { y: 0, opacity: 1, duration: 1 }
+                { y: 0, opacity: 1, duration: 1 },
+                "<0.2"
             );
         }
 
         if (heroImage.length) {
             entranceTL.fromTo(heroImage,
                 { y: 100, opacity: 0 },
-                { y: 0, opacity: 1, duration: 1 }
+                { y: 0, opacity: 1, duration: 1 },
+                "<0.2"
             );
         }
 
