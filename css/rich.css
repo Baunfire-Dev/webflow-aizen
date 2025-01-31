@@ -39,7 +39,8 @@
 .hero-description-block,
 .hero-image,
 .logo-carousel-container,
-.thin-banner-block {
+.thin-banner-block,
+._3-col-with-highlight-animation {
     @apply opacity-0;
 }
 
