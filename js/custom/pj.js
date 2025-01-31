@@ -133,7 +133,6 @@ $(document).ready(function () {
                     trigger: subSelf,
                     start: "top 60%",
                     end: "bottom 60%",
-                    markers: true,
                     onEnter: () => handlePanelState(target, buttons),
                     onEnterBack: () => handlePanelState(target, buttons)
                 });
@@ -198,7 +197,7 @@ $(document).ready(function () {
                 //console.warn(`Privacy Policy Element or trigger not found: ${selector} / ${trigger}`);
             }
         });
-    }
+    };
 
     // ANIMATION
     function initAnimations() {
@@ -273,7 +272,7 @@ $(document).ready(function () {
         }
 
 
-    }
+    };
 
     //   Reveal on scroll animation
     function initRevealOnScroll() {
@@ -308,7 +307,7 @@ $(document).ready(function () {
         });
 
 
-    }
+    };
 
 
 
