@@ -138,7 +138,7 @@ $(document).ready(function () {
                 if (!trigger) return;
 
                 const target = $(`.sntcc-sticky-nav-item#${trigger.replace('-container', '')}`);
-                if (!target) return;
+                if (!target.length) return;
 
                 ScrollTrigger.create({
                     trigger: subSelf,
