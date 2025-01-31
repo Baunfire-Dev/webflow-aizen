@@ -117,11 +117,9 @@ $(document).ready(function () {
             const buttons = self.find(".sntcc-sticky-nav-item");
 
             const panels = self.find(".two-column-content-section");
-            const panelCount = panels.length;
-            
-            if (!panelCount) return;
+            if (!panels.length) return;
 
-            panels.each(function(index) {
+            panels.each(function() {
                 const subSelf = $(this);
                 const trigger = subSelf.attr("trigger");
                 if (!trigger) return;
@@ -136,7 +134,7 @@ $(document).ready(function () {
                     onEnter: () => handlePanelState(target, buttons),
                     onEnterBack: () => handlePanelState(target, buttons)
                 });
-            })
+            });
         })
 
         const handlePanelState = (btn, buttons) => {
