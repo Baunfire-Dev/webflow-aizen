@@ -149,7 +149,7 @@ $(document).ready(function () {
                     end: "bottom top",
                     markers: true,
                     onEnter: () => handlePanelState(target, buttons),
-                    onEnterBack: () => handlePanelState(target, buttons)
+                    // onEnterBack: () => handlePanelState(target, buttons)
                 });
             })
         })
