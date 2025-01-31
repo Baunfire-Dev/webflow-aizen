@@ -215,7 +215,7 @@ $(document).ready(function () {
                 }
             })
 
-            const text = new SplitType(char, { types: 'words' });
+            const text = new SplitType(subSelf, { types: 'words' });
             if (!text.words.length) return;
 
             text.words.forEach(word => {
