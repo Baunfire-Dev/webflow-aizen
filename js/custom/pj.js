@@ -198,35 +198,39 @@ $(document).ready(function () {
     };
 
     const scrollTextReveal = () => {
-        const splitTypes = document.querySelectorAll('.reveal-type');
+        const textReveals = $('.reveal-type');
+        if (!textReveals.length) return;
 
-        splitTypes.forEach((char) => {
-            const bg = char.dataset.bgColor;
-            const fg = char.dataset.fgColor;
+        textReveals.each(function() {
+            const subSelf = $(this);
+            const bg = subSelf.data("bg-color");
+            const fg = subSelf.data("fg-color");
+
+            const tl = gsap.timeline({
+                scrollTrigger: {
+                    trigger: subSelf,
+                    start: 'top 80%',
+                    end: 'top 20%',
+                    scrub: true
+                }
+            })
 
             const text = new SplitType(char, { types: 'words' });
+            if (!text.words.length) return;
 
-            if (text) {
-                gsap.fromTo(text.words,
+            text.words.forEach(word => {
+                tl.to(word,
                     {
                         color: bg,
                     },
                     {
                         color: fg,
-                        duration: 0.3,
-                        stagger: 0.02,
-                        scrollTrigger: {
-                            trigger: char,
-                            start: 'top 80%',
-                            end: 'top 20%',
-                            scrub: true,
-                            markers: false,
-                            toggleActions: 'play play reverse reverse'
-                        }
+                        duration: 0.5,
+                        ease: "none",
                     }
                 );
-            }
-        });
+            });
+        })
     };
 
     // ANIMATION
