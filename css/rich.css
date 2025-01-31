@@ -21,7 +21,7 @@
 }
 
 .home-button-highlight-container {
-	.sntcc-sticky-nav {
+	.sntcc-sticky-nav-item {
 		&.active {
 			.sticky-nav-text {
                 @apply !block;
