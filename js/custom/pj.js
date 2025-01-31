@@ -130,18 +130,17 @@ $(document).ready(function () {
 
             const panels = self.find(".two-column-content-section");
             const panelCount = panels.length;
-            console.log(panelCount);
             
             if (!panelCount) return;
 
             panels.each(function(index) {
-                console.log(index);
-
                 const subSelf = $(this);
                 const trigger = subSelf.data("trigger");
+                console.log(trigger);
                 if (!trigger) return;
 
                 const target = $(`.sntcc-sticky-nav-item#${trigger.replace('-container', '')}`);
+                console.log(target);
                 if (!target.length) return;
 
                 ScrollTrigger.create({
