@@ -120,7 +120,7 @@ $(document).ready(function () {
         }, 10000);
     }
 
-    const homeButtonHighlight = () => {
+    const homeButtonsHighlight = () => {
         const els = $(".home-button-highlight-container");
         if (!els.length) return;
 
@@ -137,13 +137,16 @@ $(document).ready(function () {
                 const trigger = subSelf.data("trigger");
                 if (!trigger) return;
 
+                const target = $(`.sntcc-sticky-nav-item#${trigger.replace('-container', '')}`);
+                if (!target) return;
+
                 ScrollTrigger.create({
                     trigger: subSelf,
                     start: "top 40%",
                     end: "bottom top",
                     markers: true,
-                    onEnter: () => handlePanelState(subSelf, buttons),
-                    onEnterBack: () => handlePanelState(subSelf, buttons)
+                    onEnter: () => handlePanelState(target, buttons),
+                    onEnterBack: () => handlePanelState(target, buttons)
                 });
             })
         })
@@ -519,7 +522,7 @@ $(document).ready(function () {
     
 
     initializeCarousels();
-    homeButtonHighlight();
+    homeButtonsHighlight();
 
     syncSearchFields('.search-field', '.search-field-floating-open');
     handleFormSubmission();
