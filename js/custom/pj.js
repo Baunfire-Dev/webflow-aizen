@@ -130,7 +130,7 @@ $(document).ready(function () {
 
             const panels = self.find(".two-column-content-section");
             const panelCount = panels.length;
-            if (!panelCount.length) return;
+            if (!panelCount) return;
 
             panels.each(function(index) {
                 const subSelf = $(this);
