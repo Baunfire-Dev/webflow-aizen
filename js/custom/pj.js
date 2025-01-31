@@ -197,41 +197,42 @@ $(document).ready(function () {
         });
     };
 
-    const scrollTextReveal = () => {
-        const textReveals = $('.reveal-type');
-        if (!textReveals.length) return;
+    // const scrollTextReveal = () => {
+    //     const textReveals = $('.reveal-type');
+    //     if (!textReveals.length) return;
 
-        textReveals.each(function() {
-            const subSelf = $(this);
-            const bg = subSelf.data("bg-color");
-            const fg = subSelf.data("fg-color");
+    //     textReveals.each(function() {
+    //         const subSelf = $(this);
+    //         const bg = subSelf.data("bg-color");
+    //         const fg = subSelf.data("fg-color");
 
-            const tl = gsap.timeline({
-                scrollTrigger: {
-                    trigger: subSelf,
-                    start: 'top 80%',
-                    end: 'top 20%',
-                    scrub: true
-                }
-            })
+    //         const tl = gsap.timeline({
+    //             scrollTrigger: {
+    //                 trigger: subSelf,
+    //                 start: 'top 80%',
+    //                 end: 'top 20%',
+    //                 scrub: true,
+    //                 markers: true
+    //             }
+    //         })
 
-            const text = new SplitType(subSelf, { types: 'words' });
-            if (!text.words.length) return;
+    //         const text = new SplitType(subSelf, { types: 'words' });
+    //         if (!text.words.length) return;
 
-            text.words.forEach(word => {
-                tl.to(word,
-                    {
-                        color: bg,
-                    },
-                    {
-                        color: fg,
-                        duration: 0.5,
-                        ease: "none",
-                    }
-                );
-            });
-        })
-    };
+    //         text.words.forEach(word => {
+    //             tl.to(word,
+    //                 {
+    //                     color: bg,
+    //                 },
+    //                 {
+    //                     color: fg,
+    //                     duration: 0.5,
+    //                     ease: "none",
+    //                 }
+    //             );
+    //         });
+    //     })
+    // };
 
     // ANIMATION
     function initAnimations() {
@@ -518,7 +519,7 @@ $(document).ready(function () {
     initializeCarousels();
     homeButtonsHighlight();
     animatePrivacyPolicyElements();
-    scrollTextReveal();
+    // scrollTextReveal();
 
     syncSearchFields('.search-field', '.search-field-floating-open');
     handleFormSubmission();
