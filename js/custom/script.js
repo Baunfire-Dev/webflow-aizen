@@ -5,53 +5,52 @@ $(document).ready(function () {
         const heroDescriptionBlock = $(".hero-description-block");
         const heroImage = $(".hero-image");
 
+        const logoCarouselContainer = document.querySelector(".logo-carousel-container");
+        const thinBannerSection = document.querySelector(".thin-banner-block");
+
         const entranceTL = gsap.timeline({
             defaults: {
                 ease: "power2.out"
             }
         })
-        
+
         if (navbar.length) {
-            gsap.fromTo(navbar,
+            entranceTL.fromTo(navbar,
                 { y: -100 },
-                { duration: 1, y: 0, ease: "power2.out" }
+                { duration: 1, y: 0 }
             );
         }
 
         if (heroContainer.length) {
-            gsap.fromTo(hero_container,
+            entranceTL.fromTo(heroContainer,
                 { opacity: 0 },
-                { opacity: 1, duration: 1, ease: "power2.out" }
+                { opacity: 1, duration: 1 }
             );
         }
 
         if (heroDescriptionBlock.length) {
-            gsap.fromTo(hero_description_block,
+            entranceTL.fromTo(heroDescriptionBlock,
                 { y: 100, opacity: 0 },
-                { y: 0, opacity: 1, duration: 1, delay: 0.3, ease: "power2.out" }
+                { y: 0, opacity: 1, duration: 1 }
             );
         }
 
         if (heroImage.length) {
-            gsap.fromTo(hero_image,
+            entranceTL.fromTo(heroImage,
                 { y: 100, opacity: 0 },
-                { y: 0, opacity: 1, duration: 1, delay: 0.5, ease: "power2.out" }
+                { y: 0, opacity: 1, duration: 1 }
             );
         }
 
-        // Logo carousel container animation
-        const logo_carousel_container = document.querySelector(".logo-carousel-container");
-        if (logo_carousel_container) {
-            gsap.fromTo(logo_carousel_container,
+        if (logoCarouselContainer.length) {
+            gsap.fromTo(logoCarouselContainer,
                 { opacity: 0 },
                 { opacity: 1, duration: 1, delay: 0.8, ease: "power2.out" }
             );
         }
 
-        // thin-banner-section animation
-        const thin_banner_section = document.querySelector(".thin-banner-block");
-        if (thin_banner_section) {
-            gsap.fromTo(thin_banner_section,
+        if (thinBannerSection.length) {
+            gsap.fromTo(thinBannerSection,
                 { opacity: 0 },
                 { opacity: 1, duration: 1, delay: 0.8, ease: "power2.out" }
             );
@@ -187,14 +186,14 @@ $(document).ready(function () {
         const els = $(".home-button-highlight-container");
         if (!els.length) return;
 
-        els.each(function() {
+        els.each(function () {
             const self = $(this);
             const buttons = self.find(".sntcc-sticky-nav-item");
 
             const panels = self.find(".two-column-content-section");
             if (!panels.length) return;
 
-            panels.each(function() {
+            panels.each(function () {
                 const subSelf = $(this);
                 const trigger = subSelf.attr("trigger");
                 if (!trigger) return;
@@ -276,7 +275,7 @@ $(document).ready(function () {
         const textReveals = $('.reveal-type');
         if (!textReveals.length) return;
 
-        textReveals.each(function() {
+        textReveals.each(function () {
             const subSelf = $(this);
             const bg = subSelf.data("bg-color");
             const fg = subSelf.data("fg-color");
@@ -289,10 +288,10 @@ $(document).ready(function () {
                     scrub: 2,
                 }
             })
-    
+
             const text = new SplitType(subSelf, { types: 'words' });
             if (!text.words.length) return;
-    
+
             text.words.forEach(word => {
                 tl.fromTo(word,
                     {
@@ -307,7 +306,7 @@ $(document).ready(function () {
             });
         })
     };
-    
+
     const DTCTTabloopDesktop = () => {
         setTimeout(function () {
             var $current = $('.dtct-tabs-menu').children('.w--current:first');
