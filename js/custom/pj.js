@@ -15,7 +15,6 @@ $(document).ready(function () {
                         // markers:true,
                         start: "top bottom",
                         end: "bottom top",
-                        toggleActions: "play none none reverse"
                     }
                 }
             );
