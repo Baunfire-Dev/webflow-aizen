@@ -135,21 +135,19 @@ $(document).ready(function () {
 
             panels.each(function(index) {
                 const subSelf = $(this);
-                const trigger = subSelf.data("trigger");
-                console.log(trigger);
+                const trigger = subSelf.attr("trigger");
                 if (!trigger) return;
 
                 const target = $(`.sntcc-sticky-nav-item#${trigger.replace('-container', '')}`);
-                console.log(target);
                 if (!target.length) return;
 
                 ScrollTrigger.create({
                     trigger: subSelf,
-                    start: "top 40%",
-                    end: "bottom top",
+                    start: "top 60%",
+                    end: "bottom 60%",
                     markers: true,
                     onEnter: () => handlePanelState(target, buttons),
-                    // onEnterBack: () => handlePanelState(target, buttons)
+                    onEnterBack: () => handlePanelState(target, buttons)
                 });
             })
         })
@@ -525,7 +523,7 @@ $(document).ready(function () {
     
 
     initializeCarousels();
-    // homeButtonsHighlight();
+    homeButtonsHighlight();
 
     syncSearchFields('.search-field', '.search-field-floating-open');
     handleFormSubmission();
