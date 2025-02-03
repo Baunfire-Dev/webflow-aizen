@@ -167,3 +167,7 @@ select {
 		bottom: -60px;
 	}
 }
+
+.nav-content {
+	@apply bg-tan lg:bg-cream;
+}

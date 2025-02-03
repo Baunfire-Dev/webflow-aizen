@@ -176,7 +176,7 @@ $(document).ready(function () {
     });
 
     $('.header-nav-dropdown').on('click', function () {
-        $('.w-nav-overlay').css('top', '0px');
+        //$('.w-nav-overlay').css('top', '0px');
     });
 
     $('.nav-back').on('click', function () {
