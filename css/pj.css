@@ -167,3 +167,7 @@ select {
 		bottom: -60px;
 	}
 }
+
+img{
+	border-radius:16px!important;
+}
