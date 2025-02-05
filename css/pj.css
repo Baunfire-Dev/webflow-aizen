@@ -171,3 +171,7 @@ select {
 img{
 	border-radius:16px!important;
 }
+
+._3-up-card-grid-section-card-light {
+	@apply flex flex-col gap-[16px];
+}
