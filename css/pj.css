@@ -167,12 +167,12 @@ select {
 		bottom: -60px;
 	}
 }
-
+/* 
 img {
     &:not(.gcta-image) {
         @apply !rounded-[16px];
     }
-}
+} */
 
 ._3-up-card-grid-section-card-light {
 	@apply flex flex-col gap-[16px];
