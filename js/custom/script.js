@@ -347,16 +347,45 @@ $(document).ready(function () {
     //     });
     // };
 
+    const handlePaginationAutoScroll = () => {
+        const collections = $(".w-dyn-list");
+        if (!collections.length) return;
+
+        collections.each(function () {
+            const self = $(this);
+            const target = self.find(".w-dyn-items");
+
+            const paginationItems = self.find(".w-pagination-wrapper").children();
+            if (!paginationItems.length) return;
+
+            paginationItems.click(function () {
+                gsap.to(window, {
+                    duration: 0.6,
+                    scrollTo: { y: target, offsetY: 140 },
+                    ease: Power1.easeInOut,
+                    overwrite: true
+                });
+            })
+        });
+    };
+
     pageEntrance();
     scrollTextReveal();
     initializeCarousels();
     homeButtonsHighlight();
     animatePrivacyPolicyElements();
-    // handlePaginationAutoScroll();
 
     if (window.matchMedia("(min-width: 992px)").matches) {
         DTCTTabloopDesktop();
     }
+
+    window.fsAttributes = window.fsAttributes || [];
+    window.fsAttributes.push([
+        'cmsload',
+        (filterInstances) => {
+            handlePaginationAutoScroll();
+        },
+    ]);
 
     ScrollTrigger.refresh();
 });
