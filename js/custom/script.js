@@ -324,34 +324,35 @@ $(document).ready(function () {
         }, 10000);
     };
 
-    const handlePaginationAutoScroll = () => {
-        const collections = $(".w-dyn-list");
-        if (!collections.length) return;
+    // const handlePaginationAutoScroll = () => {
+    //     const collections = $(".w-dyn-list");
+    //     if (!collections.length) return;
 
-        collections.each(function() {
-            const self = $(this);
-            const target = self.find(".w-dyn-items");
+    //     collections.each(function() {
+    //         const self = $(this);
+    //         const target = self.find(".w-dyn-items");
 
-            const paginationItems = self.find(".w-pagination-wrapper").children();
-            if (!paginationItems.length) return;
+    //         const paginationItems = self.find(".w-pagination-wrapper").children();
+    //         console.log(paginationItems);
+    //         if (!paginationItems.length) return;
 
-            paginationItems.click(function() {
-                gsap.to(window, {
-                    duration: 0.6,
-                    scrollTo: { y: target, offsetY: 100 },
-                    ease: Power1.easeInOut,
-                    overwrite: true
-                });
-            })
-        });
-    };
+    //         paginationItems.click(function() {
+    //             gsap.to(window, {
+    //                 duration: 0.6,
+    //                 scrollTo: { y: target, offsetY: 100 },
+    //                 ease: Power1.easeInOut,
+    //                 overwrite: true
+    //             });
+    //         })
+    //     });
+    // };
 
     pageEntrance();
     scrollTextReveal();
     initializeCarousels();
     homeButtonsHighlight();
     animatePrivacyPolicyElements();
-    handlePaginationAutoScroll();
+    // handlePaginationAutoScroll();
 
     if (window.matchMedia("(min-width: 992px)").matches) {
         DTCTTabloopDesktop();
