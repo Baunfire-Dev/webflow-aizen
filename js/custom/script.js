@@ -360,9 +360,9 @@ $(document).ready(function () {
 
             paginationItems.click(function () {
                 gsap.to(window, {
-                    duration: 0.6,
+                    duration: 1,
                     scrollTo: { y: target, offsetY: 140 },
-                    ease: Power1.easeInOut,
+                    ease: "circ.out",
                     overwrite: true
                 });
             })
