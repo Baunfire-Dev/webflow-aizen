@@ -1,10 +1,12 @@
 /* Aizen Custom CSS */
 
-.cci-cards .owl-stage {
-	display: flex;
-}
-.cci-cards .owl-item {
-	flex-grow: 1;
+.cci-cards{
+	.owl-stage {
+		@apply flex;
+	}
+	.owl-item {
+		@apply grow-0 md:grow min-w-[304px] md:min-w-[auto];
+	}
 }
 .cci-cards .owl-stage-outer,
 .testimonial-owl-carousel .owl-stage-outer {
