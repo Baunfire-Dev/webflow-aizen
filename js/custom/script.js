@@ -346,7 +346,7 @@ $(document).ready(function () {
         });
     };
 
-    const tableHover = () => {
+    const handleTableHover = () => {
         var $grid = $('.grid-tbl');
         if (!$grid.length) return;
 
@@ -421,7 +421,7 @@ $(document).ready(function () {
     initializeCarousels();
     homeButtonsHighlight();
     animatePrivacyPolicyElements();
-    tableHover();
+    handleTableHover();
 
     if (window.matchMedia("(min-width: 992px)").matches) {
         DTCTTabloopDesktop();
