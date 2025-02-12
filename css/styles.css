@@ -387,8 +387,8 @@ img {
   display: none;
 }
 
-.integ-group:not(:has(.integ-icon.active)) {
-  display: none;
+.integ-group:not(:has(.integ-icon.active)) .integ-empty {
+  display: block;
 }
 
 .integ-icon:not(.active) {

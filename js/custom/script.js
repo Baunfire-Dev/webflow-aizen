@@ -416,7 +416,151 @@ $(document).ready(function () {
         );
     };
 
-    
+    const handleIntegrationsSearch = () => {
+        const els = $(".integ.section");
+        if (!els.length) return;
+
+        const pinGuide = (self) => {
+            const contentArea = self.find(".integ-list");
+            const pinEL = self.find(".integ-guide-inner");
+
+            if (!contentArea.length || !pinEL.length) return;
+
+            const mm = gsap.matchMedia();
+            let pinST = null;
+
+            mm.add({
+                isDesktop: `(min-width: 992px)`,
+                isMobile: `(max-width: 991.98px)`,
+            }, (context) => {
+                let { isDesktop, isMobile } = context.conditions;
+
+                if (isDesktop) {
+                    if (!pinST) {
+                        pinST = ScrollTrigger.create({
+                            trigger: pinEL,
+                            pin: pinEL,
+                            pinSpacing: false,
+                            start: "top 100px",
+                            endTrigger: contentArea,
+                            end: () => `+=${contentArea.outerHeight() - pinEL.outerHeight()}px`,
+                            refreshPriority: 1,
+                            invalidateOnRefresh: true
+                        })
+                    }
+                }
+
+                if (isMobile) {
+                    if (pinST) {
+                        pinST.kill(true);
+                        pinST = null;
+                    }
+                }
+
+                return () => {
+                    if (pinST) {
+                        pinST.kill(true);
+                        pinST = null;
+                    }
+                }
+            });
+        };
+
+        const highlightAnchors = (self) => {
+            const anchors = $(".integ-anchor");
+            const groups = self.find(".integ-group");
+            
+            if (!groups.length || !anchors.length) return;
+
+            groups.each(function () {
+                const subSelf = $(this);
+                
+                const trigger = subSelf.attr("id");
+                if (!trigger) return;
+
+                const target = self.find(`.integ-anchor[anchor='${trigger}']`);
+                if (!target.length) return;
+
+                ScrollTrigger.create({
+                    trigger: subSelf,
+                    start: "top 60%",
+                    end: "bottom 60%",
+                    markers: true,
+                    onEnter: () => handleAnchorState(target, anchors),
+                    onEnterBack: () => handleAnchorState(target, anchors)
+                });
+            });
+
+            anchors.each(function() {
+                const subSelf = $(this);
+
+                const trigger = subSelf.attr("anchor");
+                if (!trigger) return;
+
+                const target = self.find(`.integ-group#${trigger}`);
+                if (!target.length) return;
+
+                subSelf.click(function() {
+                    gsap.to(window, {
+                        duration: 0.6,
+                        scrollTo: { y: target, offsetY: 140, autoKill: true },
+                        ease: "circ.out",
+                        overwrite: true,
+                    });
+                })
+            });
+
+            const handleAnchorState = (target, anchors) => {
+                anchors.removeClass("active");
+                target.addClass("active");
+            }
+        };
+
+        els.each(function () {
+            const self = $(this);
+            const searchInput = self.find(".integ-search input");
+            const contentArea = self.find(".integ-list");
+            const items = self.find(".integ-icon");
+
+            searchInput.on("keyup", function (e) {
+                e.preventDefault();
+                let searchInput = $(this).val().toLowerCase();
+
+                if (searchInput) {
+                    self.addClass("is-searching");
+                    items.removeClass("active");
+                    items.each(function () {
+                        const subSelf = $(this);
+                        const company = subSelf.attr("company").toLowerCase();
+
+                        if (company.includes(searchInput)) {
+                            subSelf.addClass("active");
+                        }
+                    });
+                } else {
+                    self.removeClass("is-searching");
+                    items.addClass("active");
+                }
+
+                ScrollTrigger.refresh();
+
+                gsap.to(window, {
+                    duration: 0.6,
+                    scrollTo: { y: contentArea, offsetY: 140, autoKill: true },
+                    ease: "circ.out",
+                    overwrite: true,
+                });
+
+                $(this).focus();
+            });
+
+            pinGuide(self);
+            highlightAnchors(self);
+        });
+    };
+
+    handleIntegrationsSearch();
+
 
     pageEntrance();
     scrollTextReveal();

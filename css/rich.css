@@ -52,7 +52,9 @@
 
 .integ-group {
     &:not(:has(.integ-icon.active)) {
-        @apply hidden;
+        .integ-empty {
+            @apply block;
+        }
     }
 }
 
