@@ -538,16 +538,13 @@ $(document).ready(function () {
         });
     };
 
-
-    // handleIntegrationsSearch();
-
-
     pageEntrance();
     scrollTextReveal();
     initializeCarousels();
     homeButtonsHighlight();
     animatePrivacyPolicyElements();
     handleTableHover();
+    handleIntegrationsSearch();
 
     if (window.matchMedia("(min-width: 992px)").matches) {
         DTCTTabloopDesktop();
