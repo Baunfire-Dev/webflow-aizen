@@ -66,6 +66,18 @@
     @apply sticky top-[140px];
 }
 
+.integ-selet {
+    @apply relative;
+
+    select {
+        @apply w-full pl-[16px] pr-[50px] py-[8px] rounded-[28px] bg-navy uppercase text-cream text-[16px] leading-[120%] tracking-[-0.16px] font-medium font-roboto-mono;
+    }
+
+    svg {
+        @apply right-[16px] center-y absolute;
+    }
+}
+
 .integ-icon {
     &:not(.active) {
         @apply h-0 w-0 m-0 basis-0;

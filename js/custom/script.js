@@ -420,61 +420,16 @@ $(document).ready(function () {
         const els = $(".integ.section");
         if (!els.length) return;
 
-        const pinGuide = (self) => {
-            const contentArea = self.find(".integ-list");
-            const pinEL = self.find(".integ-guide-inner");
-
-            if (!contentArea.length || !pinEL.length) return;
-
-            const mm = gsap.matchMedia();
-            let pinST = null;
-
-            mm.add({
-                isDesktop: `(min-width: 992px)`,
-                isMobile: `(max-width: 991.98px)`,
-            }, (context) => {
-                let { isDesktop, isMobile } = context.conditions;
-
-                if (isDesktop) {
-                    if (!pinST) {
-                        pinST = ScrollTrigger.create({
-                            trigger: pinEL,
-                            pin: pinEL,
-                            pinSpacing: false,
-                            start: "top 100px",
-                            endTrigger: contentArea,
-                            end: () => `+=${contentArea.outerHeight() - pinEL.outerHeight()}px`,
-                            refreshPriority: 1,
-                            invalidateOnRefresh: true
-                        })
-                    }
-                }
-
-                if (isMobile) {
-                    if (pinST) {
-                        pinST.kill(true);
-                        pinST = null;
-                    }
-                }
-
-                return () => {
-                    if (pinST) {
-                        pinST.kill(true);
-                        pinST = null;
-                    }
-                }
-            });
-        };
-
         const highlightAnchors = (self) => {
             const anchors = $(".integ-anchor");
             const groups = self.find(".integ-group");
-            
+            const select = self.find(".integ-select select");
+
             if (!groups.length || !anchors.length) return;
 
             groups.each(function () {
                 const subSelf = $(this);
-                
+
                 const trigger = subSelf.attr("id");
                 if (!trigger) return;
 
@@ -483,15 +438,15 @@ $(document).ready(function () {
 
                 ScrollTrigger.create({
                     trigger: subSelf,
-                    start: "top 60%",
-                    end: "bottom 60%",
-                    markers: true,
+                    start: () => "top center",
+                    end: () => "bottom center",
+                    invalidateOnRefresh: true,
                     onEnter: () => handleAnchorState(target, anchors),
                     onEnterBack: () => handleAnchorState(target, anchors)
                 });
             });
 
-            anchors.each(function() {
+            anchors.each(function (index) {
                 const subSelf = $(this);
 
                 const trigger = subSelf.attr("anchor");
@@ -500,14 +455,20 @@ $(document).ready(function () {
                 const target = self.find(`.integ-group#${trigger}`);
                 if (!target.length) return;
 
-                subSelf.click(function() {
+                subSelf.click(function () {
+                    const offset = (window.innerHeight - target.outerHeight()) / 2;
+
                     gsap.to(window, {
                         duration: 0.6,
-                        scrollTo: { y: target, offsetY: 140, autoKill: true },
+                        scrollTo: { y: target, offsetY: offset, autoKill: true },
                         ease: "circ.out",
                         overwrite: true,
                     });
-                })
+                });
+
+                const text = subSelf.text().trim();
+                const option = $('<option></option>').attr('value', trigger).text(text);
+                select.append(option);
             });
 
             const handleAnchorState = (target, anchors) => {
@@ -519,7 +480,7 @@ $(document).ready(function () {
         els.each(function () {
             const self = $(this);
             const searchInput = self.find(".integ-search input");
-            const contentArea = self.find(".integ-list");
+            const anchors = $(".integ-anchor");
             const items = self.find(".integ-icon");
 
             searchInput.on("keyup", function (e) {
@@ -543,21 +504,16 @@ $(document).ready(function () {
                 }
 
                 ScrollTrigger.refresh();
-
-                gsap.to(window, {
-                    duration: 0.6,
-                    scrollTo: { y: contentArea, offsetY: 140, autoKill: true },
-                    ease: "circ.out",
-                    overwrite: true,
-                });
-
+                anchors.first().trigger("click");
+                anchors.removeClass("active");
+                anchors.first().addClass("active");
                 $(this).focus();
             });
 
-            pinGuide(self);
             highlightAnchors(self);
         });
     };
+
 
     // handleIntegrationsSearch();
 

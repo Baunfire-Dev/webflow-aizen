@@ -400,6 +400,36 @@ img {
   top: 140px;
 }
 
+.integ-selet {
+  position: relative;
+}
+
+.integ-selet select {
+  width: 100%;
+  border-radius: 28px;
+  --tw-bg-opacity: 1;
+  background-color: rgb(1 11 91 / var(--tw-bg-opacity, 1));
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 16px;
+  padding-right: 50px;
+  font-family: Roboto Mono, sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  text-transform: uppercase;
+  line-height: 120%;
+  letter-spacing: -0.16px;
+  --tw-text-opacity: 1;
+  color: rgb(255 253 248 / var(--tw-text-opacity, 1));
+}
+
+.integ-selet svg {
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
 .integ-icon:not(.active) {
   margin: 0px;
   height: 0px;
