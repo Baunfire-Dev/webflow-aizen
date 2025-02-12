@@ -71,6 +71,10 @@
 
     select {
         @apply w-full pl-[16px] pr-[50px] py-[8px] rounded-[28px] bg-navy uppercase text-cream text-[16px] leading-[120%] tracking-[-0.16px] font-medium font-roboto-mono;
+
+        option {
+            @apply bg-white text-dark-gray checked:bg-light-gray hover:bg-light-gray;
+        }
     }
 
     svg {
