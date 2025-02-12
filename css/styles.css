@@ -400,11 +400,11 @@ img {
   top: 140px;
 }
 
-.integ-selet {
+.integ-select {
   position: relative;
 }
 
-.integ-selet select {
+.integ-select select {
   width: 100%;
   border-radius: 28px;
   --tw-bg-opacity: 1;
@@ -423,7 +423,7 @@ img {
   color: rgb(255 253 248 / var(--tw-text-opacity, 1));
 }
 
-.integ-selet svg {
+.integ-select svg {
   position: absolute;
   right: 16px;
   top: 50%;
