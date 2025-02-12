@@ -240,6 +240,7 @@ $(document).ready(function () {
     animateElementWithScrollTrigger("#featured-4", "#featured-4", .3);
     animateElementWithScrollTrigger("#featured-5", "#featured-5", .3);
     animateElementWithScrollTrigger(".instruction-container", ".instruction-container", .3);
+    animateElementWithScrollTrigger(".modular-tbl .container", ".modular-tbl .container", .3);
 
 
     $(".ac-dropdown").click(function (e) {
