@@ -55,6 +55,10 @@
         .integ-empty {
             @apply block;
         }
+
+        .integ-icons {
+            @apply hidden;
+        }
     }
 }
 

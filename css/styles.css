@@ -391,6 +391,10 @@ img {
   display: block;
 }
 
+.integ-group:not(:has(.integ-icon.active)) .integ-icons {
+  display: none;
+}
+
 .integ-icon:not(.active) {
   margin: 0px;
   height: 0px;
