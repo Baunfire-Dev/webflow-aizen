@@ -414,7 +414,9 @@ $(document).ready(function () {
                 $('.grid-tbl-cell[data-column="' + col + '"]').not('[bg="pink"]').not('[data-column="1"]').removeClass('highlight');
             }
         );
-    }
+    };
+
+    
 
     pageEntrance();
     scrollTextReveal();

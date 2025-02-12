@@ -49,3 +49,15 @@
 		@apply hidden;
 	}
 }
+
+.integ-group {
+    &:not(:has(.integ-icon.active)) {
+        @apply hidden;
+    }
+}
+
+.integ-icon {
+    &:not(.active) {
+        @apply h-0 w-0 m-0 basis-0;
+    }
+}

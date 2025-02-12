@@ -7,6 +7,7 @@ module.exports = {
         extend: {
             fontFamily: {
                 'satoshi': ['Satoshi Variable', 'sans-serif'],
+                'roboto-mono': ['Roboto Mono', 'sans-serif'],
             },
             colors: {
                 transparent: 'transparent',
