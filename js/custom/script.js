@@ -559,7 +559,7 @@ $(document).ready(function () {
         });
     };
 
-    handleIntegrationsSearch();
+    // handleIntegrationsSearch();
 
 
     pageEntrance();
