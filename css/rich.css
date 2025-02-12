@@ -51,39 +51,47 @@
 }
 
 .integ-group {
-    &:not(:has(.integ-icon.active)) {
-        .integ-empty {
-            @apply block;
-        }
+	&:not(:has(.integ-icon.active)) {
+		.integ-empty {
+			@apply block;
+		}
 
-        .integ-icons {
-            @apply hidden;
-        }
-    }
+		.integ-icons {
+			@apply hidden;
+		}
+	}
 }
 
 .integ-guide-inner {
-    @apply sticky top-[140px];
+	@apply sticky top-[140px];
 }
 
 .integ-select {
-    @apply relative;
+	@apply relative;
 
-    select {
-        @apply w-full pl-[16px] pr-[50px] py-[8px] rounded-[28px] bg-navy uppercase text-cream text-[16px] leading-[120%] tracking-[-0.16px] font-medium font-roboto-mono;
+	select {
+		@apply w-full pl-[16px] pr-[50px] py-[8px] rounded-[28px] bg-navy uppercase text-cream text-[16px] leading-[120%] tracking-[-0.16px] font-medium font-roboto-mono;
 
-        option {
-            @apply bg-white text-dark-gray checked:bg-light-gray hover:bg-light-gray;
-        }
-    }
+		option {
+			@apply bg-white text-dark-gray;
 
-    svg {
-        @apply right-[16px] center-y absolute;
-    }
+			&[selected],
+			&:hover,
+			&:focus,
+			&:active,
+			&:checked {
+				@apply bg-sky-200;
+			}
+		}
+	}
+
+	svg {
+		@apply right-[16px] center-y absolute;
+	}
 }
 
 .integ-icon {
-    &:not(.active) {
-        @apply h-0 w-0 m-0 basis-0;
-    }
+	&:not(.active) {
+		@apply h-0 w-0 m-0 basis-0;
+	}
 }

@@ -430,14 +430,13 @@ img {
   color: rgb(21 21 21 / var(--tw-text-opacity, 1));
 }
 
-.integ-select select option:checked {
+.integ-select select option[selected],
+			.integ-select select option:hover,
+			.integ-select select option:focus,
+			.integ-select select option:active,
+			.integ-select select option:checked {
   --tw-bg-opacity: 1;
-  background-color: rgb(161 161 161 / var(--tw-bg-opacity, 1));
-}
-
-.integ-select select option:hover {
-  --tw-bg-opacity: 1;
-  background-color: rgb(161 161 161 / var(--tw-bg-opacity, 1));
+  background-color: rgb(186 230 253 / var(--tw-bg-opacity, 1));
 }
 
 .integ-select svg {

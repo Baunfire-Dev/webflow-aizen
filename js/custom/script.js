@@ -421,7 +421,7 @@ $(document).ready(function () {
         if (!els.length) return;
 
         const highlightAnchors = (self) => {
-            const anchors = $(".integ-anchor");
+            const anchors = self.find(".integ-anchor");
             const groups = self.find(".integ-group");
             const select = self.find(".integ-select select");
 
@@ -441,8 +441,8 @@ $(document).ready(function () {
                     start: () => "top center",
                     end: () => "bottom center",
                     invalidateOnRefresh: true,
-                    onEnter: () => handleAnchorState(target, anchors),
-                    onEnterBack: () => handleAnchorState(target, anchors)
+                    onEnter: () => handleAnchorState(target, anchors, trigger, select),
+                    onEnterBack: () => handleAnchorState(target, anchors, trigger, select)
                 });
             });
 
@@ -456,7 +456,12 @@ $(document).ready(function () {
                 if (!target.length) return;
 
                 subSelf.click(function () {
-                    const offset = (window.innerHeight - target.outerHeight()) / 2;
+                    let offset = (window.innerHeight - target.outerHeight()) / 2;
+                    select.val(trigger);
+
+                    if (window.matchMedia("(max-width: 991.98px)").matches) {
+                        offset = 140;
+                    }
 
                     gsap.to(window, {
                         duration: 0.6,
@@ -471,11 +476,19 @@ $(document).ready(function () {
                 select.append(option);
             });
 
-            const handleAnchorState = (target, anchors) => {
-                anchors.removeClass("active");
-                target.addClass("active");
-            }
+            select.on('change', function () {
+                const selectedValue = $(this).val();
+                const target = self.find(`.integ-anchor[anchor='${selectedValue}']`);
+                if (!target.length) return;
+                target.trigger("click");
+            });
         };
+
+        const handleAnchorState = (target, anchors, trigger, select) => {
+            anchors.removeClass("active");
+            target.addClass("active");
+            select.val(trigger);
+        }
 
         els.each(function () {
             const self = $(this);
@@ -504,9 +517,20 @@ $(document).ready(function () {
                 }
 
                 ScrollTrigger.refresh();
-                anchors.first().trigger("click");
-                anchors.removeClass("active");
-                anchors.first().addClass("active");
+
+                if (window.matchMedia("(max-width: 991.98px)").matches) {
+                    gsap.to(window, {
+                        duration: 0.6,
+                        scrollTo: { y: self.find(".integ-guide-inner"), offsetY: 140, autoKill: true },
+                        ease: "circ.out",
+                        overwrite: true,
+                    });
+                } else {
+                    anchors.first().trigger("click");
+                    anchors.removeClass("active");
+                    anchors.first().addClass("active");
+                }
+
                 $(this).focus();
             });
 
