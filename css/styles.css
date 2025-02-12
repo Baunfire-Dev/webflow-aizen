@@ -395,6 +395,11 @@ img {
   display: none;
 }
 
+.integ-guide-inner {
+  position: sticky;
+  top: 140px;
+}
+
 .integ-icon:not(.active) {
   margin: 0px;
   height: 0px;
