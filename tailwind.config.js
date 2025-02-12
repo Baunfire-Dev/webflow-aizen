@@ -6,8 +6,7 @@ module.exports = {
     theme: {
         extend: {
             fontFamily: {
-                // 'satoshi-regular': ['satoshi-regular', 'sans-serif'],
-                // 'satoshi-medium': ['satoshi-medium', 'sans-serif'],
+                'satoshi': ['Satoshi Variable', 'sans-serif'],
             },
             colors: {
                 transparent: 'transparent',
@@ -20,7 +19,8 @@ module.exports = {
                 'purple' : '#ddb3ff',
                 'navy' : '#010b5b',
                 'tan' : '#f3f0e7',
-                'yellow' : '#ffd562'
+                'yellow' : '#ffd562',
+                'pink' : '#DDB3FF'
             }
         },
     },

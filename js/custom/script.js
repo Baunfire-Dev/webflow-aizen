@@ -324,29 +324,6 @@ $(document).ready(function () {
         }, 10000);
     };
 
-    // const handlePaginationAutoScroll = () => {
-    //     const collections = $(".w-dyn-list");
-    //     if (!collections.length) return;
-
-    //     collections.each(function() {
-    //         const self = $(this);
-    //         const target = self.find(".w-dyn-items");
-
-    //         const paginationItems = self.find(".w-pagination-wrapper").children();
-    //         console.log(paginationItems);
-    //         if (!paginationItems.length) return;
-
-    //         paginationItems.click(function() {
-    //             gsap.to(window, {
-    //                 duration: 0.6,
-    //                 scrollTo: { y: target, offsetY: 100 },
-    //                 ease: Power1.easeInOut,
-    //                 overwrite: true
-    //             });
-    //         })
-    //     });
-    // };
-
     const handlePaginationAutoScroll = () => {
         const collections = $(".w-dyn-list");
         if (!collections.length) return;
@@ -369,11 +346,82 @@ $(document).ready(function () {
         });
     };
 
+    const tableHover = () => {
+        var $grid = $('.grid-tbl');
+        if (!$grid.length) return;
+
+        const isMobile = window.matchMedia("(max-width: 767px)").matches;
+        if (isMobile) return;
+
+        var gridTemplateColumns = $grid.css('grid-template-columns');
+        var columns = gridTemplateColumns.trim().split(/\s+/).length;
+
+        var gridMap = [];
+        function ensureRow(rowIndex) {
+            while (gridMap.length < rowIndex) {
+                var newRow = [];
+                for (var i = 0; i < columns; i++) {
+                    newRow.push(false);
+                }
+                gridMap.push(newRow);
+            }
+        }
+
+        $('.grid-tbl-cell').each(function () {
+            var colSpan = parseInt($(this).attr('col-span'), 10) || 1;
+            var rowSpan = parseInt($(this).attr('row-span'), 10) || 1;
+            var placed = false;
+            var startCol = 0;
+            for (var r = 0; !placed; r++) {
+                ensureRow(r + 1);
+                for (var c = 0; c < columns; c++) {
+                    if (c + colSpan > columns) break;
+                    var blockFree = true;
+                    for (var rr = r; rr < r + rowSpan; rr++) {
+                        ensureRow(rr + 1);
+                        for (var cc = c; cc < c + colSpan; cc++) {
+                            if (gridMap[rr][cc]) {
+                                blockFree = false;
+                                break;
+                            }
+                        }
+                        if (!blockFree) break;
+                    }
+                    if (blockFree) {
+                        startCol = c + 1;
+                        for (var rr = r; rr < r + rowSpan; rr++) {
+                            for (var cc = c; cc < c + colSpan; cc++) {
+                                gridMap[rr][cc] = true;
+                            }
+                        }
+                        placed = true;
+                        break;
+                    }
+                }
+            }
+            $(this).attr('data-column', startCol);
+        });
+
+        $('.grid-tbl-cell').hover(
+            function () {
+                if (window.matchMedia("(max-width: 767px)").matches) return;
+                var col = $(this).attr('data-column');
+                $('.grid-tbl-cell[data-column="' + col + '"]').not('[bg="pink"]').not('[data-column="1"]').addClass('highlight');
+            },
+            function () {
+                if (window.matchMedia("(max-width: 767px)").matches) return;
+                var col = $(this).attr('data-column');
+                $('.grid-tbl-cell[data-column="' + col + '"]').not('[bg="pink"]').not('[data-column="1"]').removeClass('highlight');
+            }
+        );
+    }
+
     pageEntrance();
     scrollTextReveal();
     initializeCarousels();
     homeButtonsHighlight();
     animatePrivacyPolicyElements();
+    tableHover();
 
     if (window.matchMedia("(min-width: 992px)").matches) {
         DTCTTabloopDesktop();

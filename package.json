@@ -9,6 +9,7 @@
 	},
 	"scripts": {
 		"tw": "npx tailwindcss -i css/tailwind.css -o css/styles.css --postcss --watch --poll --minify",
+        "twf": "npx tailwindcss -i css/tailwind.css -o css/styles.css --postcss --watch --poll",
 		"build": "npx tailwindcss -i css/tailwind.css -o css/styles.css --postcss --minify"
 	}
 }

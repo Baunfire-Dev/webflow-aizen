@@ -24,14 +24,14 @@
 	.sntcc-sticky-nav-item {
 		&.active {
 			.sticky-nav-text {
-                @apply !block;
+				@apply !block;
 			}
 		}
 	}
 }
 
 .nav {
-    @apply translate-y-[-100px];
+	@apply translate-y-[-100px];
 }
 
 .navbar,
@@ -41,11 +41,11 @@
 .logo-carousel-container,
 .thin-banner-block,
 ._3-col-with-highlight-animation {
-    @apply opacity-0;
+	@apply opacity-0;
 }
 
 .owl-dots {
-    &:is(empty) {
-        @apply hidden;
-    }
+	&:is(empty) {
+		@apply hidden;
+	}
 }
