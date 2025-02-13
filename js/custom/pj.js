@@ -264,6 +264,15 @@ $(document).ready(function () {
             //}, 300); // Delay for 300ms
         //});
     });
+
+    $('.social-link-wrapper a').each(function() {
+        var href = $(this).attr('href');
+        if (href && href !== '#') {
+            $(this).closest('.social-link-wrapper').css('visibility', 'visible');
+        } else {
+            $(this).closest('.social-link-wrapper').css('visibility', 'hidden');
+        }
+    });
     
 
 
