@@ -83,6 +83,7 @@ $(document).ready(function () {
         if (!carousel.length) return;
 
         carousel.owlCarousel({ ...params });
+        carousel.trigger('play.owl.autoplay', [params.autoplayTimeout]);
     };
 
     const initializeCarousels = () => {
