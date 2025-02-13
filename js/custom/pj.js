@@ -247,18 +247,24 @@ $(document).ready(function () {
     $(".ac-dropdown").click(function (e) {
         const imageSrc = $(this).find(".accordion-image-data").attr("src");
         const imageSrcset = $(this).find(".accordion-image-data").attr("srcset");
-
+    
         const $image = $(".ac-image");
+    
         // Set opacity to 0 to start the transition
         $image.css("opacity", "0");
+    
         // Change the image src and srcset
         $image.attr("src", imageSrc);
         $image.attr("srcset", imageSrcset);
-        // Wait for the new image to load, then fade it in
+    
+        // Wait for the new image to load, then fade it in with a 300ms delay
         $image.on("load", function () {
-            $image.css("opacity", "1");
+            setTimeout(function () {
+                $image.css("opacity", "1");
+            }, 300); // Delay for 300ms
         });
     });
+    
 
 
 
