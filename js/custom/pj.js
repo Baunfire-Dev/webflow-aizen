@@ -258,11 +258,11 @@ $(document).ready(function () {
         $image.attr("srcset", imageSrcset);
     
         // Wait for the new image to load, then fade it in with a 300ms delay
-        $image.on("load", function () {
-            setTimeout(function () {
+        //$image.on("load", function () {
+            //setTimeout(function () {
                 $image.css("opacity", "1");
-            }, 300); // Delay for 300ms
-        });
+            //}, 300); // Delay for 300ms
+        //});
     });
     
 
