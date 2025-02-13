@@ -265,16 +265,12 @@ $(document).ready(function () {
         //});
     });
 
-    $('.social-link-wrapper a').each(function() {
+    $('.social-link-wrapper').each(function() {
         var href = $(this).attr('href');
         if (href && href !== '#') {
-            $(this).closest('.social-link-wrapper').css('visibility', 'visible');
+            $(this).attr('style', 'visibility: visible;');
         } else {
-            $(this).closest('.social-link-wrapper').css('visibility', 'hidden');
+            $(this).attr('style', 'visibility: hidden;');
         }
-    });
-    
-
-
-
+    });     
 });
