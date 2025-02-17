@@ -530,7 +530,7 @@ $(document).ready(function () {
         let typingTimer;
         const delay = 300;
 
-        const syncSearchFields = (searchField, searchFieldFloating, searchCollectionList) => {
+        const syncSearchFields = (searchField, searchFieldFloating, searchCollectionList, emptyText) => {
             searchField.on("input", function () {
                 clearTimeout(typingTimer);
                 typingTimer = setTimeout(() => {
@@ -539,9 +539,9 @@ $(document).ready(function () {
 
                     if (searchCollectionList.css("display") === "none") {
                         console.log("no result");
-                        $(".no-result").css("display", "block");
+                        emptyText.css("display", "block");
                     } else {
-                        $(".no-result").css("display", "none");
+                        emptyText.css("display", "none");
                     }
                 }, delay);
             });
@@ -568,6 +568,7 @@ $(document).ready(function () {
             const searchFieldFloating = self.find(".search-field-floating-open");
             const stickySearch = self.find(".search-outer-container");
             const searchCollectionList = self.find(".all-resource-list");
+            const emptyText = self.find(".no-result");
 
             gsap.fromTo(stickySearch,
                 {
@@ -598,11 +599,11 @@ $(document).ready(function () {
             searchField.on('keyup', function () {
                 clearTimeout(typingTimer);
                 typingTimer = setTimeout(function () {
-                    if ($('.collection-list-3').css('display') === 'none') {
+                    if (searchCollectionList.css('display') === 'none') {
                         console.log('no result');
-                        $(".no-result").css('display', 'block');
+                        emptyText.css('display', 'block');
                     } else {
-                        $(".no-result").css('display', 'none');
+                        emptyText.css('display', 'none');
                     }
                 }, delay);
             });
