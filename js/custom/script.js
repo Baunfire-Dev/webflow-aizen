@@ -530,7 +530,7 @@ $(document).ready(function () {
         let typingTimer;
         const delay = 300;
 
-        const syncSearchFields = (searchField, searchFieldFloating, searchCollectionList, emptyText) => {
+        const syncSearchFields = (searchField, searchFieldFloating, container, searchCollectionList, emptyText) => {
             searchField.on("input", function () {
                 clearTimeout(typingTimer);
                 typingTimer = setTimeout(() => {
@@ -550,7 +550,7 @@ $(document).ready(function () {
             });
         };
 
-        const handleResults = (searchCollectionList, emptyText) => {
+        const handleResults = (container, searchCollectionList, emptyText) => {
             if (searchCollectionList.css("display") === "none") {
                 emptyText.css("display", "block");
             } else {
@@ -559,7 +559,7 @@ $(document).ready(function () {
 
             gsap.to(window, {
                 duration: 1,
-                scrollTo: { y: searchCollectionList, offsetY: 140 },
+                scrollTo: { y: container, offsetY: 140 },
                 ease: "circ.out",
                 overwrite: true
             });
@@ -606,7 +606,7 @@ $(document).ready(function () {
                 }, delay);
             });
 
-            syncSearchFields(searchField, searchFieldFloating, searchCollectionList, emptyText);
+            syncSearchFields(searchField, searchFieldFloating, self, searchCollectionList, emptyText);
         });
     };
 
