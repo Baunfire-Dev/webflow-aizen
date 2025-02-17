@@ -161,6 +161,7 @@ $(document).ready(function () {
             loop: false,
             autoWidth: true,
             items: 1,
+            autoPlay: false,
             nav: true,
             navText: [$('.t-arrow-left'), $('.t-arrow-right')],
             rewindNav: true,
