@@ -602,7 +602,7 @@ $(document).ready(function () {
             searchField.on('keyup', function () {
                 clearTimeout(typingTimer);
                 typingTimer = setTimeout(function () {
-                    handleResults(searchCollectionList, emptyText);
+                    handleResults(self, searchCollectionList, emptyText);
                 }, delay);
             });
 
