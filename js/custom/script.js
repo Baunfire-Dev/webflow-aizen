@@ -5,7 +5,7 @@ $(document).ready(function () {
         const heroDescriptionBlock = $(".hero-description-block");
         const heroImage = $(".hero-image");
 
-        const logoCarouselContainer = $(".logo-carousel-container");
+        const logoCarouselContainer = $(".logo-carousel-inner");
         const thinBannerSection = $(".thin-banner-block");
 
         const entranceTL = gsap.timeline({
@@ -87,27 +87,27 @@ $(document).ready(function () {
     };
 
     const initializeCarousels = () => {
-        createCarousel(".lc-owl-carousel", {
-            margin: 112,
-            loop: true,
-            autoWidth: true,
-            nav: false,
-            autoplay: true,
-            items: 8,
-            autoplayTimeout: 5000,
-            autoplayHoverPause: false,
-            slideTransition: 'linear',
-            autoplaySpeed: 6000,
-            smartSpeed: 6000,
-            responsive: {
-                0: {
-                    margin: 50,
-                },
-                768: {
-                    margin: 112,
-                }
-            }
-        });
+        // createCarousel(".lc-owl-carousel", {
+        //     margin: 112,
+        //     loop: true,
+        //     autoWidth: true,
+        //     nav: false,
+        //     autoplay: true,
+        //     items: 8,
+        //     autoplayTimeout: 5000,
+        //     autoplayHoverPause: false,
+        //     slideTransition: 'linear',
+        //     autoplaySpeed: 6000,
+        //     smartSpeed: 6000,
+        //     responsive: {
+        //         0: {
+        //             margin: 50,
+        //         },
+        //         768: {
+        //             margin: 112,
+        //         }
+        //     }
+        // });
 
         createCarousel(".tcl-owl-carousel", {
             margin: 72,
