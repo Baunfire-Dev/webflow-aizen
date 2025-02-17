@@ -230,12 +230,12 @@ $(document).ready(function () {
         const els = $(".privacy-policy-container");
         if (!els.length) return;
 
-        els.each(function() {
+        els.each(function () {
             const self = $(this);
             const menuItems = self.find(".toc-menu");
             const contentItems = self.find(".pp-content-container");
 
-            contentItems.each(function() {
+            contentItems.each(function () {
                 const subSelf = $(this);
                 const id = subSelf.attr("id");
                 const target = self.find(`.toc-menu[href='#${id}']`);
@@ -522,6 +522,96 @@ $(document).ready(function () {
             highlightAnchors(self);
         });
     };
+
+    const allResourceSearch = () => {
+        const els = $(".all-resources");
+        if (!els.length) return;
+
+        let typingTimer;
+        const delay = 300;
+
+        els.each(function () {
+            const self = $(this);
+            const searchField = self.find(".search-field");
+            const searchFieldFloating = self.find(".search-field-floating-open");
+            const stickySearch = self.find(".search-outer-container");
+            const searchCollectionList = self.find(".all-resource-list");
+
+            gsap.fromTo(stickySearch,
+                {
+                    autoAlpha: 0,
+                },
+                {
+                    duration: 0.4,
+                    autoAlpha: 1,
+                    ease: Power2.easeOut,
+                    scrollTrigger: {
+                        trigger: stickySearch,
+                        start: "top 140px",
+                        endTrigger: self,
+                        end: "bottom 60%",
+                        pin: true,
+                        pinSpacing: false,
+                        toggleActions: "play reverse play reverse",
+                    }
+                }
+            );
+
+            let resizeObserver = new ResizeObserver(() => {
+                gsap.delayedCall(0.1, () => ScrollTrigger.refresh());
+            });
+
+            resizeObserver.observe(self[0]);
+
+            searchField.on('keyup', function () {
+                clearTimeout(typingTimer);
+                typingTimer = setTimeout(function () {
+                    if ($('.collection-list-3').css('display') === 'none') {
+                        console.log('no result');
+                        $(".no-result").css('display', 'block');
+                    } else {
+                        $(".no-result").css('display', 'none');
+                    }
+                }, delay);
+            });
+
+            syncSearchFields(searchField, searchFieldFloating, searchCollectionList);
+        });
+
+        const syncSearchFields = (searchField, searchFieldFloating, searchCollectionList) => {
+            searchField.on("input", function () {
+                clearTimeout(typingTimer);
+                typingTimer = setTimeout(() => {
+                    const value = $(this).val();
+                    searchFieldFloating.val(value);
+
+                    if (searchCollectionList.css("display") === "none") {
+                        console.log("no result");
+                        $(".no-result").css("display", "block");
+                    } else {
+                        $(".no-result").css("display", "none");
+                    }
+                }, delay);
+            });
+
+            searchFieldFloating.on("input", function () {
+                clearTimeout(typingTimer);
+                typingTimer = setTimeout(() => {
+                    const value = $(this).val();
+                    searchField.val(value);
+
+                    if (searchCollectionList.css("display") === "none") {
+                        console.log("no result");
+                        $(".no-result").css("display", "block");
+                    } else {
+                        $(".no-result").css("display", "none");
+                    }
+                }, delay);
+            });
+        };
+    };
+
+    allResourceSearch();
 
     pageEntrance();
     scrollTextReveal();
