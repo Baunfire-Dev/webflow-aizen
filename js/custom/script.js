@@ -530,6 +530,38 @@ $(document).ready(function () {
         let typingTimer;
         const delay = 300;
 
+        const syncSearchFields = (searchField, searchFieldFloating, searchCollectionList) => {
+            searchField.on("input", function () {
+                clearTimeout(typingTimer);
+                typingTimer = setTimeout(() => {
+                    const value = $(this).val();
+                    searchFieldFloating.val(value);
+
+                    if (searchCollectionList.css("display") === "none") {
+                        console.log("no result");
+                        $(".no-result").css("display", "block");
+                    } else {
+                        $(".no-result").css("display", "none");
+                    }
+                }, delay);
+            });
+
+            searchFieldFloating.on("input", function () {
+                clearTimeout(typingTimer);
+                typingTimer = setTimeout(() => {
+                    const value = $(this).val();
+                    searchField.val(value);
+
+                    if (searchCollectionList.css("display") === "none") {
+                        console.log("no result");
+                        $(".no-result").css("display", "block");
+                    } else {
+                        $(".no-result").css("display", "none");
+                    }
+                }, delay);
+            });
+        };
+
         els.each(function () {
             const self = $(this);
             const searchField = self.find(".search-field");
@@ -577,38 +609,6 @@ $(document).ready(function () {
 
             syncSearchFields(searchField, searchFieldFloating, searchCollectionList);
         });
-
-        const syncSearchFields = (searchField, searchFieldFloating, searchCollectionList) => {
-            searchField.on("input", function () {
-                clearTimeout(typingTimer);
-                typingTimer = setTimeout(() => {
-                    const value = $(this).val();
-                    searchFieldFloating.val(value);
-
-                    if (searchCollectionList.css("display") === "none") {
-                        console.log("no result");
-                        $(".no-result").css("display", "block");
-                    } else {
-                        $(".no-result").css("display", "none");
-                    }
-                }, delay);
-            });
-
-            searchFieldFloating.on("input", function () {
-                clearTimeout(typingTimer);
-                typingTimer = setTimeout(() => {
-                    const value = $(this).val();
-                    searchField.val(value);
-
-                    if (searchCollectionList.css("display") === "none") {
-                        console.log("no result");
-                        $(".no-result").css("display", "block");
-                    } else {
-                        $(".no-result").css("display", "none");
-                    }
-                }, delay);
-            });
-        };
     };
 
     allResourceSearch();
