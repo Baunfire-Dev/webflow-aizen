@@ -238,9 +238,7 @@ $(document).ready(function () {
             contentItems.each(function() {
                 const subSelf = $(this);
                 const id = subSelf.attr("id");
-                const target = subSelf.find(`.toc-menu[href='#${id}']`);
-
-                console.log(id, `.toc-menu[href='#${id}']`, target);
+                const target = self.find(`.toc-menu[href='#${id}']`);
 
                 if (!id || !target.length) return;
 
