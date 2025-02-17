@@ -536,13 +536,7 @@ $(document).ready(function () {
                 typingTimer = setTimeout(() => {
                     const value = $(this).val();
                     searchFieldFloating.val(value);
-
-                    if (searchCollectionList.css("display") === "none") {
-                        console.log("no result");
-                        emptyText.css("display", "block");
-                    } else {
-                        emptyText.css("display", "none");
-                    }
+                    handleResults(searchCollectionList, emptyText);
                 }, delay);
             });
 
@@ -551,16 +545,25 @@ $(document).ready(function () {
                 typingTimer = setTimeout(() => {
                     const value = $(this).val();
                     searchField.val(value);
-
-                    if (searchCollectionList.css("display") === "none") {
-                        console.log("no result");
-                        $(".no-result").css("display", "block");
-                    } else {
-                        $(".no-result").css("display", "none");
-                    }
+                    handleResults(searchCollectionList, emptyText);
                 }, delay);
             });
         };
+
+        const handleResults = (searchCollectionList, emptyText) => {
+            if (searchCollectionList.css("display") === "none") {
+                emptyText.css("display", "block");
+            } else {
+                emptyText.css("display", "none");
+            }
+
+            gsap.to(window, {
+                duration: 1,
+                scrollTo: { y: searchCollectionList, offsetY: 140 },
+                ease: "circ.out",
+                overwrite: true
+            });
+        }
 
         els.each(function () {
             const self = $(this);
@@ -599,12 +602,7 @@ $(document).ready(function () {
             searchField.on('keyup', function () {
                 clearTimeout(typingTimer);
                 typingTimer = setTimeout(function () {
-                    if (searchCollectionList.css('display') === 'none') {
-                        console.log('no result');
-                        emptyText.css('display', 'block');
-                    } else {
-                        emptyText.css('display', 'none');
-                    }
+                    handleResults(searchCollectionList, emptyText);
                 }, delay);
             });
 
