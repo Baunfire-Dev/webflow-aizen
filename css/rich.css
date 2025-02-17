@@ -97,7 +97,7 @@
 }
 
 .lc-logos-group {
-    animation: infinite-scroll 80s linear infinite;
+    animation: infinite-scroll 40s linear infinite;
 }
 
 @keyframes infinite-scroll {
@@ -105,6 +105,6 @@
 		transform: translateX(0);
 	}
 	100% {
-		transform: translateX(-100%);
+		transform: translateX(calc(-100% - 112px));
 	}
 }
