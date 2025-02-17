@@ -545,7 +545,7 @@ $(document).ready(function () {
                 typingTimer = setTimeout(() => {
                     const value = $(this).val();
                     searchField.val(value);
-                    handleResults(searchCollectionList, emptyText);
+                    handleResults(container, searchCollectionList, emptyText);
                 }, delay);
             });
         };
