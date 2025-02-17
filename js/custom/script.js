@@ -531,7 +531,7 @@ $(document).ready(function () {
         const delay = 300;
 
         const syncSearchFields = (searchField, searchFieldFloating, container, searchCollectionList, emptyText) => {
-            searchField.on("input", function () {
+            searchField.on("keyup", function () {
                 clearTimeout(typingTimer);
                 typingTimer = setTimeout(() => {
                     const value = $(this).val();
@@ -540,7 +540,7 @@ $(document).ready(function () {
                 }, delay);
             });
 
-            searchFieldFloating.on("input", function () {
+            searchFieldFloating.on("keyup", function () {
                 clearTimeout(typingTimer);
                 typingTimer = setTimeout(() => {
                     const value = $(this).val();
@@ -598,14 +598,6 @@ $(document).ready(function () {
             });
 
             resizeObserver.observe(self[0]);
-
-            searchField.on('keyup', function () {
-                clearTimeout(typingTimer);
-                typingTimer = setTimeout(function () {
-                    handleResults(self, searchCollectionList, emptyText);
-                }, delay);
-            });
-
             syncSearchFields(searchField, searchFieldFloating, self, searchCollectionList, emptyText);
         });
     };
