@@ -134,7 +134,6 @@ $(document).ready(function () {
 
         createCarousel(".cci-owl-carousel", {
             margin: 22,
-            loop: false,
             autoWidth: true,
             items: 4,
             nav: true,
@@ -153,12 +152,15 @@ $(document).ready(function () {
                     autoWidth: true,
                     margin: 22,
                 }
-            }
+            },
+            loop: false,
+            rewind: true,
         });
 
         createCarousel(".testimonial-owl-carousel", {
             margin: 48,
             loop: false,
+            rewind: true,
             autoWidth: true,
             items: 1,
             autoPlay: false,
