@@ -533,7 +533,7 @@ $(document).ready(function () {
     scrollTextReveal();
     initializeCarousels();
     homeButtonsHighlight();
-    animatePrivacyPolicyElements();
+    handlePrivacyPolicyTOC();
     handleTableHover();
     handleIntegrationsSearch();
 
