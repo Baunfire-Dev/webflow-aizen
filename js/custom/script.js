@@ -265,8 +265,8 @@ $(document).ready(function () {
                         duration: 0.1,
                         scrollTrigger: {
                             trigger: pptriggerElement,
-                            start: "top 10%",
-                            end: "bottom 10%",
+                            start: "top 120px",
+                            end: "bottom 120px",
                             toggleActions: "play reset play reset",
                             markers: false, // Enable debugging
                             onLeave: () => gsap.set(ppelement, { opacity: 0.35, color: "rgba(21, 21, 21)" }),
