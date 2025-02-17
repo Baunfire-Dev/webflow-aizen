@@ -240,6 +240,8 @@ $(document).ready(function () {
                 const id = subSelf.attr("id");
                 const target = subSelf.find(`.toc-menu[href='#${id}']`);
 
+                console.log(id, target);
+
                 if (!id || !target.length) return;
 
                 ScrollTrigger.create({
