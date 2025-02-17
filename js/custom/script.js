@@ -246,6 +246,7 @@ $(document).ready(function () {
                     trigger: subSelf,
                     start: "top 40%",
                     end: "bottom 40%",
+                    markers: true,
                     onEnter: () => handleMenuState(target, menuItems),
                     onEnterBack: () => handleMenuState(target, menuItems)
                 });
