@@ -226,35 +226,24 @@ $(document).ready(function () {
         }
     };
 
-    const animatePrivacyPolicyElements = () => {
-        const elements = [
-            { selector: "#TOC-M1", trigger: "#title1" },
-            { selector: "#TOC-M2", trigger: "#title2" },
-            { selector: "#TOC-M3", trigger: "#title3" },
-            { selector: "#TOC-M4", trigger: "#title4" },
-            { selector: "#TOC-M5", trigger: "#title5" },
-            { selector: "#TOC-M6", trigger: "#title6" },
-            { selector: "#TOC-M7", trigger: "#title7" },
-            { selector: "#TOC-M8", trigger: "#title8" },
-            { selector: "#TOC-M9", trigger: "#title9" },
-            { selector: "#TOC-M10", trigger: "#title10" },
-            { selector: "#TOC-M11", trigger: "#title11" },
-            { selector: "#TOC-M12", trigger: "#title12" },
-            { selector: "#TOC-M13", trigger: "#title13" },
-            { selector: "#TOC-M14", trigger: "#title14" },
-            { selector: "#TOC-M15", trigger: "#title15" },
-            { selector: "#TOC-M16", trigger: "#title16" },
-            { selector: "#TOC-M17", trigger: "#title17" }
-        ];
+    const handlePrivacyPolicyTOC = () => {
+        const els = $(".privacy-policy-container");
+        if (!els.length) return;
 
-        elements.forEach(({ selector, trigger }) => {
-            const ppelement = document.querySelector(selector);
-            const pptriggerElement = document.querySelector(trigger);
+        els.each(function() {
+            const self = $(this);
+            const contentItems = self.find(".pp-content-container");
 
-            if (ppelement && pptriggerElement) {
-                gsap.set(ppelement, { opacity: 0.35, color: "rgba(21, 21, 21)" });
+            contentItems.each(function() {
+                const subSelf = $(this);
+                const id = subSelf.attr("id");
+                const target = subSelf.find(`.toc-menu[href='#${id}']`);
 
-                gsap.fromTo(ppelement,
+                if (!selector || !target.length) return;
+
+                gsap.set(target, { opacity: 0.35, color: "rgba(21, 21, 21)" });
+
+                gsap.fromTo(target,
                     {
                         color: "rgba(21, 21, 21)",
                         opacity: 0.35
@@ -264,19 +253,17 @@ $(document).ready(function () {
                         opacity: 1,
                         duration: 0.1,
                         scrollTrigger: {
-                            trigger: pptriggerElement,
+                            trigger: target,
                             start: "top 120px",
                             end: "bottom 120px",
                             toggleActions: "play reset play reset",
                             markers: false, // Enable debugging
-                            onLeave: () => gsap.set(ppelement, { opacity: 0.35, color: "rgba(21, 21, 21)" }),
-                            onLeaveBack: () => gsap.set(ppelement, { opacity: 0.35, color: "rgba(21, 21, 21)" })
+                            onLeave: () => gsap.set(target, { opacity: 0.35, color: "rgba(21, 21, 21)" }),
+                            onLeaveBack: () => gsap.set(target, { opacity: 0.35, color: "rgba(21, 21, 21)" })
                         }
                     }
                 );
-            } else {
-                //console.warn(`Privacy Policy Element or trigger not found: ${selector} / ${trigger}`);
-            }
+            });
         });
     };
 
