@@ -253,7 +253,7 @@ $(document).ready(function () {
                         opacity: 1,
                         duration: 0.1,
                         scrollTrigger: {
-                            trigger: target,
+                            trigger: subSelf,
                             start: "top 120px",
                             end: "bottom 120px",
                             toggleActions: "play reset play reset",
