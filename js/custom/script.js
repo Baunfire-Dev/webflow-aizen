@@ -250,6 +250,8 @@ $(document).ready(function () {
                     onEnterBack: () => handleMenuState(target, menuItems)
                 });
             });
+
+            menuItems.first().addClass("active");
         });
 
         const handleMenuState = (btn, buttons) => {
