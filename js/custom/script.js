@@ -606,7 +606,7 @@ $(document).ready(function () {
                 }, delay);
             });
 
-            syncSearchFields(searchField, searchFieldFloating, searchCollectionList);
+            syncSearchFields(searchField, searchFieldFloating, searchCollectionList, emptyText);
         });
     };
 
