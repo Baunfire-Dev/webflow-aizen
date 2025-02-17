@@ -95,3 +95,16 @@
 		@apply h-0 w-0 m-0 basis-0;
 	}
 }
+
+.lc-logos-group {
+    animation: infinite-scroll 80s linear infinite;
+}
+
+@keyframes infinite-scroll {
+	0% {
+		transform: translateX(0);
+	}
+	100% {
+		transform: translateX(-100%);
+	}
+}
