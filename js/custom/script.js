@@ -240,7 +240,7 @@ $(document).ready(function () {
                 const id = subSelf.attr("id");
                 const target = subSelf.find(`.toc-menu[href='#${id}']`);
 
-                console.log(id, target);
+                console.log(id, `.toc-menu[href='#${id}']`, target);
 
                 if (!id || !target.length) return;
 
