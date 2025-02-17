@@ -232,6 +232,7 @@ $(document).ready(function () {
 
         els.each(function() {
             const self = $(this);
+            const menuItems = self.find(".toc-menu");
             const contentItems = self.find(".pp-content-container");
 
             contentItems.each(function() {
@@ -241,30 +242,20 @@ $(document).ready(function () {
 
                 if (!id || !target.length) return;
 
-                gsap.set(target, { opacity: 0.35, color: "rgba(21, 21, 21)" });
-
-                gsap.fromTo(target,
-                    {
-                        color: "rgba(21, 21, 21)",
-                        opacity: 0.35
-                    },
-                    {
-                        color: "var(--navy)",
-                        opacity: 1,
-                        duration: 0.1,
-                        scrollTrigger: {
-                            trigger: subSelf,
-                            start: "top 120px",
-                            end: "bottom 120px",
-                            toggleActions: "play reset play reset",
-                            markers: false, // Enable debugging
-                            onLeave: () => gsap.set(target, { opacity: 0.35, color: "rgba(21, 21, 21)" }),
-                            onLeaveBack: () => gsap.set(target, { opacity: 0.35, color: "rgba(21, 21, 21)" })
-                        }
-                    }
-                );
+                ScrollTrigger.create({
+                    trigger: subSelf,
+                    start: "top 120px",
+                    end: "bottom 120px",
+                    onEnter: () => handleMenuState(target, menuItems),
+                    onEnterBack: () => handleMenuState(target, menuItems)
+                });
             });
         });
+
+        const handleMenuState = (btn, buttons) => {
+            buttons.removeClass("active");
+            btn.addClass("active");
+        }
     };
 
     const scrollTextReveal = () => {
