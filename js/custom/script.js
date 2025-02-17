@@ -239,7 +239,7 @@ $(document).ready(function () {
                 const id = subSelf.attr("id");
                 const target = subSelf.find(`.toc-menu[href='#${id}']`);
 
-                if (!selector || !target.length) return;
+                if (!id || !target.length) return;
 
                 gsap.set(target, { opacity: 0.35, color: "rgba(21, 21, 21)" });
 
