@@ -244,8 +244,8 @@ $(document).ready(function () {
 
                 ScrollTrigger.create({
                     trigger: subSelf,
-                    start: "top 120px",
-                    end: "bottom 120px",
+                    start: "top 60%",
+                    end: "bottom 60%",
                     onEnter: () => handleMenuState(target, menuItems),
                     onEnterBack: () => handleMenuState(target, menuItems)
                 });
