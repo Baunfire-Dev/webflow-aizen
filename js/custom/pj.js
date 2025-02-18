@@ -131,7 +131,7 @@ $(document).ready(function () {
     animateElementWithScrollTrigger(".accordion-content", ".accordion-content", .3);
     // animateElementWithScrollTrigger(".accordion-stack", ".accordion-stack", .3);
     // animateElementWithScrollTrigger(".accordion-block", ".accordion-block", .3);
-    // animateElementWithScrollTrigger(".feature-content-container", ".feature-content-container", .3);
+    animateElementWithScrollTrigger(".feature-content-container", ".feature-content-container", .3);
     animateElementWithScrollTrigger(".text-with-logo-carousel-contentent", ".text-with-logo-carousel-contentent", .3);
     animateElementWithScrollTrigger(".testimonial-cards-block", ".testimonial-cards-block", .3);
     animateElementWithScrollTrigger(".feature-section-content-block", ".feature-section-content-block", .3);
@@ -152,11 +152,11 @@ $(document).ready(function () {
     animateElementWithScrollTrigger(".kpi-container", ".kpi-container", .3);
     animateElementWithScrollTrigger(".team-heading-content", ".team-heading-content", .3);
     animateElementWithScrollTrigger(".fitc-block", ".fitc-block", .3);
-    animateElementWithScrollTrigger("#featured-1", "#featured-1", .3);
-    animateElementWithScrollTrigger("#featured-2", "#featured-2", .3);
-    animateElementWithScrollTrigger("#featured-3", "#featured-3", .3);
-    animateElementWithScrollTrigger("#featured-4", "#featured-4", .3);
-    animateElementWithScrollTrigger("#featured-5", "#featured-5", .3);
+    // animateElementWithScrollTrigger("#featured-1", "#featured-1", .3);
+    // animateElementWithScrollTrigger("#featured-2", "#featured-2", .3);
+    // animateElementWithScrollTrigger("#featured-3", "#featured-3", .3);
+    // animateElementWithScrollTrigger("#featured-4", "#featured-4", .3);
+    // animateElementWithScrollTrigger("#featured-5", "#featured-5", .3);
     animateElementWithScrollTrigger(".instruction-container", ".instruction-container", .3);
     animateElementWithScrollTrigger(".modular-tbl .container", ".modular-tbl .container", .3);
     animateElementWithScrollTrigger(".integ-inner", ".integ-inner", .3);
