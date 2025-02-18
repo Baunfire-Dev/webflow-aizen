@@ -108,7 +108,7 @@ $(document).ready(function () {
     handleFormSubmission();
     copyCurrentLink('.copy-link-button');
     animateElementWithScrollTrigger("._3-col-grid", "._3-col-grid", .3);
-    animateElementWithScrollTrigger("._3-col-with-highlight-animation", "._3-col-with-highlight-animation", .3);
+    animateElementWithScrollTrigger("._3-col-container", "._3-col-container", .3);
     animateElementWithScrollTrigger(".sntcc-block", ".sntcc-block", .3);
     animateElementWithScrollTrigger(".sntcc-sticky-nav", ".sntcc-sticky-nav", .3);
     animateElementWithScrollTrigger("#data-container", "#data-container", .3);
