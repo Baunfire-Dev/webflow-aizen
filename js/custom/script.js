@@ -621,7 +621,6 @@ $(document).ready(function () {
     };
 
     allResourceSearch();
-    closeBioOnClickOutside();
     pageEntrance();
     scrollTextReveal();
     initializeCarousels();
@@ -639,6 +638,7 @@ $(document).ready(function () {
         'cmsload',
         (filterInstances) => {
             handlePaginationAutoScroll();
+            closeBioOnClickOutside();
         },
     ]);
 
