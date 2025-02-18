@@ -3,7 +3,7 @@ $(document).ready(function () {
         const elementdata = document.querySelector(element);
         if (elementdata) {
             gsap.fromTo(element,
-                { y: 100, opacity: 0 },
+                { y: 60, opacity: 0 },
                 {
                     y: 0,
                     opacity: 1,
