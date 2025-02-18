@@ -39,9 +39,12 @@
 .hero-description-block,
 .hero-image,
 .logo-carousel-container,
-.thin-banner-block,
-._3-col-with-highlight-animation {
+.thin-banner-block {
 	@apply opacity-0;
+}
+
+.opac-0 {
+    @apply opacity-0;
 }
 
 .owl-dots {
