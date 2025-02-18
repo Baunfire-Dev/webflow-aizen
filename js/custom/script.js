@@ -316,7 +316,7 @@ $(document).ready(function () {
         collections.each(function () {
             const self = $(this);
             let target = self.find(".w-dyn-items");
-            const filter = target.closest(".all-resources-filter").first();
+            const filter = self.parents('.all-resources-container').find('.all-resources-filter');
 
             if (filter.length) {
                 target = filter;
