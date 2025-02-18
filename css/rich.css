@@ -112,6 +112,8 @@
 	}
 }
 
-.accordion .accordion-stack .w-dyn-item .ac-dropdown.is-active-accordion .ac-dropdown-list.is-active-accordion {
-    @apply !max-h-[unset];
+@media screen and (max-width: 991px) {
+    .accordion .accordion-stack .w-dyn-item .ac-dropdown.is-active-accordion .ac-dropdown-list.is-active-accordion {
+        @apply !max-h-[unset];
+    }
 }
