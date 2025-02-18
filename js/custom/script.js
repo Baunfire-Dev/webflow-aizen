@@ -322,13 +322,15 @@ $(document).ready(function () {
                 target = filter;
             }
 
+            console.log(filter);
+
             const paginationItems = self.find(".w-pagination-wrapper").children();
             if (!paginationItems.length) return;
 
             paginationItems.click(function () {
                 gsap.to(window, {
                     duration: 1,
-                    scrollTo: { y: filter, offsetY: 140 },
+                    scrollTo: { y: filter, offsetY: 80 },
                     ease: "circ.out",
                     overwrite: true
                 });
