@@ -607,8 +607,18 @@ $(document).ready(function () {
         });
     };
 
-    allResourceSearch();
+    const closeBioOnClickOutside = () => {
+        $(document).on("click", ".bio-container", function (e) {
+            if ($(event.target).closest('.bio-container-inner').length) {
+                return;
+            }
 
+            $(this).find('.close-container').trigger('click');
+        });
+    };
+
+    allResourceSearch();
+    closeBioOnClickOutside();
     pageEntrance();
     scrollTextReveal();
     initializeCarousels();
