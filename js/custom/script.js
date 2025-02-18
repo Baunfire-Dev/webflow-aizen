@@ -315,7 +315,12 @@ $(document).ready(function () {
 
         collections.each(function () {
             const self = $(this);
-            const target = self.find(".w-dyn-items");
+            let target = self.find(".w-dyn-items");
+            const filter = target.closest(".all-resources-filter").first();
+
+            if (filter.length) {
+                target = filter;
+            }
 
             const paginationItems = self.find(".w-pagination-wrapper").children();
             if (!paginationItems.length) return;
@@ -323,7 +328,7 @@ $(document).ready(function () {
             paginationItems.click(function () {
                 gsap.to(window, {
                     duration: 1,
-                    scrollTo: { y: target, offsetY: 140 },
+                    scrollTo: { y: filter, offsetY: 140 },
                     ease: "circ.out",
                     overwrite: true
                 });
