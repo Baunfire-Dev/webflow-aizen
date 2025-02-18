@@ -618,6 +618,8 @@ $(document).ready(function () {
                 return;
             }
 
+            console.log("im clickedd!!!!!");
+
             $(this).find('.close-container').trigger('click');
         });
     };
