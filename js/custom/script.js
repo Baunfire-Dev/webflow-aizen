@@ -330,7 +330,7 @@ $(document).ready(function () {
             paginationItems.click(function () {
                 gsap.to(window, {
                     duration: 1,
-                    scrollTo: { y: filter, offsetY: 80 },
+                    scrollTo: { y: target, offsetY: 140 },
                     ease: "circ.out",
                     overwrite: true
                 });
