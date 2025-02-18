@@ -531,22 +531,26 @@ $(document).ready(function () {
         const delay = 300;
 
         const syncSearchFields = (searchField, searchFieldFloating, container, searchCollectionList, emptyText) => {
-            searchField.on("keyup", function () {
-                clearTimeout(typingTimer);
-                typingTimer = setTimeout(() => {
-                    const value = $(this).val();
-                    searchFieldFloating.val(value);
-                    handleResults(container, searchCollectionList, emptyText);
-                }, delay);
+            searchField.on("keyup", function (e) {
+                if (e.which === 13) {
+                    clearTimeout(typingTimer);
+                    typingTimer = setTimeout(() => {
+                        const value = $(this).val();
+                        searchFieldFloating.val(value);
+                        handleResults(container, searchCollectionList, emptyText);
+                    }, delay);
+                }
             });
 
-            searchFieldFloating.on("keyup", function () {
-                clearTimeout(typingTimer);
-                typingTimer = setTimeout(() => {
-                    const value = $(this).val();
-                    searchField.val(value);
-                    handleResults(container, searchCollectionList, emptyText);
-                }, delay);
+            searchFieldFloating.on("keyup", function (e) {
+                if (e.which === 13) {
+                    clearTimeout(typingTimer);
+                    typingTimer = setTimeout(() => {
+                        const value = $(this).val();
+                        searchField.val(value);
+                        handleResults(container, searchCollectionList, emptyText);
+                    }, delay);
+                }
             });
         };
 
