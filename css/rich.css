@@ -111,3 +111,7 @@
 		transform: translateX(calc(-100% - 112px));
 	}
 }
+
+.accordion .accordion-stack .w-dyn-item .ac-dropdown.is-active-accordion .ac-dropdown-list.is-active-accordion.w--open {
+    @apply !max-h-[unset];
+}
