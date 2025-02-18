@@ -613,6 +613,7 @@ $(document).ready(function () {
         if (!els.length) return;
 
         $(document).on("click", ".bio-container", function (event) {
+            console.log(event);
             if ($(event.target).closest('.bio-container-inner').length) {
                 return;
             }
