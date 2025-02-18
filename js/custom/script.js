@@ -609,18 +609,14 @@ $(document).ready(function () {
 
     const closeBioOnClickOutside = () => {
         const els = $(".bio-container");
-        console.log(els);
         if (!els.length) return;
 
         $(document).on("click", ".bio-container", function (event) {
-            console.log(event);
             if ($(event.target).closest('.bio-container-inner').length) {
                 return;
             }
 
-            console.log("im clickedd!!!!!");
-
-            $(this).find('.close-container').trigger('click');
+            $(this).find('.close-bio').trigger('click');
         });
     };
 
