@@ -322,8 +322,6 @@ $(document).ready(function () {
                 target = filter;
             }
 
-            console.log(filter);
-
             const paginationItems = self.find(".w-pagination-wrapper").children();
             if (!paginationItems.length) return;
 
