@@ -626,6 +626,7 @@ $(document).ready(function () {
 
         els.each(function() {
             const self = $(this);
+            console.log(self);
             const name = self.children().find(".h6.team-member-name");
             const memberImage = self.find(".team-member-image");
 
