@@ -124,3 +124,9 @@
         @apply hidden;
     }
 }
+
+.all-resources-outer {
+    .all-resource-list:empty ~ .w-pagination-wrapper.pagination {
+        @apply !hidden;
+    }
+}
