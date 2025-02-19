@@ -132,7 +132,10 @@
 }
 
 .sntcc-sticky-nav {
+    transition: border-color 0.3s ease;
+    border-bottom: 1px solid transparent;
+
     &.pinned {
-        border-bottom: 1px solid #0000001a;
+        border-color: #0000001a;
     }
 }
