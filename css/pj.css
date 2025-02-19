@@ -179,10 +179,3 @@ img {
 ._3-up-card-grid-section-card-light {
 	@apply flex flex-col gap-[16px];
 }
-.team-member {
-	.overline {
-		&.team-member-job-title {
-			@apply h-auto md:h-[40px];
-		}
-	}
-}
