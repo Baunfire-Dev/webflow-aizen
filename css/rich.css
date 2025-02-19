@@ -117,3 +117,10 @@
         @apply !max-h-[unset];
     }
 }
+
+.w-richtext {
+    &:before,
+    &:after {
+        @apply hidden;
+    }
+}
