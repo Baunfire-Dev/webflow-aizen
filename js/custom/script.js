@@ -620,24 +620,6 @@ $(document).ready(function () {
         });
     };
 
-    const makeBioNameClickable = () => {
-        const els = $(".team-member");
-        if (!els.length) return;
-
-        els.each(function() {
-            const self = $(this);
-            console.log(self);
-            const name = self.children().find(".h6.team-member-name");
-            const memberImage = self.find(".team-member-image");
-
-            if (!name.length || !memberImage.length) return;
-            name.click(function() {
-                console.log("click");
-                memberImage.trigger("click");
-            })
-        })
-    };
-
     allResourceSearch();
     pageEntrance();
     scrollTextReveal();
@@ -657,7 +639,6 @@ $(document).ready(function () {
         (filterInstances) => {
             handlePaginationAutoScroll();
             closeBioOnClickOutside();
-            makeBioNameClickable();
         },
     ]);
 
