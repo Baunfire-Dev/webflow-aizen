@@ -631,6 +631,7 @@ $(document).ready(function () {
 
             if (!name.length || !linkText.length) return;
             name.click(function() {
+                console.log(linkText);
                 linkText.trigger("click");
             })
         })
