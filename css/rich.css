@@ -130,3 +130,9 @@
         @apply !hidden;
     }
 }
+
+.sntcc-sticky-nav {
+    &.pinned {
+        border-bottom: 1px solid #0000001a;
+    }
+}
