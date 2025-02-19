@@ -38,7 +38,6 @@
 .hero-container,
 .hero-description-block,
 .hero-image,
-.logo-carousel-container,
 .thin-banner-block {
 	@apply opacity-0;
 }
