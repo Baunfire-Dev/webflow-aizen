@@ -627,12 +627,12 @@ $(document).ready(function () {
         els.each(function() {
             const self = $(this);
             const name = self.children().find(".h6.team-member-name");
-            const linkText = self.find(".link-text.banner-link .link-text");
+            const memberImage = self.find(".team-member-image");
 
-            if (!name.length || !linkText.length) return;
+            if (!name.length || !memberImage.length) return;
             name.click(function() {
                 console.log(linkText);
-                linkText.trigger("click");
+                memberImage.trigger("click");
             })
         })
     };
