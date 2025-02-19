@@ -197,10 +197,19 @@ $(document).ready(function () {
 
         els.each(function () {
             const self = $(this);
+            const stickyNav = self.find(".sntcc-sticky-nav");
             const buttons = self.find(".sntcc-sticky-nav-item");
 
             const panels = self.find(".two-column-content-section");
             if (!panels.length) return;
+
+            ScrollTrigger.create({
+                trigger: stickyNav,
+                start: "top 140px",
+                end: "bottom top",
+                endTrigger: "body",
+                toggleClass: { targets: stickyNav, className: "pinned" },
+            });
 
             panels.each(function () {
                 const subSelf = $(this);
