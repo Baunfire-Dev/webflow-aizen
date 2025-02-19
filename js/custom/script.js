@@ -631,7 +631,7 @@ $(document).ready(function () {
 
             if (!name.length || !memberImage.length) return;
             name.click(function() {
-                console.log(linkText);
+                console.log("click");
                 memberImage.trigger("click");
             })
         })
