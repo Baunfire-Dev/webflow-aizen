@@ -159,6 +159,11 @@ $(document).ready(function () {
         const carousel = $(`${el}`);
         if (!carousel.length) return;
 
+
+        carousel.on('refreshed.owl.carousel', function (e) {
+            ScrollTrigger.refresh();
+        });
+
         carousel.owlCarousel({ ...params });
     };
 
