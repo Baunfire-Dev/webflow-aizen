@@ -137,7 +137,7 @@ $(document).ready(function () {
             tl.fromTo(self,
                 {
                     autoAlpha: 0,
-                    y: 100,
+                    y: 60,
                 },
                 {
                     autoAlpha: 1,
