@@ -712,7 +712,6 @@ $(document).ready(function () {
         });
     };
 
-    slideUpAnimation();
     allResourceSearch();
     pageEntrance();
     scrollTextReveal();
@@ -733,6 +732,7 @@ $(document).ready(function () {
         (filterInstances) => {
             handlePaginationAutoScroll();
             closeBioOnClickOutside();
+            slideUpAnimation();
         },
     ]);
 
