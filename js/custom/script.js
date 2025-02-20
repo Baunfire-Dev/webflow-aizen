@@ -134,7 +134,7 @@ $(document).ready(function () {
         els.each(function () {
             const self = $(this);
 
-            tl.fromTo(self,
+            gsap.fromTo(self,
                 {
                     autoAlpha: 0,
                     y: 60,
