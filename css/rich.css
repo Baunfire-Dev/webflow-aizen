@@ -100,6 +100,10 @@
 
 .lc-logos-group {
     animation: infinite-scroll 40s linear infinite;
+
+    &.is-contact-us {
+        animation: infinite-scroll-v2 40s linear infinite;
+    }
 }
 
 @keyframes infinite-scroll {
@@ -108,6 +112,15 @@
 	}
 	100% {
 		transform: translateX(calc(-100% - 112px));
+	}
+}
+
+@keyframes infinite-scroll-v2 {
+	0% {
+		transform: translateX(0);
+	}
+	100% {
+		transform: translateX(calc(-100% - 62px));
 	}
 }
 
