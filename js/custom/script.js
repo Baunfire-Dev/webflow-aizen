@@ -148,7 +148,7 @@ $(document).ready(function () {
                     scrollTrigger: {
                         trigger: self,
                         start: "top 60%",
-                        markers: true,
+                        // markers: true,
                         refreshPriority: 1,
                         invalidateOnRefresh: true
                     }
@@ -161,10 +161,8 @@ $(document).ready(function () {
         const carousel = $(`${el}`);
         if (!carousel.length) return;
 
-
         carousel.on('refreshed.owl.carousel', function (e) {
             ScrollTrigger.refresh();
-            console.log('eyy');
         });
 
         carousel.owlCarousel({ ...params });
@@ -730,9 +728,9 @@ $(document).ready(function () {
     window.fsAttributes.push([
         'cmsload',
         (filterInstances) => {
+            initializeCarousels();
             handlePaginationAutoScroll();
             closeBioOnClickOutside();
-            initializeCarousels();
             slideUpAnimation();
         },
     ]);
