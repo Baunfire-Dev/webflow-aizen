@@ -3,7 +3,7 @@ $(document).ready(function () {
         const navbar = $(".navbar");
         const heroContainer = $(".hero-container");
         const heroDescriptionBlock = $(".hero-description-block:not(.is-default)");
-        const heroImage = $(".hero-image");
+        const heroImage = $(".hero-image:not(.is-default)");
 
         const logoCarouselContainer = $(".logo-carousel-inner");
         const thinBannerSection = $(".thin-banner-block");
@@ -96,12 +96,13 @@ $(document).ready(function () {
                 tl.fromTo(content,
                     {
                         autoAlpha: 0,
-                        y: 60,
+                        y: 100,
                     },
                     {
                         autoAlpha: 1,
                         y: 0,
-                        duration: 0.6,
+                        duration: 0.8,
+                        delay: 0.4,
                         ease: Power2.easeOut
                     }
                 )
@@ -111,12 +112,12 @@ $(document).ready(function () {
                 tl.fromTo(image,
                     {
                         autoAlpha: 0,
-                        y: 60,
+                        y: 100,
                     },
                     {
                         autoAlpha: 1,
                         y: 0,
-                        duration: 0.6,
+                        duration: 0.8,
                         ease: Power2.easeOut
                     },
                     (image && content) && "<0.2"

@@ -37,7 +37,7 @@
 .navbar,
 .hero-container,
 .hero-description-block:not(.is-default),
-.hero-image,
+.hero-image:not(.is-default),
 .thin-banner-block {
 	@apply opacity-0;
 }
