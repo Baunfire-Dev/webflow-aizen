@@ -89,7 +89,8 @@ $(document).ready(function () {
 
             const tl = gsap.timeline({
                 trigger: self,
-                start: "top 60"
+                start: "top 60",
+                invalidateOnRefresh: true
             })
 
             if (content) {
@@ -118,11 +119,38 @@ $(document).ready(function () {
                         autoAlpha: 1,
                         y: 0,
                         duration: 0.8,
-                        ease: Power2.easeOut
+                        ease: Power2.easeOut,
                     },
                     (image && content) && "<0.2"
                 )
             }
+        })
+    };
+
+    const slideUpAnimation = () => {
+        const els = $(".slide-up");
+        if (!els.length) return;
+
+        els.each(function () {
+            const self = $(this);
+
+            tl.fromTo(self,
+                {
+                    autoAlpha: 0,
+                    y: 100,
+                },
+                {
+                    autoAlpha: 1,
+                    y: 0,
+                    duration: 0.8,
+                    ease: Power2.easeOut,
+                    scrollTrigger: {
+                        trigger: self,
+                        start: "top 60",
+                        invalidateOnRefresh: true
+                    }
+                }
+            )
         })
     };
 
@@ -676,6 +704,7 @@ $(document).ready(function () {
         });
     };
 
+    slideUpAnimation();
     allResourceSearch();
     pageEntrance();
     scrollTextReveal();
