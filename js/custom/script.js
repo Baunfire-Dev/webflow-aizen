@@ -147,7 +147,7 @@ $(document).ready(function () {
                     ease: Power2.easeOut,
                     scrollTrigger: {
                         trigger: self,
-                        start: "top 60%",
+                        start: () => "top 60%",
                         // markers: true,
                         refreshPriority: 1,
                         invalidateOnRefresh: true
