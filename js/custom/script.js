@@ -78,6 +78,53 @@ $(document).ready(function () {
         }
     };
 
+    const heroDefaultAnimation = () => {
+        const els = $(".h-anim");
+        if (!els.length) return;
+
+        els.each(function () {
+            const self = $(this);
+            const content = self.find(".h-anim-content");
+            const image = self.find(".h-anim-image");
+
+            const tl = gsap.timeline({
+                trigger: self,
+                start: "top 60"
+            })
+
+            if (content) {
+                tl.fromTo(content,
+                    {
+                        autoAlpha: 0,
+                        y: 60,
+                    },
+                    {
+                        autoAlpha: 1,
+                        y: 0,
+                        duration: 0.6,
+                        ease: Power2.easeOut
+                    }
+                )
+            }
+
+            if (image) {
+                tl.fromTo(image,
+                    {
+                        autoAlpha: 0,
+                        y: 60,
+                    },
+                    {
+                        autoAlpha: 1,
+                        y: 0,
+                        duration: 0.6,
+                        ease: Power2.easeOut
+                    },
+                    (image && content) && "<0.2"
+                )
+            }
+        })
+    };
+
     const createCarousel = (el, params) => {
         const carousel = $(`${el}`);
         if (!carousel.length) return;
@@ -636,6 +683,7 @@ $(document).ready(function () {
     handlePrivacyPolicyTOC();
     handleTableHover();
     handleIntegrationsSearch();
+    heroDefaultAnimation();
 
     if (window.matchMedia("(min-width: 992px)").matches) {
         DTCTTabloopDesktop();
