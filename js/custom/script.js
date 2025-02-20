@@ -715,7 +715,6 @@ $(document).ready(function () {
     allResourceSearch();
     pageEntrance();
     scrollTextReveal();
-    initializeCarousels();
     homeButtonsHighlight();
     handlePrivacyPolicyTOC();
     handleTableHover();
@@ -732,6 +731,7 @@ $(document).ready(function () {
         (filterInstances) => {
             handlePaginationAutoScroll();
             closeBioOnClickOutside();
+            initializeCarousels();
             slideUpAnimation();
         },
     ]);
