@@ -148,6 +148,7 @@ $(document).ready(function () {
                     scrollTrigger: {
                         trigger: self,
                         start: "top 60%",
+                        markers: true,
                         refreshPriority: 1,
                         invalidateOnRefresh: true
                     }
