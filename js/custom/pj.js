@@ -1,5 +1,7 @@
 $(document).ready(function () {
     function animateElementWithScrollTrigger(element, section, delay) {
+        return;
+        
         const elementdata = document.querySelector(element);
         if (elementdata) {
             gsap.fromTo(element,
