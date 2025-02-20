@@ -2,7 +2,7 @@ $(document).ready(function () {
     const pageEntrance = () => {
         const navbar = $(".navbar");
         const heroContainer = $(".hero-container");
-        const heroDescriptionBlock = $(".hero-description-block");
+        const heroDescriptionBlock = $(".hero-description-block:not(.is-default)");
         const heroImage = $(".hero-image");
 
         const logoCarouselContainer = $(".logo-carousel-inner");
