@@ -164,6 +164,7 @@ $(document).ready(function () {
 
         carousel.on('refreshed.owl.carousel', function (e) {
             ScrollTrigger.refresh();
+            console.log('eyy');
         });
 
         carousel.owlCarousel({ ...params });
