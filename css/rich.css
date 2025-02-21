@@ -221,7 +221,7 @@ textarea {
     @apply relative top-0;
 
     &:not(.active) {
-        @apply opacity-0 translate-y-[60px] absolute;
+        @apply opacity-0 translate-y-[20px] absolute;
     }
 
     &.active {
