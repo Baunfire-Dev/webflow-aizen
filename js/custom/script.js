@@ -736,11 +736,12 @@ $(document).ready(function () {
     };
 
     const handleHomeAccDropdowns = () => {
-        const els = $(".home-accs-container");
+        const els = $(".home-acc .home-acc-inner");
         if (!els.length) return;
 
         els.each(function () {
             const self = $(this);
+            const accsContainer = self.find(".home-acc-items");
             const accs = self.find(".home-acc-item");
             if (!accs.length) return;
 
@@ -770,11 +771,11 @@ $(document).ready(function () {
                     }
                     
                     if (!firstLoad) {
-                        if (window.matchMedia("(max-width: 992px)").matches) return;
+                        const target = window.matchMedia("(max-width: 992px)").matches ? self : accsContainer;
 
                         gsap.to(window, {
                             duration: 1,
-                            scrollTo: { y: self, offsetY: 140, autoKill: true },
+                            scrollTo: { y: target, offsetY: 140, autoKill: true },
                             ease: "circ.out",
                             overwrite: true
                         });
