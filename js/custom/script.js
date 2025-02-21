@@ -771,7 +771,7 @@ $(document).ready(function () {
                     }
                     
                     if (!firstLoad) {
-                        const target = window.matchMedia("(max-width: 992px)").matches ? self : accsContainer;
+                        const target = window.matchMedia("(max-width: 992px)").matches ? accsContainer : self;
 
                         gsap.to(window, {
                             duration: 1,
