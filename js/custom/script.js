@@ -742,6 +742,8 @@ $(document).ready(function () {
         els.each(function () {
             const self = $(this);
             const accs = self.find(".home-acc-item");
+            if (!accs.length) return;
+
             const images = self.find(".home-acc-image");
             images.first().addClass("active");
 
