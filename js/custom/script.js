@@ -746,7 +746,7 @@ $(document).ready(function () {
 
             let firstLoad = true;
 
-            const images = self.find(".home-acc-image");
+            const images = self.find(".home-acc-image-outer");
             images.first().addClass("active");
 
             accs.each(function () {
@@ -761,7 +761,7 @@ $(document).ready(function () {
                         subSelf.addClass("active");
 
                         const id = subSelf.attr("acc-id");
-                        const target = self.find(`.home-acc-image[acc-id="${id}"]`);
+                        const target = self.find(`.home-acc-image-outer[acc-id="${id}"]`);
 
                         if (target.length) {
                             images.removeClass("active");
