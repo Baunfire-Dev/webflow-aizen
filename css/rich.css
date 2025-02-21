@@ -157,3 +157,15 @@
 .h-anim-image {
     @apply opacity-0;
 }
+
+.dd {
+    .dd-body {
+        @apply overflow-hidden h-0 transition-all duration-300 ease-[ease];
+    }
+
+    &.active {
+        .dd-body {
+            @apply h-auto pt-[4px];
+        }
+    }
+}

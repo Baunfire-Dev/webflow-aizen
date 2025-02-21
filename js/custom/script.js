@@ -711,6 +711,30 @@ $(document).ready(function () {
         });
     };
 
+    const handleDropdowns = () => {
+        const els = $(".dd");
+        if (!els.length) return;
+
+        els.each(function () {
+            const self = $(this);
+            const head = self.find(".dd-head");
+            const body = self.find(".dd-body");
+
+            head.click(function() {
+                self.toggleClass("active");
+
+                gsap.to(window, {
+                    duration: 1,
+                    scrollTo: { y: self, offsetY: 140 },
+                    ease: "circ.out",
+                    overwrite: true
+                });
+            })
+        });
+
+        els.first().find(".dd-head").trigger("click");
+    };
+
     allResourceSearch();
     pageEntrance();
     scrollTextReveal();
@@ -719,6 +743,7 @@ $(document).ready(function () {
     handleTableHover();
     handleIntegrationsSearch();
     heroDefaultAnimation();
+    handleDropdowns();
 
     if (window.matchMedia("(min-width: 992px)").matches) {
         DTCTTabloopDesktop();
