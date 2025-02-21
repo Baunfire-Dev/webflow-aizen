@@ -729,6 +729,8 @@ $(document).ready(function () {
                     ease: "circ.out",
                     overwrite: true
                 });
+                
+                ScrollTrigger.refresh();
             })
         });
     };
