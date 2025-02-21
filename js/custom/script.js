@@ -770,6 +770,8 @@ $(document).ready(function () {
                     }
                     
                     if (!firstLoad) {
+                        if (window.matchMedia("(max-width: 992px)").matches) return;
+
                         gsap.to(window, {
                             duration: 1,
                             scrollTo: { y: self, offsetY: 140, autoKill: true },
