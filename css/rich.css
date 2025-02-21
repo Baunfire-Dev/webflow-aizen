@@ -217,7 +217,7 @@ textarea {
     }
 }
 
-.home-acc-image {
+.home-acc-image-outer {
     @apply transition-all duration-300 ease-[ease] relative;
 
     &:not(.active) {
