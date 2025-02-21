@@ -44,7 +44,7 @@
 
 .slide-up,
 .opac-0 {
-    @apply opacity-0;
+	@apply opacity-0;
 }
 
 .owl-dots {
@@ -100,11 +100,11 @@
 }
 
 .lc-logos-group {
-    animation: infinite-scroll 40s linear infinite;
+	animation: infinite-scroll 40s linear infinite;
 
-    &.is-contact-us {
-        animation: infinite-scroll-v2 40s linear infinite;
-    }
+	&.is-contact-us {
+		animation: infinite-scroll-v2 40s linear infinite;
+	}
 }
 
 @keyframes infinite-scroll {
@@ -126,58 +126,66 @@
 }
 
 @media screen and (max-width: 991px) {
-    .accordion .accordion-stack .w-dyn-item .ac-dropdown.is-active-accordion .ac-dropdown-list.is-active-accordion {
-        @apply !max-h-[unset];
-    }
+	.accordion
+		.accordion-stack
+		.w-dyn-item
+		.ac-dropdown.is-active-accordion
+		.ac-dropdown-list.is-active-accordion {
+		@apply !max-h-[unset];
+	}
 }
 
 .w-richtext {
-    &:before,
-    &:after {
-        @apply hidden;
-    }
+	&:before,
+	&:after {
+		@apply hidden;
+	}
 }
 
 .all-resources-outer {
-    .all-resource-list:empty ~ .w-pagination-wrapper.pagination {
-        @apply !hidden;
-    }
+	.all-resource-list:empty ~ .w-pagination-wrapper.pagination {
+		@apply !hidden;
+	}
 }
 
 .sntcc-sticky-nav {
-    transition: border-color 0.3s ease;
-    border-bottom: 1px solid transparent;
+	transition: border-color 0.3s ease;
+	border-bottom: 1px solid transparent;
 
-    &.pinned {
-        border-color: #0000001a;
-    }
+	&.pinned {
+		border-color: #0000001a;
+	}
 }
 
 .h-anim-content,
 .h-anim-image {
-    @apply opacity-0;
+	@apply opacity-0;
 }
 
 .dd {
-    .dd-head {
-        svg {
-            @apply transition-transform duration-300 ease-[ease];
-        }
-    }
+	.dd-head {
+		svg {
+			@apply transition-transform duration-300 ease-[ease];
+		}
+	}
 
-    .dd-body {
-        @apply overflow-hidden h-0 transition-all duration-300 ease-[ease];
-    }
+	.dd-body {
+		@apply overflow-hidden h-0 transition-all duration-300 ease-[ease];
+	}
 
-    &.active {
-        .dd-head {
-            svg {
-                @apply rotate-180;
-            }
-        }
+	&.active {
+		.dd-head {
+			svg {
+				@apply rotate-180;
+			}
+		}
 
-        .dd-body {
-            @apply h-auto pt-[4px];
-        }
-    }
+		.dd-body {
+			@apply h-auto pt-[4px];
+		}
+	}
+}
+
+textarea {
+	resize: none;
 }
