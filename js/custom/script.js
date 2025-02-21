@@ -777,6 +777,8 @@ $(document).ready(function () {
                     ScrollTrigger.refresh();
                 })
             });
+
+            accs.first().trigger("click");
         });
     };
 
