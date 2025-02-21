@@ -711,7 +711,7 @@ $(document).ready(function () {
         });
     };
 
-    const handleDropdowns = () => {
+    const handleTableDropdowns = () => {
         const els = $(".dd");
         if (!els.length) return;
 
@@ -735,6 +735,49 @@ $(document).ready(function () {
         });
     };
 
+    const handleHomeAccDropdowns = () => {
+        const els = $(".home-acc");
+        if (!els.length) return;
+
+        els.each(function () {
+            const self = $(this);
+            const accs = self.find(".home-acc-item");
+            const images = self.find(".home-acc-image");
+            images.first().addClass("active");
+
+            accs.each(function () {
+                const subSelf = $(this);
+                const head = self.find(".home-acc-item-head");
+    
+                head.click(function() {
+                    if (subSelf.hasClass("active")) {
+                        subSelf.removeClass("active");
+                    } else {
+                        accs.removeClass("active");
+                        subSelf.addClass("active");
+
+                        const id = subSelf.attr("acc-id");
+                        const target = self.find(`.home-acc-image[acc-id="${id}"]`);
+
+                        if (target.length) {
+                            images.removeClass("active");
+                            target.addClass("active");
+                        }
+                    }
+                    
+                    gsap.to(window, {
+                        duration: 1,
+                        scrollTo: { y: self, offsetY: 140, autoKill: true },
+                        ease: "circ.out",
+                        overwrite: true
+                    });
+                    
+                    ScrollTrigger.refresh();
+                })
+            });
+        });
+    };
+
     allResourceSearch();
     pageEntrance();
     scrollTextReveal();
@@ -743,7 +786,8 @@ $(document).ready(function () {
     handleTableHover();
     handleIntegrationsSearch();
     heroDefaultAnimation();
-    handleDropdowns();
+    handleTableDropdowns();
+    handleHomeAccDropdowns();
 
     if (window.matchMedia("(min-width: 992px)").matches) {
         DTCTTabloopDesktop();

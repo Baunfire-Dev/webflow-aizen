@@ -189,3 +189,31 @@
 textarea {
 	resize: none;
 }
+
+.home-acc-item {
+    &, 
+    .home-acc-item-bar,
+    .home-acc-item-body {
+        @apply transition-all duration-300 ease-[ease];
+    }
+
+    &:not(.active) {
+        @apply opacity-30;
+
+        .home-acc-item-bar {
+            @apply bg-white h-[1px];
+        }
+
+        .home-acc-item-body {
+            @apply h-0 pt-0;
+        }
+    }
+}
+
+.home-acc-image {
+    @apply transition-all duration-300 ease-[ease] relative;
+
+    &:not(.active) {
+        @apply opacity-0 h-0 translate-y-[60px] absolute;
+    }
+}
