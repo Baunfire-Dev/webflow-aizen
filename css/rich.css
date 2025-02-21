@@ -225,6 +225,6 @@ textarea {
     }
 
     &.active {
-        @apply transition-all duration-[0.6s] ease-[ease];
+        @apply transition-all duration-[0.6s] ease-out;
     }
 }
