@@ -193,7 +193,8 @@ textarea {
 .home-acc-item {
     &, 
     .home-acc-item-bar,
-    .home-acc-item-body {
+    .home-acc-item-body,
+    .home-acc-item-arrow {
         @apply transition-all duration-300 ease-[ease];
     }
 
@@ -206,6 +207,12 @@ textarea {
 
         .home-acc-item-body {
             @apply h-0 pt-0;
+        }
+    }
+
+    &.active {
+        .home-acc-item-arrow {
+            @apply rotate-180;
         }
     }
 }
