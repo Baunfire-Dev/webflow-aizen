@@ -736,7 +736,7 @@ $(document).ready(function () {
     };
 
     const handleHomeAccDropdowns = () => {
-        const els = $(".home-acc");
+        const els = $(".home-accs-container");
         if (!els.length) return;
 
         els.each(function () {
@@ -749,7 +749,7 @@ $(document).ready(function () {
 
             accs.each(function () {
                 const subSelf = $(this);
-                const head = self.find(".home-acc-item-head");
+                const head = subSelf.find(".home-acc-item-head");
     
                 head.click(function() {
                     if (subSelf.hasClass("active")) {
