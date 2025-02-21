@@ -159,11 +159,23 @@
 }
 
 .dd {
+    .dd-head {
+        svg {
+            @apply transition-transform duration-300 ease-[ease];
+        }
+    }
+
     .dd-body {
         @apply overflow-hidden h-0 transition-all duration-300 ease-[ease];
     }
 
     &.active {
+        .dd-head {
+            svg {
+                @apply rotate-180;
+            }
+        }
+
         .dd-body {
             @apply h-auto pt-[4px];
         }
