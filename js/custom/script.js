@@ -744,6 +744,8 @@ $(document).ready(function () {
             const accs = self.find(".home-acc-item");
             if (!accs.length) return;
 
+            let firstLoad = true;
+
             const images = self.find(".home-acc-image");
             images.first().addClass("active");
 
@@ -767,14 +769,17 @@ $(document).ready(function () {
                         }
                     }
                     
-                    gsap.to(window, {
-                        duration: 1,
-                        scrollTo: { y: self, offsetY: 140, autoKill: true },
-                        ease: "circ.out",
-                        overwrite: true
-                    });
-                    
+                    if (!firstLoad) {
+                        gsap.to(window, {
+                            duration: 1,
+                            scrollTo: { y: self, offsetY: 140, autoKill: true },
+                            ease: "circ.out",
+                            overwrite: true
+                        });
+                    }
+                        
                     ScrollTrigger.refresh();
+                    firstLoad = false;
                 })
             });
 
