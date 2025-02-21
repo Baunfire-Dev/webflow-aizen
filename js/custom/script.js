@@ -778,7 +778,7 @@ $(document).ready(function () {
                 })
             });
 
-            accs.first().trigger("click");
+            accs.first().find(".home-acc-item-head").trigger("click");
         });
     };
 
