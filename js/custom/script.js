@@ -741,7 +741,7 @@ $(document).ready(function () {
 
         els.each(function () {
             const self = $(this);
-            const accsContainer = self.find(".home-acc-items");
+            const accsContainer = self.find(".home-accs-container");
             const accs = self.find(".home-acc-item");
             if (!accs.length) return;
 
