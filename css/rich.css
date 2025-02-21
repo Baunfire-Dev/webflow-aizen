@@ -206,7 +206,7 @@ textarea {
         }
 
         .home-acc-item-body {
-            @apply h-0 pt-0;
+            @apply h-0 pt-0 overflow-hidden;
         }
     }
 
