@@ -202,7 +202,7 @@ textarea {
         @apply opacity-30;
 
         .home-acc-item-bar {
-            @apply bg-white h-[1px];
+            @apply !bg-white h-[1px];
         }
 
         .home-acc-item-body {
