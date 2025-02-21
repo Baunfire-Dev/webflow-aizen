@@ -725,14 +725,12 @@ $(document).ready(function () {
 
                 gsap.to(window, {
                     duration: 1,
-                    scrollTo: { y: self, offsetY: 140 },
+                    scrollTo: { y: self, offsetY: 140, autoKill: true },
                     ease: "circ.out",
                     overwrite: true
                 });
             })
         });
-
-        els.first().find(".dd-head").trigger("click");
     };
 
     allResourceSearch();
