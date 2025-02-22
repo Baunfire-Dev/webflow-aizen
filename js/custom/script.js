@@ -153,9 +153,7 @@ $(document).ready(function () {
                         invalidateOnRefresh: true
                     },
                     onComplete: () => {
-                        gsap.set(self, {
-                            clearProps: "transform"
-                        })
+                        self.addClass("finished");
                     }
                 }
             )
