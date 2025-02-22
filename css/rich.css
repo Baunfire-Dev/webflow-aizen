@@ -47,12 +47,6 @@
 	@apply opacity-0;
 }
 
-.slide-up {
-    &.finished {
-        @apply !transform-none;
-    }
-}
-
 .owl-dots {
 	&:is(empty) {
 		@apply hidden;
