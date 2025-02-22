@@ -151,6 +151,11 @@ $(document).ready(function () {
                         // markers: true,
                         refreshPriority: 1,
                         invalidateOnRefresh: true
+                    },
+                    onComplete: () => {
+                        gsap.set(self, {
+                            clearProps: "transform"
+                        })
                     }
                 }
             )
