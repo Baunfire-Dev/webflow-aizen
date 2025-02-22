@@ -790,6 +790,21 @@ $(document).ready(function () {
         });
     };
 
+    const formResizeRefresh = () => {
+        const els = $(".w-form");
+        if (!els.length) return;
+
+        els.each(function () {
+            const self = $(this);
+
+            let resizeObserver = new ResizeObserver(() => {
+                gsap.delayedCall(0.1, () => ScrollTrigger.refresh());
+            });
+
+            resizeObserver.observe(self[0]);
+        });
+    };
+
     allResourceSearch();
     pageEntrance();
     scrollTextReveal();
@@ -800,6 +815,7 @@ $(document).ready(function () {
     heroDefaultAnimation();
     handleTableDropdowns();
     handleHomeAccDropdowns();
+    formResizeRefresh();
 
     if (window.matchMedia("(min-width: 992px)").matches) {
         DTCTTabloopDesktop();
