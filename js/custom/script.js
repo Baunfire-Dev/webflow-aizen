@@ -198,6 +198,7 @@ $(document).ready(function () {
             nav: false,
             autoplay: true,
             items: 8,
+            dotsEach: true,
             autoplayTimeout: 5000,
             autoplayHoverPause: false,
             slideTransition: 'linear',
