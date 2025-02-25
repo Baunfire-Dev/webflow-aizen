@@ -681,7 +681,7 @@ $(document).ready(function () {
             });
 
             resizeObserver.observe(self[0]);
-            // syncSearchFields(searchField, searchFieldFloating, self, searchCollectionList, emptyText);
+            syncSearchFields(searchField, searchFieldFloating, self, searchCollectionList, emptyText);
         });
     };
 
