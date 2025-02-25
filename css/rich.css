@@ -270,6 +270,7 @@ textarea {
 
     .sol-acc-body-inner {
         @apply translate-y-[30px];
+        @apply transition-transform duration-[0.5s] ease-out;
     }
 
     .sol-acc-body-inner,
@@ -278,9 +279,8 @@ textarea {
     }
 
     .sol-acc-body,
-    .sol-acc-body-inner,
     .sol-acc-graphic {
-        @apply transition-all duration-[0.4s] ease-in-out;
+        @apply transition-all duration-[0.3s] ease-in-out;
     }
 
     &:not(.active) {
