@@ -783,7 +783,12 @@ $(document).ready(function () {
                 const head = subSelf.find(".sol-acc-head");
 
                 head.click(function () {
-                    subSelf.toggleClass("active");
+                    if (subSelf.hadClass("active")) {
+                        subSelf.removeClass("active");
+                    } else {
+                        accs.removeClass("active");
+                        subSelf.addClass("active");
+                    }
 
                     const elementHeight = subSelf.height();
                     const windowHeight = $(window).height();
