@@ -697,7 +697,7 @@ $(document).ready(function () {
             const head = self.find(".dd-head");
             const body = self.find(".dd-body");
 
-            head.click(function() {
+            head.click(function () {
                 self.toggleClass("active");
 
                 gsap.to(window, {
@@ -706,7 +706,7 @@ $(document).ready(function () {
                     ease: "circ.out",
                     overwrite: true
                 });
-                
+
                 ScrollTrigger.refresh();
             })
         });
@@ -730,8 +730,8 @@ $(document).ready(function () {
             accs.each(function () {
                 const subSelf = $(this);
                 const head = subSelf.find(".home-acc-item-head");
-    
-                head.click(function() {
+
+                head.click(function () {
                     if (subSelf.hasClass("active")) {
                         subSelf.removeClass("active");
                     } else {
@@ -746,7 +746,7 @@ $(document).ready(function () {
                             target.addClass("active");
                         }
                     }
-                    
+
                     if (!firstLoad) {
                         const target = window.matchMedia("(max-width: 992px)").matches ? accsContainer : self;
 
@@ -757,7 +757,7 @@ $(document).ready(function () {
                             overwrite: true
                         });
                     }
-                        
+
                     ScrollTrigger.refresh();
                     firstLoad = false;
                 })
@@ -773,7 +773,6 @@ $(document).ready(function () {
 
         els.each(function () {
             const self = $(this);
-            const accsContainer = self.find(".sol-inner");
             const accs = self.find(".sol-acc");
             if (!accs.length) return;
 
@@ -782,21 +781,23 @@ $(document).ready(function () {
             accs.each(function () {
                 const subSelf = $(this);
                 const head = subSelf.find(".sol-acc-head");
-    
-                head.click(function() {
-                    subSelf.toggleClass("active");
-                    
-                    if (!firstLoad) {
-                        const target = window.matchMedia("(max-width: 992px)").matches ? accsContainer : subSelf;
 
+                head.click(function () {
+                    subSelf.toggleClass("active");
+
+                    const elementHeight = subSelf.height();
+                    const windowHeight = $(window).height();
+                    const offsetAmount = (elementHeight - windowHeight) / 2;
+
+                    if (!firstLoad) {
                         gsap.to(window, {
                             duration: 1,
-                            scrollTo: { y: subSelf, offsetY: 140, autoKill: true },
+                            scrollTo: { y: subSelf, offsetY: offsetAmount, autoKill: true },
                             ease: "circ.out",
                             overwrite: true
                         });
                     }
-                        
+
                     ScrollTrigger.refresh();
                     firstLoad = false;
                 })
