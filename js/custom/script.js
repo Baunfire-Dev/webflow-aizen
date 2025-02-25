@@ -662,7 +662,7 @@ $(document).ready(function () {
                         markers: true,
                         pin: true,
                         pinSpacing: false,
-                        // toggleActions: "play play play reverse",
+                        toggleActions: "play reverse play reverse",
                     }
                 }
             );
@@ -829,7 +829,6 @@ $(document).ready(function () {
         });
     };
 
-    allResourceSearch();
     pageEntrance();
     scrollTextReveal();
     homeButtonsHighlight();
@@ -854,6 +853,7 @@ $(document).ready(function () {
             handlePaginationAutoScroll();
             closeBioOnClickOutside();
             slideUpAnimation();
+            allResourceSearch();
         },
     ]);
 
