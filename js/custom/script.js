@@ -651,7 +651,6 @@ $(document).ready(function () {
                 start: "top 140px",
                 endTrigger: self,
                 end: "bottom 60%",
-                markers: true,
                 pin: true,
                 pinSpacing: false,
                 onEnter: () => {
