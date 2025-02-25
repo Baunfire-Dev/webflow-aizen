@@ -783,7 +783,7 @@ $(document).ready(function () {
                 const head = subSelf.find(".sol-acc-head");
 
                 head.click(function () {
-                    if (subSelf.hadClass("active")) {
+                    if (subSelf.haveClass("active")) {
                         subSelf.removeClass("active");
                     } else {
                         accs.removeClass("active");
