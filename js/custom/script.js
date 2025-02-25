@@ -787,11 +787,11 @@ $(document).ready(function () {
                     subSelf.toggleClass("active");
                     
                     if (!firstLoad) {
-                        const target = window.matchMedia("(max-width: 992px)").matches ? accsContainer : self;
+                        const target = window.matchMedia("(max-width: 992px)").matches ? accsContainer : subSelf;
 
                         gsap.to(window, {
                             duration: 1,
-                            scrollTo: { y: target, offsetY: 140, autoKill: true },
+                            scrollTo: { y: subSelf, offsetY: 140, autoKill: true },
                             ease: "circ.out",
                             overwrite: true
                         });
