@@ -632,7 +632,7 @@ $(document).ready(function () {
 
             gsap.to(window, {
                 duration: 1,
-                scrollTo: { y: container, offsetY: 140 },
+                scrollTo: { y: container, offsetY: 140, autoKill: true },
                 ease: "circ.out",
                 overwrite: true
             });
