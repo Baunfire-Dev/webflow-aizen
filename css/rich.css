@@ -125,6 +125,32 @@
 	}
 }
 
+.text-with-logo-carousel-content-logos {
+	animation: tlc-infinite-scroll-desktop 40s linear infinite;
+
+    @media screen and (max-width: 991px) {
+        animation: tlc-infinite-scroll-mobile 40s linear infinite;
+    }
+}
+
+@keyframes tlc-infinite-scroll-desktop {
+	0% {
+		transform: translateX(0);
+	}
+	100% {
+		transform: translateX(calc(-100% - 72px));
+	}
+}
+
+@keyframes tlc-infinite-scroll-mobile {
+	0% {
+		transform: translateX(0);
+	}
+	100% {
+		transform: translateX(calc(-100% - 32px));
+	}
+}
+
 @media screen and (max-width: 991px) {
 	.accordion
 		.accordion-stack

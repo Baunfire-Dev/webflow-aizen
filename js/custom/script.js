@@ -191,30 +191,6 @@ $(document).ready(function () {
         //     }
         // });
 
-        createCarousel(".tcl-owl-carousel", {
-            margin: 72,
-            loop: true,
-            autoWidth: true,
-            nav: false,
-            autoplay: true,
-            items: 8,
-            dotsEach: true,
-            autoplayTimeout: 5000,
-            autoplayHoverPause: false,
-            slideTransition: 'linear',
-            autoplaySpeed: 6000,
-            smartSpeed: 6000,
-            responsiveClass: true,
-            responsive: {
-                0: {
-                    margin: 32,
-                },
-                767: {
-                    margin: 72,
-                }
-            }
-        });
-
         createCarousel(".cci-owl-carousel", {
             margin: 22,
             autoWidth: true,
