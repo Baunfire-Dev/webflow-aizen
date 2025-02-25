@@ -767,6 +767,45 @@ $(document).ready(function () {
         });
     };
 
+    const handleSolutionAccDropdowns = () => {
+        const els = $(".solutions-section");
+        if (!els.length) return;
+
+        els.each(function () {
+            const self = $(this);
+            const accsContainer = self.find(".sol-inner");
+            const accs = self.find(".sol-acc");
+            if (!accs.length) return;
+
+            let firstLoad = true;
+
+            accs.each(function () {
+                const subSelf = $(this);
+                const head = subSelf.find(".sol-acc-head");
+    
+                head.click(function() {
+                    subSelf.toggleClass("active");
+                    
+                    if (!firstLoad) {
+                        const target = window.matchMedia("(max-width: 992px)").matches ? accsContainer : self;
+
+                        gsap.to(window, {
+                            duration: 1,
+                            scrollTo: { y: target, offsetY: 140, autoKill: true },
+                            ease: "circ.out",
+                            overwrite: true
+                        });
+                    }
+                        
+                    ScrollTrigger.refresh();
+                    firstLoad = false;
+                })
+            });
+
+            accs.first().find(".sol-acc-head").trigger("click");
+        });
+    };
+
     const formResizeRefresh = () => {
         const els = $(".w-form");
         if (!els.length) return;
@@ -792,6 +831,7 @@ $(document).ready(function () {
     heroDefaultAnimation();
     handleTableDropdowns();
     handleHomeAccDropdowns();
+    handleSolutionAccDropdowns();
     formResizeRefresh();
 
     if (window.matchMedia("(min-width: 992px)").matches) {
