@@ -646,26 +646,35 @@ $(document).ready(function () {
             const searchCollectionList = self.find(".all-resource-list");
             const emptyText = self.find(".no-result");
 
-            gsap.fromTo(stickySearch,
-                {
-                    autoAlpha: 0,
+            ScrollTrigger.create({
+                trigger: stickySearch,
+                start: "top 140px",
+                endTrigger: self,
+                end: "bottom 60%",
+                markers: true,
+                pin: true,
+                pinSpacing: false,
+                onEnter: () => {
+                    gsap.to(stickySearch,
+                        {
+                            autoAlpha: 1,
+                            overwrite: true,
+                            duration: 0.4,
+                            ease: Power2.easeOut,
+                        }
+                    );
                 },
-                {
-                    duration: 0.4,
-                    autoAlpha: 1,
-                    ease: Power2.easeOut,
-                    scrollTrigger: {
-                        trigger: stickySearch,
-                        start: "top 140px",
-                        endTrigger: self,
-                        end: "bottom 60%",
-                        markers: true,
-                        pin: true,
-                        pinSpacing: false,
-                        toggleActions: "play none none reverse",
-                    }
+                onLeaveBack: () => {
+                    gsap.to(stickySearch,
+                        {
+                            autoAlpha: 0,
+                            overwrite: true,
+                            duration: 0.4,
+                            ease: Power2.easeOut,
+                        }
+                    );
                 }
-            );
+            })
 
             let resizeObserver = new ResizeObserver(() => {
                 gsap.delayedCall(0.1, () => ScrollTrigger.refresh());
