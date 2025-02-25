@@ -790,9 +790,11 @@ $(document).ready(function () {
                         subSelf.addClass("active");
                     }
 
+                    ScrollTrigger.refresh();
+
                     const elementHeight = subSelf.height();
-                    const windowHeight = $(window).height();
-                    const offsetAmount = (elementHeight - windowHeight) / 2;
+                    const windowHeight = $(window).innerHeight();
+                    const offsetAmount = (windowHeight - elementHeight) / 2;
 
                     if (!firstLoad) {
                         gsap.to(window, {
@@ -803,7 +805,6 @@ $(document).ready(function () {
                         });
                     }
 
-                    ScrollTrigger.refresh();
                     firstLoad = false;
                 })
             });
