@@ -303,5 +303,11 @@ textarea {
         .sol-acc-body-inner {
 			@apply opacity-100 translate-y-0;
 		}
+
+        @media screen and (max-width: 767px) {
+            .sol-acc-num {
+                @apply hidden;
+            }
+        }        
 	}
 }
