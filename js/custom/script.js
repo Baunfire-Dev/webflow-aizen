@@ -662,7 +662,7 @@ $(document).ready(function () {
                         markers: true,
                         pin: true,
                         pinSpacing: false,
-                        toggleActions: "play reverse play reverse",
+                        // toggleActions: "play play play reverse",
                     }
                 }
             );
