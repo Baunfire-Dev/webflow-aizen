@@ -7,6 +7,7 @@ $(document).ready(function () {
             hamburger.click(function() {
                 navbar.toggleClass("mob-active");
                 $("html").toggleClass("hide-overflow");
+                navbar.find(".gnav-item.parent").removeClass("open");
             })
         }
 
@@ -33,7 +34,13 @@ $(document).ready(function () {
                     if (isMobile) {
                         navItems.find(".gnav-item-inner").click(function() {
                             const self = $(this);
-                            self.parent().toggleClass("open");
+
+                            if (self.parent().hasClass('open')) {
+                                self.parent().removeClass("open");
+                            } else {
+                                navItems.removeClass("open");
+                                self.parent().addClass("open");
+                            }
                         });
                     }
 
