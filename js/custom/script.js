@@ -4,7 +4,7 @@ $(document).ready(function () {
 
         const burger = () => {
             const hamburger = navbar.find(".gnav-burger");
-            hamburger.click(function() {
+            hamburger.click(function () {
                 navbar.toggleClass("mob-active");
                 $("html").toggleClass("hide-overflow");
                 navbar.find(".gnav-item.parent").removeClass("open");
@@ -34,7 +34,7 @@ $(document).ready(function () {
                     }
 
                     if (isMobile) {
-                        navItems.find(".gnav-item-inner").click(function() {
+                        navItems.find(".gnav-item-inner").click(function () {
                             const self = $(this);
 
                             if (self.parent().hasClass('open')) {
@@ -822,9 +822,13 @@ $(document).ready(function () {
                     if (!firstLoad) {
                         const target = window.matchMedia("(max-width: 992px)").matches ? accsContainer : self;
 
+                        const elementHeight = subSelf.height();
+                        const windowHeight = $(window).innerHeight();
+                        const offsetAmount = (windowHeight - elementHeight) / 2;
+
                         gsap.to(window, {
                             duration: 1,
-                            scrollTo: { y: subSelf, offsetY: 140, autoKill: true },
+                            scrollTo: { y: subSelf, offsetY: offsetAmount, autoKill: true },
                             ease: "circ.out",
                             overwrite: true
                         });
@@ -903,35 +907,35 @@ $(document).ready(function () {
     const handleDiagramSteps = () => {
         const els = $(".ddg-section");
         if (!els.length) return;
-    
+
         const timerDuration = 6;
-    
+
         els.each(function () {
             const self = $(this);
-    
+
             const items = self.find('.ddg-item');
             const imagesContainer = self.find(".ddg-item-images");
             const images = self.find('.ddg-item-image');
             const timerBars = items.find('.ddg-bar-inner');
-    
+
             let activeItem = null;
             let timerTween;
-    
+
             const activateSlide = (targetItem) => {
                 if (timerTween) timerTween.kill();
-    
+
                 items.removeClass('active');
                 images.removeClass('active');
                 gsap.set(timerBars, { width: 0 });
-    
+
                 const id = targetItem.attr("diagram-id");
                 const targetImage = self.find(`.ddg-item-image[diagram-id='${id}']`);
                 const targetTimerBar = targetItem.find(".ddg-bar-inner");
-    
+
                 targetItem.addClass("active");
                 targetImage.addClass("active");
                 activeItem = targetItem;
-    
+
                 timerTween = gsap.to(targetTimerBar, {
                     duration: timerDuration,
                     width: "100%",
@@ -946,7 +950,7 @@ $(document).ready(function () {
                     }
                 });
             };
-    
+
             const startLoop = () => {
                 if (imagesContainer.hasClass("activated")) {
                     imagesContainer.addClass("active");
@@ -958,12 +962,12 @@ $(document).ready(function () {
                     activateSlide(items.first());
                 }
             };
-    
+
             items.on('click', function () {
                 const subSelf = $(this);
                 activateSlide(subSelf);
             });
-    
+
             ScrollTrigger.create({
                 trigger: self,
                 start: "top center",
