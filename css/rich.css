@@ -121,7 +121,15 @@ html {
             }
 
             .gnav-dd-inner {
-                @apply w-full min-w-full transform-none bg-transparent !transition-none;
+                @apply w-full min-w-full transform-none bg-transparent !transition-none pt-[16px];
+            }
+
+            .gnav-dd-nav-groups {
+                @apply flex flex-col gap-[16px];
+            }
+
+            .gnav-dd-nav-group {
+                @apply flex flex-col gap-[16px];
             }
 		}
 	}
