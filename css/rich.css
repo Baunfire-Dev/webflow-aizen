@@ -88,9 +88,7 @@
         @apply transition-colors duration-300 ease-in-out;
 
         &:hover {
-            .gnav-item-inner {
-                @apply bg-tan;
-            }
+            @apply bg-tan;
         }
     }
 }
