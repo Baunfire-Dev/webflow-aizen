@@ -93,12 +93,16 @@ html {
 			}
 
             .gnav-item {
-				@apply px-0;
+				@apply px-0 flex-col;
 			}
 
             .gnav-item-inner {
 				@apply py-[16px] w-full justify-between;
 			}
+
+            .gnav-dd {
+                @apply relative top-0 left-0 w-full transform-none;
+            }
 		}
 	}
 
