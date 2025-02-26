@@ -14,7 +14,7 @@ $(document).ready(function () {
         const mobileItems = () => {
             const navItems = navbar.find(".gnav-item.parent");
             const navScroll = navbar.find(".gnav-items");
-            
+
             let mm = gsap.matchMedia();
 
             mm.add(
@@ -210,7 +210,7 @@ $(document).ready(function () {
                     ease: Power2.easeOut,
                     scrollTrigger: {
                         trigger: self,
-                        start: () => "top 60%",
+                        start: () => "top 70%",
                         // markers: true,
                         refreshPriority: 1,
                         invalidateOnRefresh: true
