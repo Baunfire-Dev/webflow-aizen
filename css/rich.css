@@ -83,6 +83,16 @@
     .gnav-dd-inner {
         @apply translate-y-[40px];
     }
+
+    .gnav-dd-nav-group-item {
+        @apply transition-colors duration-300 ease-in-out;
+
+        &:hover {
+            .gnav-item-inner {
+                @apply bg-tan;
+            }
+        }
+    }
 }
 
 .slide-up,
