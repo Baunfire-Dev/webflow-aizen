@@ -131,6 +131,10 @@ html {
             .gnav-dd-nav-group {
                 @apply flex flex-col gap-[16px];
             }
+
+            .gnav-dd-nav-group-items {
+                @apply flex flex-col gap-[16px];
+            }
 		}
 	}
 
