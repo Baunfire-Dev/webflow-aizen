@@ -826,6 +826,8 @@ $(document).ready(function () {
                         const windowHeight = $(window).innerHeight();
                         const offsetAmount = (windowHeight - elementHeight) / 2;
 
+                    console.log(offsetAmount);
+
                         gsap.to(window, {
                             duration: 1,
                             scrollTo: { y: subSelf, offsetY: offsetAmount, autoKill: true },
@@ -871,8 +873,6 @@ $(document).ready(function () {
                     const elementHeight = subSelf.height();
                     const windowHeight = $(window).innerHeight();
                     const offsetAmount = (windowHeight - elementHeight) / 2;
-
-                    console.log(offsetAmount);
 
                     if (!firstLoad) {
                         gsap.to(window, {
