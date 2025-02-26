@@ -65,8 +65,8 @@
                 }
 
                 .gnav-dd-inner {
-                    @apply opacity-100 translate-y-0;
-                    @apply transition-all duration-[0.4s] ease-out;
+                    @apply translate-y-0;
+                    @apply transition-transform duration-[0.5s] ease-out;
                 }
 
                 .gnav-item-arrow {
