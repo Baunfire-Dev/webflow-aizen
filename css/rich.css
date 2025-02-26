@@ -91,7 +91,7 @@ html {
 			}
 
 			.gnav-items {
-				@apply flex flex-col absolute top-[104px] left-0 w-full h-[calc(100vh-104px)] bg-tan px-[64px] pt-[40px] pb-[80px] gap-[24px];
+				@apply flex flex-col absolute top-[104px] left-0 w-full h-[calc(100vh-104px)] bg-tan px-[64px] pt-[40px] pb-[120px] gap-[24px];
 				overflow-y: auto;
 				overflow-x: clip;
 			}
