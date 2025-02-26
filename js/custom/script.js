@@ -44,7 +44,7 @@ $(document).ready(function () {
 
                             gsap.to(self, {
                                 duration: 1,
-                                scrollTo: { y: target, offsetY: 140, autoKill: true },
+                                scrollTo: { y: self, offsetY: 140, autoKill: true },
                                 ease: "circ.out",
                                 overwrite: true
                             });
