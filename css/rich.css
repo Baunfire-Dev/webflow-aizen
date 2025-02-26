@@ -73,7 +73,11 @@
 
 			div {
 				@apply h-[2px] w-[24px] rounded-[6px] bg-black;
-				@apply transition-all duration-300 ease-in-out;
+
+                &:nth-child(1),
+				&:nth-child(3) {
+                    @apply transition-all duration-300 ease-in-out;
+				}
 			}
 		}
 	}
