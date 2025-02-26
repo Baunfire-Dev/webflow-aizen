@@ -102,7 +102,10 @@ html {
 
 			.gnav-dd-feature-content a {
 				@apply bg-cream rounded-[8px] overflow-hidden px-[12px] py-[24px] w-full flex justify-between items-center;
-                @apply text-dark-gray;
+                
+                .link-text {
+                    @apply text-dark-gray;
+                }
 
 				.code-embed {
 					@apply m-0;
