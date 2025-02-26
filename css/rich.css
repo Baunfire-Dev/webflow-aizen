@@ -137,6 +137,11 @@ html {
                         .gnav-item-arrow {
                             @apply rotate-180;
                         }
+
+                        .gnav-dd-inner {
+                            @apply translate-y-0 opacity-100;
+                            @apply transition-transform duration-[0.4s] ease-out;
+                        }
                     }
                 }
 			}
@@ -151,7 +156,7 @@ html {
 
 			.gnav-dd-inner {
 				@apply w-full min-w-full transform-none bg-transparent !transition-none pt-[16px];
-                @apply translate-y-[40px];
+                @apply translate-y-[30px] opacity-0;
 
 				&.is-pf {
 					@apply flex flex-col gap-[24px];
