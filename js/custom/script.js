@@ -841,7 +841,7 @@ $(document).ready(function () {
         const els = $(".ddg-section");
         if (!els.length) return;
 
-        const timerDuration = 4;
+        const timerDuration = 6;
 
         els.each(function () {
             const self = $(this);
