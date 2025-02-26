@@ -71,45 +71,41 @@ html {
 	}
 
 	@media screen and (max-width: 1279px) {
-		.gnav {
-			&.mob-active {
-				.gnav-burger {
-					div {
-						&:nth-child(1) {
-							transform: translate(0px, 7px) rotate(45deg);
-						}
+		&.mob-active {
+			.gnav-burger {
+				div {
+					&:nth-child(1) {
+						transform: translate(0px, 7px) rotate(45deg);
+					}
 
-						&:nth-child(2) {
-							@apply opacity-0;
-						}
+					&:nth-child(2) {
+						@apply opacity-0;
+					}
 
-						&:nth-child(3) {
-							transform: translate(0px, -7px) rotate(-45deg);
-						}
+					&:nth-child(3) {
+						transform: translate(0px, -7px) rotate(-45deg);
 					}
 				}
+			}
 
-				.gnav-items {
-					@apply flex flex-col absolute top-[104px] left-0 w-full h-[calc(100svh-104px)] bg-tan px-[64px] py-[40px] gap-[24px];
-				}
+			.gnav-items {
+				@apply flex flex-col absolute top-[104px] left-0 w-full h-[calc(100svh-104px)] bg-tan px-[64px] py-[40px] gap-[24px];
+			}
 
-				.gnav-item {
-					@apply px-0;
-				}
+            .gnav-item {
+				@apply px-0;
+			}
 
-				.gnav-item-inner {
-					@apply py-[16px] w-full;
-				}
+            .gnav-item-inner {
+				@apply py-[16px] w-full;
 			}
 		}
 	}
 
 	@media screen and (max-width: 767px) {
-		.gnav {
-			&.mob-active {
-				.gnav-items {
-					@apply px-[20px] gap-[16px];
-				}
+		&.mob-active {
+			.gnav-items {
+                @apply px-[20px] gap-[16px];
 			}
 		}
 	}
