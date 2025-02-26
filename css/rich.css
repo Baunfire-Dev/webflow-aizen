@@ -149,7 +149,7 @@ html {
 
 			.gnav-dd-nav-group-item-head {
 				&.is-pf {
-					@apply flex;
+					@apply flex items-center gap-[8px];
 				}
 			}
 
