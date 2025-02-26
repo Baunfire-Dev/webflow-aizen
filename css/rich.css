@@ -100,8 +100,12 @@ html {
                 @apply hidden;
             }
 
-            .gnav-dd-feature-content {
-                @apply bg-cream rounded-[8px] overflow-hidden px-[12px] py-[24px];
+            .gnav-dd-feature-content a {
+                @apply bg-cream rounded-[8px] overflow-hidden px-[12px] py-[24px] w-full flex justify-between items-center;
+
+                .code-embed {
+                    @apply m-0;
+                }
             }
 
             .gnav-item {
