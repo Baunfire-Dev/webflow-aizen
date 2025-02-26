@@ -375,3 +375,9 @@ textarea {
         }
     }
 }
+
+.testimonials-block {
+    .owl-stage {
+        @apply flex;
+    }
+}
