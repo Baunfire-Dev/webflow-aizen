@@ -13,6 +13,8 @@ $(document).ready(function () {
 
         const mobileItems = () => {
             const navItems = navbar.find(".gnav-item.parent");
+            const navScroll = navbar.find(".gnav-items");
+            
             let mm = gsap.matchMedia();
 
             mm.add(
@@ -42,7 +44,7 @@ $(document).ready(function () {
                                 self.parent().addClass("open");
                             }
 
-                            gsap.to(self, {
+                            gsap.to(navScroll, {
                                 duration: 1,
                                 scrollTo: { y: self, offsetY: 140, autoKill: true },
                                 ease: "circ.out",
