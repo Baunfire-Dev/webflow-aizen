@@ -888,7 +888,7 @@ $(document).ready(function () {
                 if (imagesContainer.hasClass("activated")) {
                     imagesContainer.addClass("active");
                 }
-                
+
                 if (activeItem) {
                     activateSlide(activeItem);
                 } else {
@@ -906,6 +906,13 @@ $(document).ready(function () {
                 start: "top center",
                 end: "bottom 40%",
                 onEnter: function () {
+                    if (timerTween) {
+                        timerTween.resume();
+                    } else {
+                        startLoop();
+                    }
+                },
+                onEnterBack: function () {
                     if (timerTween) {
                         timerTween.resume();
                     } else {
