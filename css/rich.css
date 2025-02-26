@@ -156,17 +156,14 @@ html {
 			}
 
 			.gnav-dd-nav-group-item {
-				&.is-pf {
+				&.is-pf,
+                &.is-sol {
 					@apply p-[12px] flex flex-col gap-[8px] rounded-[8px];
 
 					&:hover {
 						@apply bg-cream;
 					}
 				}
-
-                &.is-sol {
-                    @apply p-[12px] flex flex-col gap-[8px] rounded-[8px];
-                }
 			}
 
 			.gnav-dd-nav-group-item-desc {
