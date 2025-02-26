@@ -172,6 +172,11 @@ html {
 						@apply bg-cream;
 					}
 				}
+
+                &.is-sol,
+                &.is-normal {
+					@apply items-center;
+				}
 			}
 
 			.gnav-dd-nav-group-item-desc {
