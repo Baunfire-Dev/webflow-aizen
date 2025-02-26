@@ -143,7 +143,8 @@ html {
 			}
 
 			.gnav-dd-nav-groups {
-				@apply flex flex-col gap-[16px];
+				@apply grid gap-[16px];
+                grid-template-columns: repeat(2, minmax(0, 1fr));
 			}
 
 			.gnav-dd-nav-group {
@@ -204,6 +205,10 @@ html {
 				.cta-blue-container a {
 					@apply w-full text-center;
 				}
+			}
+
+            .gnav-dd-nav-groups {
+				@apply flex flex-col;
 			}
 		}
 	}
