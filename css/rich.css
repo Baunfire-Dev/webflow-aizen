@@ -121,8 +121,24 @@ html {
 				}
 			}
 
+            .gnav-item-arrow {
+                @apply transition-transform duration-300 ease-in-out;
+            }
+
 			.gnav-item {
 				@apply px-0 flex-col;
+
+                &.parent {
+                    &.open {
+                        .gnav-dd {
+                            @apply h-auto;
+                        }
+
+                        .gnav-item-arrow {
+                            @apply rotate-180;
+                        }
+                    }
+                }
 			}
 
 			.gnav-item-inner {
