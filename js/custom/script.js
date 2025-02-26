@@ -875,7 +875,7 @@ $(document).ready(function () {
                     if (!firstLoad) {
                         gsap.to(window, {
                             duration: 1,
-                            scrollTo: { y: subSelf, offsetY: offsetAmount - 40, autoKill: true },
+                            scrollTo: { y: subSelf, offsetY: offsetAmount + 40, autoKill: true },
                             ease: "circ.out",
                             overwrite: true
                         });
