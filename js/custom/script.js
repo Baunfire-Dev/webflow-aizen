@@ -839,7 +839,7 @@ $(document).ready(function () {
 
     const handleDiagramSteps = () => {
         const els = $(".ddg-section");
-        if (els.length) return;
+        if (!els.length) return;
 
         const timerDuration = 4;
 
@@ -889,7 +889,7 @@ $(document).ready(function () {
                 if (imagesContainer.hasClass("activated")) {
                     imagesContainer.addClass("active");
                 }
-                
+
                 if (activeItem) {
                     activateSlide(activeItem);
                 } else {
@@ -922,7 +922,6 @@ $(document).ready(function () {
                     activateSlide(nextItem);
                 }, timerDuration * 1000);
             }
-
 
             items.on('click', function () {
                 const subSelf = $(this);
