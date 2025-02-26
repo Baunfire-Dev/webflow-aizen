@@ -840,104 +840,88 @@ $(document).ready(function () {
     const handleDiagramSteps = () => {
         const els = $(".ddg-section");
         if (!els.length) return;
-
+    
         const timerDuration = 6;
-
+    
         els.each(function () {
             const self = $(this);
-
+    
             const items = self.find('.ddg-item');
             const imagesContainer = self.find(".ddg-item-images");
             const images = self.find('.ddg-item-image');
             const timerBars = items.find('.ddg-bar-inner');
-
+    
             let activeItem = null;
-            let timer;
             let timerTween;
-
+    
             const activateSlide = (targetItem) => {
                 if (timerTween) timerTween.kill();
-
+    
                 items.removeClass('active');
                 images.removeClass('active');
-
-                gsap.set(timerBars, {
-                    width: 0,
-                })
-
+                gsap.set(timerBars, { width: 0 });
+    
                 const id = targetItem.attr("diagram-id");
                 const targetImage = self.find(`.ddg-item-image[diagram-id='${id}']`);
                 const targetTimerBar = targetItem.find(".ddg-bar-inner");
-
+    
                 targetItem.addClass("active");
-                targetImage.addClass('active');
-
+                targetImage.addClass("active");
+                activeItem = targetItem;
+    
                 timerTween = gsap.to(targetTimerBar, {
                     duration: timerDuration,
                     width: "100%",
                     ease: "linear",
-                    overwrite: true
+                    overwrite: true,
+                    onComplete: function () {
+                        let nextItem = activeItem.next('.ddg-item');
+                        if (!nextItem.length) {
+                            nextItem = items.first();
+                        }
+                        activateSlide(nextItem);
+                    }
                 });
-
-                activeItem = targetItem;
-            }
-
+            };
+    
             const startLoop = () => {
                 if (imagesContainer.hasClass("activated")) {
                     imagesContainer.addClass("active");
                 }
-
+                
                 if (activeItem) {
                     activateSlide(activeItem);
                 } else {
                     activateSlide(items.first());
                 }
-
-                timer = setInterval(function () {
-                    let nextItem = activeItem.next('.ddg-item');
-
-                    if (!nextItem.length) {
-                        nextItem = items.first();
-                    }
-
-                    activateSlide(nextItem);
-                }, timerDuration * 1000);
-            }
-
-            const resetLoop = (targetItem) => {
-                clearInterval(timer);
-                activateSlide(targetItem);
-                activeItem = targetItem;
-
-                timer = setInterval(function () {
-                    let nextItem = activeItem.next('.ddg-item');
-
-                    if (!nextItem.length) {
-                        nextItem = items.first();
-                    }
-
-                    activateSlide(nextItem);
-                }, timerDuration * 1000);
-            }
-
+            };
+    
             items.on('click', function () {
                 const subSelf = $(this);
-                resetLoop(subSelf);
+                activateSlide(subSelf);
             });
-
+    
             ScrollTrigger.create({
                 trigger: self,
                 start: "top center",
                 end: "bottom 40%",
                 onEnter: function () {
-                    startLoop();
+                    if (timerTween) {
+                        timerTween.resume();
+                    } else {
+                        startLoop();
+                    }
+                },
+                onLeave: function () {
+                    if (timerTween) timerTween.pause();
                 },
                 onLeaveBack: function () {
-                    clearInterval(timer);
+                    if (timerTween) timerTween.pause();
                 }
             });
-        })
+        });
     };
+    
 
     pageEntrance();
     scrollTextReveal();
