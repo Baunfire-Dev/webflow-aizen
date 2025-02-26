@@ -181,7 +181,8 @@ html {
 			}
 
 			.gnav-dd-nav-group-item-title {
-				&.is-pf {
+				&.is-pf,
+                &.is-feature {
 					font-family: Satoshi Variable, sans-serif;
 					@apply leading-[120%] text-[16px] tracking-[normal] font-bold;
 				}
