@@ -140,7 +140,7 @@ html {
 			}
 
 			.gnav-dd-nav-group-title {
-				@apply text-gray opacity-50 pl-[12px];
+				@apply text-gray opacity-50 pl-[12px] !block;
 				font-family: Satoshi Variable, sans-serif;
 				@apply leading-[140%] text-[18px] tracking-[-0.54px] font-bold;
 			}
