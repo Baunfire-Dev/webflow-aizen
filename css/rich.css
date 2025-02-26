@@ -94,6 +94,16 @@ html {
                 overflow-x: clip;
 			}
 
+            .gnav-dd-feature-image,
+            .gnav-dd-feature-title,
+            .gnav-dd-feature-desc {
+                @apply hidden;
+            }
+
+            .gnav-dd-feature-content {
+                @apply bg-cream rounded-[8px] overflow-hidden px-[12px] py-[24px];
+            }
+
             .gnav-item {
 				@apply px-0 flex-col;
 			}
