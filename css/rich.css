@@ -127,7 +127,17 @@ html {
 
 			.gnav-dd-inner {
 				@apply w-full min-w-full transform-none bg-transparent !transition-none pt-[16px];
+
+                &.is-pf {
+					@apply flex flex-col gap-[24px];
+				}
 			}
+
+            .gnav-dd-nav-group-title {
+                @apply text-gray opacity-50 pl-[12px];
+                font-family: Satoshi Variable, sans-serif;
+                @apply leading-[140%] text-[18px] tracking-[-0.54px] font-bold;
+            }
 
 			.gnav-dd-nav-groups {
 				@apply flex flex-col gap-[16px];
