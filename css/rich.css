@@ -159,9 +159,13 @@ html {
 			}
 
 			.gnav-dd-nav-group-item {
+                &.is-pf {
+					@apply flex-col;
+				}
+
 				&.is-pf,
                 &.is-sol {
-					@apply p-[12px] flex flex-col gap-[8px] rounded-[8px];
+					@apply p-[12px] flex gap-[8px] rounded-[8px];
 
 					&:hover {
 						@apply bg-cream;
