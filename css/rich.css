@@ -128,7 +128,7 @@ html {
 			}
 
 			.gnav-dd {
-				@apply relative top-0 left-0 w-full transform-none;
+				@apply relative top-0 left-0 w-full transform-none h-0 overflow-hidden;
 			}
 
 			.gnav-dd-inner {

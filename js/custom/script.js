@@ -10,7 +10,40 @@ $(document).ready(function () {
             })
         }
 
+        const mobileItems = () => {
+            const navItems = navbar.find(".gnav-item.parent");
+            let mm = gsap.matchMedia();
+
+            mm.add(
+                {
+                    isDesktop: `(min-width: 1280px)`,
+                    isMobile: `(max-width: 1279.98px)`,
+                },
+                (context) => {
+                    let { isDesktop, isMobile } = context.conditions;
+
+                    if (isDesktop) {
+                        navbar.removeClass("mob-active");
+                        navItems.removeClass("open");
+                        $("html").removeClass("hide-overflow");
+
+                        navItems.find(".gnav-item-inner").off("click");
+                    }
+
+                    if (isMobile) {
+                        navItems.find(".gnav-item-inner").click(function() {
+                            const self = $(this);
+                            self.parent().toggleClass("open");
+                        });
+                    }
+
+                    return () => { };
+                }
+            );
+        }
+
         burger();
+        mobileItems();
     };
 
     const pageEntrance = () => {
