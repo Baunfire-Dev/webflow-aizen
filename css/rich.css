@@ -163,6 +163,10 @@ html {
 						@apply bg-cream;
 					}
 				}
+
+                &.is-sol {
+                    @apply p-[12px] flex flex-col gap-[8px] rounded-[8px];
+                }
 			}
 
 			.gnav-dd-nav-group-item-desc {
