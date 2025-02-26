@@ -847,6 +847,7 @@ $(document).ready(function () {
             const self = $(this);
 
             const items = self.find('.ddg-item');
+            const imagesContainer = self.find(".ddg-item-images");
             const images = self.find('.ddg-item-image');
             const timerBars = items.find('.ddg-bar-inner');
 
@@ -885,6 +886,10 @@ $(document).ready(function () {
             }
 
             const startLoop = () => {
+                if (imagesContainer.hasClass("activated")) {
+                    imagesContainer.addClass("active");
+                }
+                
                 if (activeItem) {
                     activateSlide(activeItem);
                 } else {

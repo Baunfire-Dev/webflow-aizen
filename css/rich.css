@@ -325,4 +325,10 @@ textarea {
             @apply opacity-100;
         }
     }
+
+    &:not(.activated) {
+        .ddg-item-image:first-child {
+            @apply opacity-100;
+        }
+    }
 }
