@@ -97,7 +97,7 @@ html {
 			}
 
             .gnav-item-inner {
-				@apply py-[16px] w-full;
+				@apply py-[16px] w-full justify-between;
 			}
 		}
 	}
@@ -106,6 +106,10 @@ html {
 		&.mob-active {
 			.gnav-items {
                 @apply px-[20px] gap-[16px];
+			}
+
+            .gnav-items {
+				@apply top-[52px] h-[calc(100svh-52px)];
 			}
 		}
 	}
