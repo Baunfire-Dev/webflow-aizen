@@ -391,7 +391,7 @@ textarea {
 }
 
 .gnav-burger {
-    @apply flex flex-col justify-between;
+    @apply flex flex-col justify-between h-[16px];
     
     &::before,
     &::after {
@@ -399,7 +399,7 @@ textarea {
     }
 
     div {
-        @apply h-[2px] w-[44px] rounded-[6px] bg-black;
+        @apply h-[2px] w-[24px] rounded-[6px] bg-black;
 
         &:nth-child(1) {
 
