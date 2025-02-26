@@ -376,7 +376,7 @@ textarea {
     }
 }
 
-.testimonials-block {
+.testimonials-container {
     .owl-stage {
         @apply flex;
     }
