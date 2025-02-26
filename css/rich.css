@@ -48,6 +48,10 @@
     }
 
     .gnav-item {
+        &, & * {
+            @apply cursor-pointer;
+        }
+        
         &:hover {
             .gnav-item-inner {
                 @apply bg-tan;
