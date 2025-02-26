@@ -90,69 +90,97 @@ html {
 
 			.gnav-items {
 				@apply flex flex-col absolute top-[104px] left-0 w-full h-[calc(100vh-104px)] bg-tan px-[64px] pt-[40px] pb-[80px] gap-[24px];
-                overflow-y: auto;
-                overflow-x: clip;
+				overflow-y: auto;
+				overflow-x: clip;
 			}
 
-            .gnav-dd-feature-image,
-            .gnav-dd-feature-title,
-            .gnav-dd-feature-desc {
-                @apply hidden;
-            }
+			.gnav-dd-feature-image,
+			.gnav-dd-feature-title,
+			.gnav-dd-feature-desc {
+				@apply hidden;
+			}
 
-            .gnav-dd-feature-content a {
-                @apply bg-cream rounded-[8px] overflow-hidden px-[12px] py-[24px] w-full flex justify-between items-center;
+			.gnav-dd-feature-content a {
+				@apply bg-cream rounded-[8px] overflow-hidden px-[12px] py-[24px] w-full flex justify-between items-center;
+                @apply text-dark-gray;
 
-                .code-embed {
-                    @apply m-0;
-                }
-            }
+				.code-embed {
+					@apply m-0;
 
-            .gnav-item {
+                    svg path {
+                        @apply !fill-dark-gray;
+                    }
+				}
+			}
+
+			.gnav-item {
 				@apply px-0 flex-col;
 			}
 
-            .gnav-item-inner {
+			.gnav-item-inner {
 				@apply py-[16px] w-full justify-between;
 			}
 
-            .gnav-dd {
-                @apply relative top-0 left-0 w-full transform-none;
-            }
+			.gnav-dd {
+				@apply relative top-0 left-0 w-full transform-none;
+			}
 
-            .gnav-dd-inner {
-                @apply w-full min-w-full transform-none bg-transparent !transition-none pt-[16px];
-            }
+			.gnav-dd-inner {
+				@apply w-full min-w-full transform-none bg-transparent !transition-none pt-[16px];
+			}
 
-            .gnav-dd-nav-groups {
-                @apply flex flex-col gap-[16px];
-            }
+			.gnav-dd-nav-groups {
+				@apply flex flex-col gap-[16px];
+			}
 
-            .gnav-dd-nav-group {
-                @apply flex flex-col gap-[16px];
-            }
+			.gnav-dd-nav-group {
+				@apply flex flex-col gap-[16px];
+			}
 
-            .gnav-dd-nav-group-items {
-                @apply flex flex-col gap-[16px];
-            }
+			.gnav-dd-nav-group-items {
+				@apply flex flex-col gap-[16px];
+			}
+
+			.gnav-dd-nav-group-item {
+				&.is-pf {
+					@apply p-[12px] flex flex-col gap-[8px];
+				}
+			}
+
+			.gnav-dd-nav-group-item-head {
+				&.is-pf {
+					@apply flex;
+				}
+			}
+
+			.gnav-dd-nav-group-item-image {
+				@apply h-[24px] w-[24px];
+			}
+
+			.gnav-dd-nav-group-item-title {
+				&.is-pf {
+                    font-family: Satoshi Variable, sans-serif;
+                    @apply leading-[120%] text-[16px] tracking-[normal] font-bold;
+				}
+			}
 		}
 	}
 
 	@media screen and (max-width: 767px) {
 		&.mob-active {
 			.gnav-items {
-                @apply px-[20px] gap-[16px] pt-[20px];
+				@apply px-[20px] gap-[16px] pt-[20px];
 			}
 
-            .gnav-items {
+			.gnav-items {
 				@apply top-[52px] h-[calc(100vh-52px)];
 			}
 
-            .gnav-cta.is-mobile {
-                .cta-blue-container a {
-                    @apply w-full text-center;
-                }
-            }
+			.gnav-cta.is-mobile {
+				.cta-blue-container a {
+					@apply w-full text-center;
+				}
+			}
 		}
 	}
 }
