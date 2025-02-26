@@ -246,7 +246,7 @@ html {
 			}
 
 			.gnav-items {
-				@apply top-[52px] h-[calc(100vh-52px)];
+				@apply top-[72px] h-[calc(100vh-72px)];
 			}
 
 			.gnav-cta.is-mobile {
