@@ -143,7 +143,11 @@ html {
 
 			.gnav-dd-nav-group-item {
 				&.is-pf {
-					@apply p-[12px] flex flex-col gap-[8px];
+					@apply p-[12px] flex flex-col gap-[8px] rounded-[8px];
+
+                    &:hover {
+                        @apply bg-cream;
+                    }
 				}
 			}
 
