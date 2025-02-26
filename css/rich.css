@@ -81,7 +81,7 @@
     }
 
     .gnav-dd-inner {
-        @apply opacity-0 translate-y-[40px];
+        @apply translate-y-[40px];
     }
 }
 
