@@ -52,8 +52,7 @@
             @apply cursor-pointer;
         }
         
-        &:has(.gnav-dd:hover),
-        &:has(.gnav-item-inner:hover) {
+        &:hover {
             .gnav-item-inner {
                 @apply bg-tan;
             }
