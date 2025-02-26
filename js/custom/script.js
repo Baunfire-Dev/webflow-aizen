@@ -826,11 +826,9 @@ $(document).ready(function () {
                         const windowHeight = $(window).innerHeight();
                         const offsetAmount = (windowHeight - elementHeight) / 2.5;
 
-                    console.log(offsetAmount);
-
                         gsap.to(window, {
                             duration: 1,
-                            scrollTo: { y: subSelf, offsetY: 400, autoKill: true },
+                            scrollTo: { y: subSelf, offsetY: offsetAmount, autoKill: true },
                             ease: "circ.out",
                             overwrite: true
                         });
