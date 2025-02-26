@@ -796,7 +796,7 @@ $(document).ready(function () {
 
             let firstLoad = true;
 
-            const images = self.find(".home-acc-image-outer");
+            const images = self.find(".home-acc-image-outer:not(.is-mobile)");
             images.first().addClass("active");
 
             accs.each(function () {
@@ -805,7 +805,7 @@ $(document).ready(function () {
                 const body = subSelf.find(".home-acc-item-body");
 
                 const id = subSelf.attr("acc-id");
-                const target = self.find(`.home-acc-image-outer[acc-id="${id}"]`);
+                const target = self.find(`.home-acc-image-outer:not(.is-mobile)[acc-id="${id}"]`);
                 const targetClone = target.clone();
                 targetClone.addClass("is-mobile");
 
