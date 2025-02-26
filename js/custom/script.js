@@ -837,6 +837,107 @@ $(document).ready(function () {
         });
     };
 
+    const handleDiagramSteps = () => {
+        const els = $(".ddg-section");
+        if (els.length) return;
+
+        const timerDuration = 4;
+
+        els.each(function () {
+            const self = $(this);
+
+            const items = self.find('.ddg-item');
+            const images = self.find('.ddg-item-image');
+            const timerBars = items.find('.ddg-bar-inner');
+
+            let activeItem = null;
+            let timer;
+            let timerTween;
+
+            const activateSlide = (targetItem) => {
+                if (timerTween) timerTween.kill();
+
+                items.removeClass('active');
+                images.removeClass('active');
+
+                gsap.to(timerBars, {
+                    width: 0,
+                    duration: 0.3,
+                    ease: Power1.easeOut,
+                    overwrite: true
+                })
+
+                const id = targetItem.attr("diagram-id");
+                const targetImage = self.find(`.ddg-item-image[diagram-id='${id}']`);
+                const targetTimerBar = targetItem.find(".ddg-bar-inner");
+
+                targetItem.addClass("active");
+                targetImage.addClass('active');
+
+                timerTween = gsap.to(targetTimerBar, {
+                    duration: timerDuration,
+                    width: "100%",
+                    ease: "linear",
+                    overwrite: true
+                });
+
+                activeItem = targetItem;
+            }
+
+            const startLoop = () => {
+                if (activeItem) {
+                    activateSlide(activeItem);
+                } else {
+                    activateSlide(items.first());
+                }
+
+                timer = setInterval(function () {
+                    let nextItem = activeItem.next('.ddg-item');
+
+                    if (!nextItem.length) {
+                        nextItem = items.first();
+                    }
+
+                    activateSlide(nextItem);
+                }, timerDuration * 1000);
+            }
+
+            const resetLoop = (targetItem) => {
+                clearInterval(timer);
+                activateSlide(targetItem);
+                activeItem = targetItem;
+
+                timer = setInterval(function () {
+                    let nextItem = activeItem.next('.ddg-item');
+
+                    if (!nextItem.length) {
+                        nextItem = items.first();
+                    }
+
+                    activateSlide(nextItem);
+                }, timerDuration * 1000);
+            }
+
+
+            items.on('click', function () {
+                const subSelf = $(this);
+                resetLoop(subSelf);
+            });
+
+            ScrollTrigger.create({
+                trigger: self,
+                start: "top center",
+                end: "bottom 40%",
+                onEnter: function () {
+                    startLoop();
+                },
+                onLeaveBack: function () {
+                    clearInterval(timer);
+                }
+            });
+        })
+    };
+
     pageEntrance();
     scrollTextReveal();
     homeButtonsHighlight();
@@ -848,6 +949,7 @@ $(document).ready(function () {
     handleHomeAccDropdowns();
     handleSolutionAccDropdowns();
     formResizeRefresh();
+    handleDiagramSteps();
 
     if (window.matchMedia("(min-width: 992px)").matches) {
         DTCTTabloopDesktop();
