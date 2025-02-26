@@ -802,6 +802,16 @@ $(document).ready(function () {
             accs.each(function () {
                 const subSelf = $(this);
                 const head = subSelf.find(".home-acc-item-head");
+                const body = subSelf.find(".home-acc-item-body");
+
+                const id = subSelf.attr("acc-id");
+                const target = self.find(`.home-acc-image-outer[acc-id="${id}"]`);
+                const targetClone = target.clone();
+                targetClone.addClass("is-mobile");
+
+                if (target.length) {
+                    body.append(targetClone);
+                }
 
                 head.click(function () {
                     if (subSelf.hasClass("active")) {
@@ -810,9 +820,6 @@ $(document).ready(function () {
                         accs.removeClass("active");
                         subSelf.addClass("active");
 
-                        const id = subSelf.attr("acc-id");
-                        const target = self.find(`.home-acc-image-outer[acc-id="${id}"]`);
-
                         if (target.length) {
                             images.removeClass("active");
                             target.addClass("active");
@@ -820,8 +827,6 @@ $(document).ready(function () {
                     }
 
                     if (!firstLoad) {
-                        const target = window.matchMedia("(max-width: 992px)").matches ? accsContainer : self;
-
                         const elementHeight = subSelf.height();
                         const windowHeight = $(window).innerHeight();
                         const offsetAmount = (windowHeight - elementHeight) / 2;
