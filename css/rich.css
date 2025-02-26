@@ -105,6 +105,10 @@ html {
             .gnav-dd {
                 @apply relative top-0 left-0 w-full transform-none;
             }
+
+            .gnav-dd-inner {
+                @apply w-full min-w-full transform-none bg-transparent !transition-none;
+            }
 		}
 	}
 
