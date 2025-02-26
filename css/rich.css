@@ -151,6 +151,7 @@ html {
 
 			.gnav-dd-inner {
 				@apply w-full min-w-full transform-none bg-transparent !transition-none pt-[16px];
+                @apply translate-y-[40px];
 
 				&.is-pf {
 					@apply flex flex-col gap-[24px];
