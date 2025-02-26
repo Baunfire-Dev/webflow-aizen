@@ -105,12 +105,18 @@ html {
 	@media screen and (max-width: 767px) {
 		&.mob-active {
 			.gnav-items {
-                @apply px-[20px] gap-[16px];
+                @apply px-[20px] gap-[16px] pt-[20px];
 			}
 
             .gnav-items {
 				@apply top-[52px] h-[calc(100svh-52px)];
 			}
+
+            .gnav-cta.is-mobile {
+                .cta-blue-container a {
+                    @apply w-full text-center;
+                }
+            }
 		}
 	}
 }
