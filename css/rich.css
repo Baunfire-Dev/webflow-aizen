@@ -74,6 +74,8 @@ html {
 
 	@media screen and (max-width: 1279px) {
 		&.mob-active {
+            @apply !bg-tan;
+
 			.gnav-burger {
 				div {
 					&:nth-child(1) {
