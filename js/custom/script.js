@@ -824,7 +824,7 @@ $(document).ready(function () {
 
                         gsap.to(window, {
                             duration: 1,
-                            scrollTo: { y: target, offsetY: 140, autoKill: true },
+                            scrollTo: { y: subSelf, offsetY: 140, autoKill: true },
                             ease: "circ.out",
                             overwrite: true
                         });
