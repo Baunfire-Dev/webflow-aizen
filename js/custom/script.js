@@ -861,11 +861,8 @@ $(document).ready(function () {
                 items.removeClass('active');
                 images.removeClass('active');
 
-                gsap.to(timerBars, {
+                gsap.set(timerBars, {
                     width: 0,
-                    duration: 0.3,
-                    ease: Power1.easeOut,
-                    overwrite: true
                 })
 
                 const id = targetItem.attr("diagram-id");
