@@ -1,3 +1,9 @@
+html {
+    &.hide-overflow {
+        @apply overflow-hidden;
+    }
+}
+
 .navbar {
 	.cta-block:not(.mobile-cta),
 	.nav-content .nav-menu {

@@ -6,6 +6,7 @@ $(document).ready(function () {
             const hamburger = navbar.find(".gnav-burger");
             hamburger.click(function() {
                 navbar.toggleClass("mob-active");
+                $("html").toggleClass("hide-overflow");
             })
         }
 
