@@ -96,7 +96,8 @@ html {
 
 			.gnav-dd-feature-image,
 			.gnav-dd-feature-title,
-			.gnav-dd-feature-desc {
+			.gnav-dd-feature-desc,
+            .gg-nav-dd-quote {
 				@apply hidden;
 			}
 
