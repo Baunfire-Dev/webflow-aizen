@@ -184,9 +184,19 @@ html {
 
 			.gnav-dd-nav-group-item-title {
 				&.is-pf,
-                &.is-feature {
+                &.is-feature,
+                &.is-sol {
 					font-family: Satoshi Variable, sans-serif;
-					@apply leading-[120%] text-[16px] tracking-[normal] font-bold;
+					@apply leading-[120%] text-[16px] tracking-[normal];
+				}
+
+                &.is-pf,
+                &.is-feature {
+					@apply font-bold;
+				}
+
+                &.is-sol {
+					@apply font-medium;
 				}
 			}
 		}
