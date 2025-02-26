@@ -62,20 +62,6 @@
 				@apply bg-tan;
 			}
 		}
-
-		.gnav-burger {
-			@apply flex flex-col justify-between h-[16px];
-
-			&::before,
-			&::after {
-				@apply hidden;
-			}
-
-			div {
-				@apply h-[2px] w-[24px] rounded-[6px] bg-black;
-				@apply transition-all duration-300 ease-in-out;
-			}
-		}
 	}
 
 	&.mob-active {
