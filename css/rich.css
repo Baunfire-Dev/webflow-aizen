@@ -102,17 +102,17 @@ html {
 
 			.gnav-dd-feature-content a {
 				@apply bg-cream rounded-[8px] overflow-hidden px-[12px] py-[24px] w-full flex justify-between items-center;
-                
-                .link-text {
-                    @apply text-dark-gray;
-                }
+
+				.link-text {
+					@apply text-dark-gray;
+				}
 
 				.code-embed {
 					@apply m-0;
 
-                    svg path {
-                        @apply !fill-dark-gray;
-                    }
+					svg path {
+						@apply !fill-dark-gray;
+					}
 				}
 			}
 
@@ -131,16 +131,16 @@ html {
 			.gnav-dd-inner {
 				@apply w-full min-w-full transform-none bg-transparent !transition-none pt-[16px];
 
-                &.is-pf {
+				&.is-pf {
 					@apply flex flex-col gap-[24px];
 				}
 			}
 
-            .gnav-dd-nav-group-title {
-                @apply text-gray opacity-50 pl-[12px];
-                font-family: Satoshi Variable, sans-serif;
-                @apply leading-[140%] text-[18px] tracking-[-0.54px] font-bold;
-            }
+			.gnav-dd-nav-group-title {
+				@apply text-gray opacity-50 pl-[12px];
+				font-family: Satoshi Variable, sans-serif;
+				@apply leading-[140%] text-[18px] tracking-[-0.54px] font-bold;
+			}
 
 			.gnav-dd-nav-groups {
 				@apply flex flex-col gap-[16px];
@@ -158,10 +158,16 @@ html {
 				&.is-pf {
 					@apply p-[12px] flex flex-col gap-[8px] rounded-[8px];
 
-                    &:hover {
-                        @apply bg-cream;
-                    }
+					&:hover {
+						@apply bg-cream;
+					}
 				}
+			}
+
+			.gnav-dd-nav-group-item-desc {
+                font-family: Satoshi Variable, sans-serif;
+                @apply leading-[120%] text-[16px] tracking-[normal] font-medium;
+				color: rgba(21, 21, 21, 0.69);
 			}
 
 			.gnav-dd-nav-group-item-head {
@@ -176,8 +182,8 @@ html {
 
 			.gnav-dd-nav-group-item-title {
 				&.is-pf {
-                    font-family: Satoshi Variable, sans-serif;
-                    @apply leading-[120%] text-[16px] tracking-[normal] font-bold;
+					font-family: Satoshi Variable, sans-serif;
+					@apply leading-[120%] text-[16px] tracking-[normal] font-bold;
 				}
 			}
 		}
