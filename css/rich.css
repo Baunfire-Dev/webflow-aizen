@@ -320,5 +320,9 @@ textarea {
 .ddg-item-images {
     .ddg-item-image {
         @apply absolute top-0 left-0 h-full w-full opacity-0;
+
+        &.active {
+            @apply opacity-100;
+        }
     }
 }
