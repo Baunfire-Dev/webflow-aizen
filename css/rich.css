@@ -80,6 +80,10 @@
 				}
 			}
 		}
+
+        .gnav-items {
+            @apply flex flex-col absolute top-[104px] left-0 w-full h-[calc(100svh-104px)];
+        }
 	}
 }
 
