@@ -85,7 +85,7 @@
     }
 
     .gnav-dd-nav-group-item {
-        @apply transition-colors duration-300 ease-in-out;
+        @apply transition-colors duration-300 ease-in-out rounded-[0.5rem];
 
         &:hover {
             @apply bg-tan;
