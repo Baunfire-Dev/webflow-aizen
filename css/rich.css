@@ -227,6 +227,10 @@ html {
 
             .gnav-dd-nav-groups {
 				@apply flex flex-col;
+                
+                &.is-sol {
+                    @apply gap-[24px];
+                }
 			}
 		}
 	}
