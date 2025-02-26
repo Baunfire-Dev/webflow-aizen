@@ -89,7 +89,9 @@ html {
 			}
 
 			.gnav-items {
-				@apply flex flex-col absolute top-[104px] left-0 w-full h-[calc(100svh-104px)] bg-tan px-[64px] py-[40px] gap-[24px];
+				@apply flex flex-col absolute top-[104px] left-0 w-full h-[calc(100vh-104px)] bg-tan px-[64px] pt-[40px] pb-[80px] gap-[24px];
+                overflow-y: auto;
+                overflow-x: clip;
 			}
 
             .gnav-item {
@@ -113,7 +115,7 @@ html {
 			}
 
             .gnav-items {
-				@apply top-[52px] h-[calc(100svh-52px)];
+				@apply top-[52px] h-[calc(100vh-52px)];
 			}
 
             .gnav-cta.is-mobile {
