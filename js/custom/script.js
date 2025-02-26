@@ -824,7 +824,7 @@ $(document).ready(function () {
 
                         const elementHeight = subSelf.height();
                         const windowHeight = $(window).innerHeight();
-                        const offsetAmount = (windowHeight - elementHeight) / 2;
+                        const offsetAmount = (windowHeight - elementHeight) / 2.5;
 
                     console.log(offsetAmount);
 
