@@ -1,7 +1,7 @@
 html {
-    &.hide-overflow {
-        @apply overflow-hidden;
-    }
+	&.hide-overflow {
+		@apply overflow-hidden;
+	}
 }
 
 .navbar {
@@ -70,26 +70,28 @@ html {
 		}
 	}
 
-	&.mob-active {
-		.gnav-burger {
-			div {
-				&:nth-child(1) {
-					transform: translate(0px, 7px) rotate(45deg);
-				}
+	@media screen and (max-width: 1279px) {
+		&.mob-active {
+			.gnav-burger {
+				div {
+					&:nth-child(1) {
+						transform: translate(0px, 7px) rotate(45deg);
+					}
 
-				&:nth-child(2) {
-					@apply opacity-0;
-				}
+					&:nth-child(2) {
+						@apply opacity-0;
+					}
 
-				&:nth-child(3) {
-					transform: translate(0px, -7px) rotate(-45deg);
+					&:nth-child(3) {
+						transform: translate(0px, -7px) rotate(-45deg);
+					}
 				}
 			}
-		}
 
-        .gnav-items {
-            @apply flex flex-col absolute top-[104px] left-0 w-full h-[calc(100svh-104px)];
-        }
+			.gnav-items {
+				@apply flex flex-col absolute top-[104px] left-0 w-full h-[calc(100svh-104px)];
+			}
+		}
 	}
 }
 
