@@ -1,4 +1,17 @@
 $(document).ready(function () {
+    const handleNav = () => {
+        const navbar = $(".navbar");
+
+        const burger = () => {
+            const hamburger = navbar.find(".gnav-burger");
+            hamburger.click(function() {
+                navbar.toggleClass("mob-active");
+            })
+        }
+
+        burger();
+    };
+
     const pageEntrance = () => {
         const navbar = $(".navbar");
         const heroContainer = $(".hero-container");
@@ -928,8 +941,8 @@ $(document).ready(function () {
             });
         });
     };
-    
 
+    handleNav();
     pageEntrance();
     scrollTextReveal();
     homeButtonsHighlight();

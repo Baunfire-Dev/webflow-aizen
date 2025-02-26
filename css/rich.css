@@ -11,6 +11,90 @@
 			@apply max-[1280px]:!block !order-1;
 		}
 	}
+
+	.gnav {
+		.gnav-item-inner {
+			@apply transition-all duration-300 ease-out;
+		}
+
+		.gnav-item {
+			&,
+			& * {
+				@apply cursor-pointer;
+			}
+
+			&:hover {
+				.gnav-item-inner {
+					@apply bg-tan;
+				}
+			}
+
+			&.parent {
+				&:hover {
+					.gnav-dd {
+						@apply visible;
+					}
+
+					.gnav-dd-inner {
+						@apply translate-y-0;
+						@apply transition-transform duration-[0.5s] ease-out;
+					}
+
+					.gnav-item-arrow {
+						@apply rotate-180;
+					}
+				}
+			}
+		}
+
+		.gnav-item-arrow {
+			@apply transition-transform duration-300 ease-in-out;
+		}
+
+		.gnav-dd-inner {
+			@apply translate-y-[40px];
+		}
+
+		.gnav-dd-nav-group-item {
+			@apply transition-colors duration-200 ease-in-out rounded-[0.5rem];
+
+			&:hover {
+				@apply bg-tan;
+			}
+		}
+
+		.gnav-burger {
+			@apply flex flex-col justify-between h-[16px];
+
+			&::before,
+			&::after {
+				@apply hidden;
+			}
+
+			div {
+				@apply h-[2px] w-[24px] rounded-[6px] bg-black;
+				@apply transition-all duration-300 ease-in-out;
+			}
+		}
+	}
+
+	&.mob-active {
+		.gnav-burger {
+			div {
+				&:nth-child(1) {
+					transform: translate(0px, 7px) rotate(45deg);
+				}
+
+				&:nth-child(2) {
+					@apply opacity-0;
+				}
+
+				&:nth-child(3) {
+					transform: translate(0px, -7px) rotate(-45deg);
+				}
+			}
+		}
+	}
 }
 
 .nav-content {
@@ -40,90 +124,6 @@
 .hero-image:not(.is-default),
 .thin-banner-block {
 	@apply opacity-0;
-}
-
-.gnav {
-	.gnav-item-inner {
-		@apply transition-all duration-300 ease-out;
-	}
-
-	.gnav-item {
-		&,
-		& * {
-			@apply cursor-pointer;
-		}
-
-		&:hover {
-			.gnav-item-inner {
-				@apply bg-tan;
-			}
-		}
-
-		&.parent {
-			&:hover {
-				.gnav-dd {
-					@apply visible;
-				}
-
-				.gnav-dd-inner {
-					@apply translate-y-0;
-					@apply transition-transform duration-[0.5s] ease-out;
-				}
-
-				.gnav-item-arrow {
-					@apply rotate-180;
-				}
-			}
-		}
-	}
-
-	.gnav-item-arrow {
-		@apply transition-transform duration-300 ease-in-out;
-	}
-
-	.gnav-dd-inner {
-		@apply translate-y-[40px];
-	}
-
-	.gnav-dd-nav-group-item {
-		@apply transition-colors duration-200 ease-in-out rounded-[0.5rem];
-
-		&:hover {
-			@apply bg-tan;
-		}
-	}
-
-	.gnav-burger {
-		@apply flex flex-col justify-between h-[16px];
-
-		&::before,
-		&::after {
-			@apply hidden;
-		}
-
-		div {
-			@apply h-[2px] w-[24px] rounded-[6px] bg-black;
-			@apply transition-all duration-300 ease-in-out;
-		}
-	}
-
-    &.mob-active {
-        .gnav-burger {
-            div {
-                &:nth-child(1) {
-                    transform: translate(0px, 7px) rotate(45deg);
-                }
-    
-                &:nth-child(2) {
-                    @apply opacity-0;
-                }
-    
-                &:nth-child(3) {
-                    transform: translate(0px, -7px) rotate(-45deg);
-                }
-            }
-        }
-    }
 }
 
 .slide-up,
