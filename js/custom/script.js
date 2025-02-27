@@ -110,7 +110,14 @@ $(document).ready(function () {
             );
         }
 
+        const setYear = () => {
+            const d = new Date();
+            let year = d.getFullYear();
+            $(".footer-copyright-text.year").text(year);
+        }
+
         footerItems();
+        setYear();
     };
 
     const pageEntrance = () => {
