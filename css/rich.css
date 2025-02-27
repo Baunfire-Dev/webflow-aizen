@@ -299,7 +299,7 @@ html {
 
 .footer {
     .footer-extras {
-        a {
+        .cta-blue-container a {
             @apply w-full text-center;
         }
     }
