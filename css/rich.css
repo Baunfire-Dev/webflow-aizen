@@ -1,5 +1,6 @@
 html {
-	&.hide-overflow {
+	&.hide-overflow,
+    &:has(dialog[open]) {
 		@apply overflow-hidden;
 	}
 }

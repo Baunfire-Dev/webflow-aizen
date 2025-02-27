@@ -1073,12 +1073,10 @@ $(document).ready(function () {
                     dialog[0].showModal();
                     dialog.scrollTop(0);
                     dialog.children('div:first').scrollTop(0);
-                    $("html").addClass("hide-overflow");
                 });
 
                 closeBtn.click(function () {
                     dialog[0].close();
-                    $("html").removeClass("hide-overflow");
                 });
             });
         });
