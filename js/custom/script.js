@@ -617,8 +617,9 @@ $(document).ready(function () {
 
                 ScrollTrigger.create({
                     trigger: subSelf,
-                    start: () => "top center",
-                    end: () => "bottom center",
+                    start: () => "top 140px",
+                    end: () => "bottom 140px",
+                    markers: true,
                     invalidateOnRefresh: true,
                     onEnter: () => handleAnchorState(target, anchors, trigger, select),
                     onEnterBack: () => handleAnchorState(target, anchors, trigger, select)
