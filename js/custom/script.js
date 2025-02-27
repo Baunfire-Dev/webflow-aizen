@@ -636,7 +636,7 @@ $(document).ready(function () {
                 if (!target.length) return;
 
                 subSelf.click(function () {
-                    let offset = (window.innerHeight - target.outerHeight()) / 2;
+                    // let offset = (window.innerHeight - target.outerHeight()) / 2;
                     select.val(trigger);
 
                     if (window.matchMedia("(max-width: 991.98px)").matches) {
@@ -645,7 +645,7 @@ $(document).ready(function () {
 
                     gsap.to(window, {
                         duration: 0.6,
-                        scrollTo: { y: target, offsetY: offset, autoKill: true },
+                        scrollTo: { y: target, offsetY: 140, autoKill: true },
                         ease: "circ.out",
                         overwrite: true,
                     });
