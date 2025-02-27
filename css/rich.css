@@ -297,6 +297,14 @@ html {
 	@apply opacity-0;
 }
 
+.footer {
+    .footer-extras {
+        a {
+            @apply w-full text-center;
+        }
+    }
+}
+
 .slide-up,
 .opac-0 {
 	@apply opacity-0;
