@@ -298,12 +298,6 @@ html {
 }
 
 .footer {
-    .footer-extras {
-        .cta-blue-container a {
-            @apply w-full text-center;
-        }
-    }
-
     .footer-group {
         .footer-group-body {
             @apply opacity-0;
