@@ -207,7 +207,7 @@ html {
 
 			.gnav-dd-nav-group-item-desc {
                 font-family: Satoshi Variable, sans-serif;
-                @apply leading-[120%] text-[16px] tracking-[normal] font-medium;
+                @apply leading-[120%] text-[14px] tracking-[normal] font-medium;
 				color: rgba(21, 21, 21, 0.69);
 			}
 
