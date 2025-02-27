@@ -144,9 +144,17 @@ html {
                             @apply translate-y-0 opacity-100;
                             @apply transition-transform duration-[0.4s] ease-out;
                         }
+
+                        .gnav-item-title {
+                            @apply text-navy;
+                        }
                     }
                 }
 			}
+
+            .gnav-item-title {
+                @apply transition-colors duration-[0.3s] ease-in-out;
+            }
 
 			.gnav-item-inner {
 				@apply py-[16px] w-full justify-between;
