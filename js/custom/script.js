@@ -641,9 +641,9 @@ $(document).ready(function () {
                     // let offset = (window.innerHeight - target.outerHeight()) / 2;
                     // select.val(trigger);
 
-                    // if (window.matchMedia("(max-width: 991.98px)").matches) {
-                    //     offset = 140;
-                    // }
+                    if (window.matchMedia("(max-width: 767.98px)").matches) {
+                        offset = 100;
+                    }
 
                     gsap.to(window, {
                         duration: 0.6,
