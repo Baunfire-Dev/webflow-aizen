@@ -599,6 +599,8 @@ $(document).ready(function () {
         const els = $(".integ.section");
         if (!els.length) return;
 
+        const offset = 200;
+
         const highlightAnchors = (self) => {
             const anchors = self.find(".integ-anchor");
             const groups = self.find(".integ-group");
@@ -617,8 +619,8 @@ $(document).ready(function () {
 
                 ScrollTrigger.create({
                     trigger: subSelf,
-                    start: () => "top 140px",
-                    end: () => "bottom 140px",
+                    start: () => `top ${200}px`,
+                    end: () => `bottom ${200}px`,
                     markers: true,
                     invalidateOnRefresh: true,
                     onEnter: () => handleAnchorState(target, anchors, trigger, select),
@@ -640,12 +642,12 @@ $(document).ready(function () {
                     select.val(trigger);
 
                     if (window.matchMedia("(max-width: 991.98px)").matches) {
-                        offset = 140;
+                        offset = 200;
                     }
 
                     gsap.to(window, {
                         duration: 0.6,
-                        scrollTo: { y: target, offsetY: 140, autoKill: true },
+                        scrollTo: { y: target, offsetY: 200, autoKill: true },
                         ease: "circ.out",
                         overwrite: true,
                     });
