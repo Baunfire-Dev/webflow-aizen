@@ -342,6 +342,15 @@ html {
             }
         }
 	}
+
+    .footer-nav-link,
+    .footer-title-link {
+        @apply transition-all duration-300 ease-in-out;
+
+        &:hover {
+            @apply text-blue opacity-100;
+        }
+    }
 }
 
 .slide-up,
