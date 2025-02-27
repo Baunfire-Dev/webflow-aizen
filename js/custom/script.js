@@ -1040,19 +1040,14 @@ $(document).ready(function () {
     };
 
     const closeBioOnClickOutside = () => {
-        const els = $(".bio-container");
-        if (!els.length) return;
-
-        $(document).on("click", ".bio-container", function (event) {
-            if ($(event.target).closest('.bio-container-inner').length) {
+        $(document).on("click", ".team-member-popup", function (event) {
+            if ($(event.target).closest('.team-member-popup-inner').length) {
                 return;
             }
 
             $(this).find('.close-bio').trigger('click');
         });
     };
-    
-    // closeBioOnClickOutside();
 
     const handleTeamMemberPopup = () => {
         const els = $("section.team");
@@ -1080,6 +1075,8 @@ $(document).ready(function () {
                 });
             });
         });
+
+        closeBioOnClickOutside();
     };
 
 
