@@ -303,6 +303,23 @@ html {
             @apply w-full text-center;
         }
     }
+
+    .footer-group {
+        .footer-group-body {
+            @apply opacity-0;
+        }
+        
+        &.open {
+            .footer-group-body {
+                @apply h-auto pt-[12px] pb-[20px] opacity-100;
+                @apply transition-transform duration-[0.4s] ease-out;
+            }
+
+            .footer-group-arrow {
+                @apply rotate-180;
+            }
+        }
+    }
 }
 
 .slide-up,

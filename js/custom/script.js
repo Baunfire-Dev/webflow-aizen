@@ -62,6 +62,55 @@ $(document).ready(function () {
         mobileItems();
     };
 
+    const handleFooter = () => {
+        const footer = $(".footer");
+
+        const footerItems = () => {
+            const footerGroups = footer.find(".footer-group");
+
+            let mm = gsap.matchMedia();
+
+            mm.add(
+                {
+                    isDesktop: `(min-width: 1280px)`,
+                    isMobile: `(max-width: 1279.98px)`,
+                },
+                (context) => {
+                    let { isDesktop, isMobile } = context.conditions;
+
+                    if (isDesktop) {
+                        footerGroups.removeClass("open");
+                        footerGroups.find(".footer-group-head").off("click");
+                    }
+
+                    if (isMobile) {
+                        footerGroups.find(".footer-group-head").click(function () {
+                            const self = $(this);
+
+                            if (self.parent().hasClass('open')) {
+                                self.parent().removeClass("open");
+                            } else {
+                                footerGroups.removeClass("open");
+                                self.parent().addClass("open");
+                            }
+
+                            gsap.to(window, {
+                                duration: 1,
+                                scrollTo: { y: self, offsetY: 140, autoKill: true },
+                                ease: "circ.out",
+                                overwrite: true
+                            });
+                        });
+                    }
+
+                    return () => { };
+                }
+            );
+        }
+
+        footerItems();
+    };
+
     const pageEntrance = () => {
         const navbar = $(".navbar");
         const heroContainer = $(".hero-container");
@@ -1002,6 +1051,7 @@ $(document).ready(function () {
     };
 
     handleNav();
+    handleFooter();
     pageEntrance();
     scrollTextReveal();
     homeButtonsHighlight();
