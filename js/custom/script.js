@@ -798,19 +798,6 @@ $(document).ready(function () {
         });
     };
 
-    const closeBioOnClickOutside = () => {
-        const els = $(".bio-container");
-        if (!els.length) return;
-
-        $(document).on("click", ".bio-container", function (event) {
-            if ($(event.target).closest('.bio-container-inner').length) {
-                return;
-            }
-
-            $(this).find('.close-bio').trigger('click');
-        });
-    };
-
     const handleTableDropdowns = () => {
         const els = $(".dd");
         if (!els.length) return;
@@ -1052,6 +1039,52 @@ $(document).ready(function () {
         });
     };
 
+    const closeBioOnClickOutside = () => {
+        const els = $(".bio-container");
+        if (!els.length) return;
+
+        $(document).on("click", ".bio-container", function (event) {
+            if ($(event.target).closest('.bio-container-inner').length) {
+                return;
+            }
+
+            $(this).find('.close-bio').trigger('click');
+        });
+    };
+    
+    // closeBioOnClickOutside();
+
+    const handleTeamMemberPopup = () => {
+        const els = $("section.team");
+        if (!els.length) return;
+
+        els.each(function () {
+            const self = $(this);
+            const teamMembers = self.find(".team-member");
+            if (!teamMembers.length) return;
+
+            teamMembers.each(function () {
+                const subSelf = $(this);
+                const imageContainer = subSelf.find(".team-member-image-outer");
+                const dialog = subSelf.find(".team-member-popup");
+                const closeBtn = subSelf.find(".team-popup-close");
+
+                imageContainer.click(function () {
+                    dialog[0].showModal();
+                    dialog.scrollTop(0);
+                    dialog.children('div:first').scrollTop(0);
+                    $("html").addClass("hide-overflow");
+                });
+
+                closeBtn.click(function () {
+                    dialog[0].close();
+                    $("html").removeClass("hide-overflow");
+                });
+            });
+        });
+    };
+
+
     handleNav();
     handleFooter();
     pageEntrance();
@@ -1068,7 +1101,7 @@ $(document).ready(function () {
     handleDiagramSteps();
 
     if (window.matchMedia("(min-width: 992px)").matches) {
-        DTCTTabloopDesktop();
+        // DTCTTabloopDesktop();
     }
 
     window.fsAttributes = window.fsAttributes || [];
@@ -1077,9 +1110,9 @@ $(document).ready(function () {
         (filterInstances) => {
             initializeCarousels();
             handlePaginationAutoScroll();
-            closeBioOnClickOutside();
             slideUpAnimation();
             allResourceSearch();
+            handleTeamMemberPopup();
         },
     ]);
 
