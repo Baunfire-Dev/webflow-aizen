@@ -94,6 +94,8 @@ $(document).ready(function () {
                                 self.parent().addClass("open");
                             }
 
+                            ScrollTrigger.refresh();
+
                             gsap.to(window, {
                                 duration: 1,
                                 scrollTo: { y: self, offsetY: 140, autoKill: true },

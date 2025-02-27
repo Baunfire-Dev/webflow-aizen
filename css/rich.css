@@ -649,3 +649,17 @@ textarea {
 		@apply flex;
 	}
 }
+
+.team-member {
+    .team-member-cta {
+        @apply transition-opacity duration-300 ease-out;
+    }
+    
+    .team-member-image-outer {
+        &:hover {
+            .team-member-cta {
+                @apply opacity-100;
+            }
+        }
+    }
+}
