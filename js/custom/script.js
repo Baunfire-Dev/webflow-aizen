@@ -621,7 +621,7 @@ $(document).ready(function () {
                     trigger: subSelf,
                     start: () => `top ${200}px`,
                     end: () => `bottom ${200}px`,
-                    markers: true,
+                    // markers: true,
                     invalidateOnRefresh: true,
                     onEnter: () => handleAnchorState(target, anchors, trigger, select),
                     onEnterBack: () => handleAnchorState(target, anchors, trigger, select)
@@ -639,11 +639,11 @@ $(document).ready(function () {
 
                 subSelf.click(function () {
                     // let offset = (window.innerHeight - target.outerHeight()) / 2;
-                    select.val(trigger);
+                    // select.val(trigger);
 
-                    if (window.matchMedia("(max-width: 991.98px)").matches) {
-                        offset = 140;
-                    }
+                    // if (window.matchMedia("(max-width: 991.98px)").matches) {
+                    //     offset = 140;
+                    // }
 
                     gsap.to(window, {
                         duration: 0.6,
