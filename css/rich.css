@@ -308,6 +308,10 @@ html {
         .footer-group-body {
             @apply opacity-0;
         }
+
+        .footer-group-arrow {
+            @apply transition-transform duration-300 ease-in-out;
+        }
         
         &.open {
             .footer-group-body {
