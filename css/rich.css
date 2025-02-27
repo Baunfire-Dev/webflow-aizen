@@ -312,14 +312,6 @@ html {
 }
 
 .footer {
-    @media screen and (min-width: 1280px) {
-        .footer-extras {
-            .cta-blue-container {
-                @apply w-fit ml-auto;
-            }
-        }
-    }
-
     @media screen and (max-width: 767px) {
         .footer-group {
             .footer-group-body {
