@@ -163,7 +163,7 @@ html {
             }
 
 			.gnav-item-inner {
-				@apply py-[16px] w-full justify-between;
+				@apply py-[16px] px-0 w-full justify-between;
 			}
 
 			.gnav-dd {
