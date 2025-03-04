@@ -72,6 +72,7 @@ html {
             }
         }
 
+        .gnav-item-arrow,
         .gnav-item-inner,
         .gnav-dd-inner {
             @apply will-change-transform;
@@ -348,6 +349,13 @@ html {
             @apply text-blue opacity-100;
         }
     }
+
+    .footer-group-arrow,
+    .footer-group-body,
+    .footer-nav-link,
+    .footer-title-link {
+        @apply will-change-transform;
+    }
 }
 
 .slide-up,
@@ -507,6 +515,11 @@ html {
 		@apply overflow-hidden h-0 transition-all duration-300 ease-[ease];
 	}
 
+    .dd-head svg,
+    .dd-body {
+        @apply will-change-transform;
+    }
+
 	&.active {
 		.dd-head {
 			svg {
@@ -531,6 +544,7 @@ textarea {
         .home-acc-item-body,
         .home-acc-item-arrow {
             @apply transition-all duration-300 ease-[ease];
+            @apply will-change-transform;
         }
     
         &:not(.active) {
@@ -561,6 +575,7 @@ textarea {
     
         &.active {
             @apply transition-all duration-[0.6s] ease-out sticky top-[140px];
+            @apply will-change-transform;
         }
 
         &.is-mobile {
@@ -599,6 +614,12 @@ textarea {
 	.sol-acc-body,
 	.sol-acc-graphic {
 		@apply transition-all duration-[0.3s] ease-in-out;
+	}
+
+    .sol-acc-head svg,
+	.sol-acc-body,
+	.sol-acc-graphic {
+        @apply will-change-transform;
 	}
 
 	&:not(.active) {
