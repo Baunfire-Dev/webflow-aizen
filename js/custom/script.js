@@ -906,6 +906,7 @@ $(document).ready(function () {
             if (!accs.length) return;
 
             let firstLoad = true;
+            let mm = gsap.matchMedia();
 
             accs.each(function () {
                 const subSelf = $(this);
@@ -938,7 +939,25 @@ $(document).ready(function () {
                 })
             });
 
-            accs.first().find(".sol-acc-head").trigger("click");
+            mm.add(
+                {
+                    isDesktop: `(min-width: 992px)`,
+                    isMobile: `(max-width: 991.98px)`,
+                },
+                (context) => {
+                    let { isDesktop, isMobile } = context.conditions;
+
+                    if (isDesktop) {
+                        accs.first().find(".sol-acc-head").trigger("click");
+                    }
+
+                    if (isMobile) {
+                        self.find(".sol-acc.active .sol-acc-head").trigger("click");
+                    }
+
+                    return () => { };
+                }
+            );
         });
     };
 

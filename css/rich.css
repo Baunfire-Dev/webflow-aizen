@@ -310,7 +310,7 @@ html {
 }
 
 .navbar,
-.hero-container,
+.her`o-container,
 .hero-description-block:not(.is-default),
 .hero-image:not(.is-default),
 .thin-banner-block {
@@ -690,4 +690,8 @@ textarea {
             }
         }
     }
+}
+
+.integ-icons {
+    @apply items-stretch;
 }
