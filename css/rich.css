@@ -71,6 +71,10 @@ html {
                 }
             }
         }
+
+        .gnav-item-inner {
+            @apply will-change-transform;
+        }
 	}
 
 	@media screen and (max-width: 1279px) {
