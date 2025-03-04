@@ -72,7 +72,8 @@ html {
             }
         }
 
-        .gnav-item-inner {
+        .gnav-item-inner,
+        .gnav-dd-inner {
             @apply will-change-transform;
         }
 	}
