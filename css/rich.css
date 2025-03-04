@@ -343,7 +343,8 @@ html {
 
     .footer-nav-link,
     .footer-title-link {
-        @apply transition-all duration-300 ease-in-out;
+        @apply duration-300 ease-in-out;
+        transition-property: transform, opacity;
 
         &:hover {
             @apply text-blue opacity-100;
