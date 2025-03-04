@@ -727,21 +727,10 @@ $(document).ready(function () {
         let typingTimer;
         const delay = 300;
 
-        const syncSearchFields = (searchField, searchFieldFloating, container, searchCollectionList, emptyText) => {
+        const syncSearchFields = (searchField, container, searchCollectionList, emptyText) => {
             searchField.on("keyup", function (e) {
                 clearTimeout(typingTimer);
                 typingTimer = setTimeout(() => {
-                    const value = $(this).val();
-                    searchFieldFloating.val(value);
-                    handleResults(container, searchCollectionList, emptyText);
-                }, delay);
-            });
-
-            searchFieldFloating.on("keyup", function (e) {
-                clearTimeout(typingTimer);
-                typingTimer = setTimeout(() => {
-                    const value = $(this).val();
-                    searchField.val(value);
                     handleResults(container, searchCollectionList, emptyText);
                 }, delay);
             });
@@ -765,46 +754,15 @@ $(document).ready(function () {
         els.each(function () {
             const self = $(this);
             const searchField = self.find(".search-field");
-            const searchFieldFloating = self.find(".search-field-floating-open");
-            const stickySearch = self.find(".search-outer-container");
             const searchCollectionList = self.find(".all-resource-list");
             const emptyText = self.find(".no-result");
-
-            ScrollTrigger.create({
-                trigger: stickySearch,
-                start: "top 140px",
-                endTrigger: self,
-                end: "bottom 60%",
-                pin: true,
-                pinSpacing: false,
-                onEnter: () => {
-                    gsap.to(stickySearch,
-                        {
-                            autoAlpha: 1,
-                            overwrite: true,
-                            duration: 0.4,
-                            ease: Power2.easeOut,
-                        }
-                    );
-                },
-                onLeaveBack: () => {
-                    gsap.to(stickySearch,
-                        {
-                            autoAlpha: 0,
-                            overwrite: true,
-                            duration: 0.4,
-                            ease: Power2.easeOut,
-                        }
-                    );
-                }
-            })
 
             let resizeObserver = new ResizeObserver(() => {
                 gsap.delayedCall(0.1, () => ScrollTrigger.refresh());
             });
 
             resizeObserver.observe(self[0]);
-            syncSearchFields(searchField, searchFieldFloating, self, searchCollectionList, emptyText);
+            syncSearchFields(searchField, self, searchCollectionList, emptyText);
         });
     };
 
