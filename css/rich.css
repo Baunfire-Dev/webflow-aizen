@@ -26,11 +26,6 @@ html {
             }
 
             .gnav-item {
-                &,
-                & * {
-                    @apply cursor-pointer;
-                }
-
                 &:hover {
                     .gnav-item-inner {
                         @apply bg-tan;
@@ -53,6 +48,10 @@ html {
                         }
                     }
                 }
+            }
+
+            .gnav-item-inner {
+                @apply cursor-pointer;
             }
 
             .gnav-item-arrow {

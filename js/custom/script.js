@@ -47,7 +47,7 @@ $(document).ready(function () {
                             gsap.to(navScroll, {
                                 duration: 1,
                                 scrollTo: { y: self, offsetY: 140, autoKill: true },
-                                ease: "circ.out",
+                                ease: Power1.easeInOut,
                                 overwrite: true
                             });
                         });
@@ -99,7 +99,7 @@ $(document).ready(function () {
                             gsap.to(window, {
                                 duration: 1,
                                 scrollTo: { y: self, offsetY: 140, autoKill: true },
-                                ease: "circ.out",
+                                ease: Power1.easeInOut,
                                 overwrite: true
                             });
                         });
@@ -518,7 +518,7 @@ $(document).ready(function () {
                 gsap.to(window, {
                     duration: 1,
                     scrollTo: { y: target, offsetY: 140 },
-                    ease: "circ.out",
+                    ease: Power1.easeInOut,
                     overwrite: true
                 });
             })
@@ -648,7 +648,7 @@ $(document).ready(function () {
                     gsap.to(window, {
                         duration: 0.6,
                         scrollTo: { y: target, offsetY: 140, autoKill: true },
-                        ease: "circ.out",
+                        ease: Power1.easeInOut,
                         overwrite: true,
                     });
                 });
@@ -704,7 +704,7 @@ $(document).ready(function () {
                     gsap.to(window, {
                         duration: 0.6,
                         scrollTo: { y: self.find(".integ-guide-inner"), offsetY: 140, autoKill: true },
-                        ease: "circ.out",
+                        ease: Power1.easeInOut,
                         overwrite: true,
                     });
                 } else {
@@ -746,7 +746,7 @@ $(document).ready(function () {
             gsap.to(window, {
                 duration: 1,
                 scrollTo: { y: container, offsetY: 140, autoKill: true },
-                ease: "circ.out",
+                ease: Power1.easeInOut,
                 overwrite: true
             });
         }
@@ -781,7 +781,7 @@ $(document).ready(function () {
                 gsap.to(window, {
                     duration: 1,
                     scrollTo: { y: self, offsetY: 140, autoKill: true },
-                    ease: "circ.out",
+                    ease: Power1.easeInOut,
                     overwrite: true
                 });
 
@@ -899,7 +899,7 @@ $(document).ready(function () {
                         gsap.to(window, {
                             duration: 1,
                             scrollTo: { y: subSelf, offsetY: offsetAmount, autoKill: true },
-                            ease: "circ.out",
+                            ease: Power1.easeInOut,
                             overwrite: true
                         });
                     }
