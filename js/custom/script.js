@@ -1132,7 +1132,7 @@ $(document).ready(function () {
             slideUpAnimation();
             allResourceSearch();
             handleTeamMemberPopup();
-            loopingLogoCarousel();
+            // loopingLogoCarousel();
         },
     ]);
 
