@@ -837,11 +837,11 @@ $(document).ready(function () {
 					if (!firstLoad) {
 						const elementHeight = subSelf.height();
 						const windowHeight = $(window).innerHeight();
-						let offsetAmount = (windowHeight - elementHeight) / 2;
-                        offsetAmount =  offsetAmount - (imageHeight / 3);
+						let rawOffset = (windowHeight - elementHeight) / 2;
+                        let offsetAmount =  rawOffset - (imageHeight / 4);
 
                         if (subSelf.is(':nth-last-child(2)') || subSelf.is(':last-child')) {
-                            offsetAmount =  offsetAmount + (imageHeight / 3);
+                            offsetAmount =  rawOffset + (imageHeight / 4);
                         }
 
 						gsap.to(window, {
