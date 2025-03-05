@@ -841,7 +841,7 @@ $(document).ready(function () {
                         let offsetAmount = rawOffset;
 
                         if (subSelf.is(':nth-last-child(2)') || subSelf.is(':last-child')) {
-                            offsetAmount = rawOffset + (imageHeight / 3.5);
+                            offsetAmount = rawOffset + (imageHeight / 3.2);
                         }
 
 						gsap.to(window, {
