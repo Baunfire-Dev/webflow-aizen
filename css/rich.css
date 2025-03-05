@@ -417,8 +417,6 @@ html {
 }
 
 .lc-logos-group {
-	animation: infinite-scroll 40s linear infinite;
-
 	&.is-contact-us {
 		animation: infinite-scroll-v2 40s linear infinite;
 	}

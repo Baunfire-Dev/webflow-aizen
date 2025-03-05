@@ -1066,6 +1066,42 @@ $(document).ready(function () {
         closeBioOnClickOutside();
     };
 
+    const loopingLogoCarousel = () => {
+        const els = $(".lc-logos");
+        if (!els.length) return;
+
+        els.each(function () {
+            const self = $(this);
+            const items = self.find(".lc-logos-group");
+
+            const logoCarouselTween = gsap.to(items, {
+                x: () => `-${items.first().outerWidth()}px`,
+                duration: 40,
+                ease: "linear",
+                repeat: -1,
+                paused: true
+            })
+    
+            ScrollTrigger.create({
+                trigger: self,
+                start: "top center",
+                end: "bottom 40%",
+                onEnter: function () {
+                    logoCarouselTween.play();
+                },
+                onEnterBack: function () {
+                    logoCarouselTween.play();
+                },
+                onLeave: function () {
+                    logoCarouselTween.pause();
+                },
+                onLeaveBack: function () {
+                    logoCarouselTween.pause();
+                }
+            });
+        });
+    }
+
 
     handleNav();
     handleFooter();
@@ -1081,6 +1117,7 @@ $(document).ready(function () {
     handleSolutionAccDropdowns();
     formResizeRefresh();
     handleDiagramSteps();
+    loopingLogoCarousel();
 
     if (window.matchMedia("(min-width: 992px)").matches) {
         // DTCTTabloopDesktop();
@@ -1095,6 +1132,7 @@ $(document).ready(function () {
             slideUpAnimation();
             allResourceSearch();
             handleTeamMemberPopup();
+            loopingLogoCarousel();
         },
     ]);
 
