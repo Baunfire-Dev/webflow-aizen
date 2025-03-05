@@ -1116,6 +1116,15 @@ $(document).ready(function () {
         });
     };
 
+    const closeActiveDropdowns = () => {
+        $(".navbar").on("mouseenter", () => {
+            const activeElement = document.activeElement;
+            if (activeElement && activeElement.tagName === "SELECT") {
+                activeElement.blur();
+            }
+        });
+    }
+
     handleNav();
     handleFooter();
     pageEntrance();
@@ -1130,6 +1139,7 @@ $(document).ready(function () {
     handleSolutionAccDropdowns();
     formResizeRefresh();
     handleDiagramSteps();
+    closeActiveDropdowns();
 
     if (window.matchMedia("(min-width: 992px)").matches) {
         // DTCTTabloopDesktop();
