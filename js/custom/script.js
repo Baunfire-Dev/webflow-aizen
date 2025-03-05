@@ -796,7 +796,6 @@ $(document).ready(function () {
 
         els.each(function () {
             const self = $(this);
-            const accsContainer = self.find(".home-accs-container");
             const accs = self.find(".home-acc-item");
             if (!accs.length) return;
 
@@ -1114,7 +1113,7 @@ $(document).ready(function () {
     handleIntegrationsSearch();
     heroDefaultAnimation();
     handleTableDropdowns();
-    handleHomeAccDropdowns();
+    // handleHomeAccDropdowns();
     handleSolutionAccDropdowns();
     formResizeRefresh();
     handleDiagramSteps();
