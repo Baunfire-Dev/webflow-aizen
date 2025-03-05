@@ -26,12 +26,6 @@ html {
             }
 
             .gnav-item {
-                &:hover {
-                    .gnav-item-inner {
-                        @apply bg-tan;
-                    }
-                }
-
                 &.parent {
                     &:hover {
                         .gnav-dd {
@@ -52,6 +46,12 @@ html {
 
             .gnav-item-inner {
                 @apply cursor-pointer;
+
+                &:hover {
+                    .gnav-item-inner {
+                        @apply bg-tan;
+                    }
+                }
             }
 
             .gnav-item-arrow {
