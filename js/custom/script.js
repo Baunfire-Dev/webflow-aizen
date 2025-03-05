@@ -1077,7 +1077,7 @@ $(document).ready(function () {
 
             const logoCarouselTween = gsap.to(items, {
                 x: () => `-${items.first().outerWidth()}px`,
-                duration: 40,
+                duration: 3,
                 ease: "linear",
                 repeat: -1,
                 paused: true
@@ -1085,7 +1085,6 @@ $(document).ready(function () {
     
             ScrollTrigger.create({
                 trigger: self,
-                start: "top 80%",
                 end: "bottom top",
                 onEnter: function () {
                     logoCarouselTween.play();
