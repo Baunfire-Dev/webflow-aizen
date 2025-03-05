@@ -1103,7 +1103,6 @@ $(document).ready(function () {
         });
     }
 
-
     handleNav();
     handleFooter();
     pageEntrance();
@@ -1118,7 +1117,6 @@ $(document).ready(function () {
     handleSolutionAccDropdowns();
     formResizeRefresh();
     handleDiagramSteps();
-    loopingLogoCarousel();
 
     if (window.matchMedia("(min-width: 992px)").matches) {
         // DTCTTabloopDesktop();
