@@ -838,13 +838,10 @@ $(document).ready(function () {
 						const elementHeight = subSelf.height();
 						const windowHeight = $(window).innerHeight();
 						let offsetAmount = (windowHeight - elementHeight) / 2;
+                        offsetAmount =  offsetAmount - (imageHeight / 3);
 
                         if (subSelf.is(':nth-last-child(2)') || subSelf.is(':last-child')) {
                             offsetAmount =  offsetAmount + (imageHeight / 3);
-                        }
-
-                        if (subSelf.is(':first-child')) {
-                            offsetAmount =  offsetAmount - (imageHeight / 3);
                         }
 
 						gsap.to(window, {
