@@ -27,7 +27,7 @@ html {
 
             .gnav-item {
                 &.parent {
-                    &:has(".gnav-dd.dd-active") {
+                    &:has(".gnav-dd.invi.dd-active") {
                         .gnav-dd {
                             @apply visible;
                         }
