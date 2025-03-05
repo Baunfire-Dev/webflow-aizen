@@ -48,9 +48,7 @@ html {
                 @apply cursor-pointer;
 
                 &:hover {
-                    .gnav-item-inner {
-                        @apply bg-tan;
-                    }
+                    @apply bg-tan;
                 }
             }
 
