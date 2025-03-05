@@ -11,6 +11,68 @@ $(document).ready(function () {
             })
         }
 
+        const desktopItems = () => {
+            const navItems = navbar.find(".gnav-item.parent");
+
+            navItems.each(function () {
+                const self = $(this);
+                const inner = self.find(".gnav-item-inner");
+                const dd = self.find(".gnav-dd");
+
+                let mm = gsap.matchMedia();
+
+                mm.add(
+                    {
+                        isDesktop: `(min-width: 1280px)`,
+                        isMobile: `(max-width: 1279.98px)`,
+                    },
+                    (context) => {
+                        let { isDesktop, isMobile } = context.conditions;
+
+                        if (isDesktop) {
+                            inner.hover(
+                                function () {
+                                    // Hover in: Clear any timer on the sibling dd, remove active from others, and add active to this dd
+                                    clearTimeout(dd.data('timer'));
+                                    navbar.find('.gnav-dd.dd-active').not(dd).removeClass('dd-active');
+                                    dd.addClass('dd-active');
+                                },
+            
+                                function () {
+                                    const timer = setTimeout(function () {
+                                        // Only remove active if the dd is not hovered
+                                        if (!dd.is(':hover')) {
+                                            dd.removeClass('dd-active');
+                                        }
+                                    }, 300);
+                                    // Store the timer on the dd element for potential cancellation
+                                    dd.data('timer', timer);
+                                }
+                            );
+            
+                            dd.hover(
+                                function () {
+                                    clearTimeout($(this).data('timer'));
+                                },
+                                function () {
+                                    $(this).removeClass('dd-active');
+                                }
+                            );
+                        }
+
+                        if (isMobile) {
+                            inner.off("click");
+                            dd.off("click");
+                        }
+
+                        return () => { };
+                    }
+                );
+
+                
+            })
+        }
+
         const mobileItems = () => {
             const navItems = navbar.find(".gnav-item.parent");
             const navScroll = navbar.find(".gnav-items");
@@ -59,6 +121,7 @@ $(document).ready(function () {
         }
 
         burger();
+        desktopItems();
         mobileItems();
     };
 
@@ -791,79 +854,79 @@ $(document).ready(function () {
     };
 
     const handleHomeAccDropdowns = () => {
-		const els = $(".home-acc .home-acc-inner");
-		if (!els.length) return;
+        const els = $(".home-acc .home-acc-inner");
+        if (!els.length) return;
 
-		els.each(function () {
-			const self = $(this);
-			const accs = self.find(".home-acc-item");
-			if (!accs.length) return;
+        els.each(function () {
+            const self = $(this);
+            const accs = self.find(".home-acc-item");
+            if (!accs.length) return;
 
-			let firstLoad = true;
+            let firstLoad = true;
 
-			const images = self.find(".home-acc-image-outer:not(.is-mobile)");
-			const imageHeight = images.first().outerHeight();
-			images.first().addClass("active");
+            const images = self.find(".home-acc-image-outer:not(.is-mobile)");
+            const imageHeight = images.first().outerHeight();
+            images.first().addClass("active");
 
-			accs.each(function (index) {
-				const subSelf = $(this);
-				const head = subSelf.find(".home-acc-item-head");
-				const body = subSelf.find(".home-acc-item-body");
+            accs.each(function (index) {
+                const subSelf = $(this);
+                const head = subSelf.find(".home-acc-item-head");
+                const body = subSelf.find(".home-acc-item-body");
 
-				const id = subSelf.attr("acc-id");
-				const target = self.find(
-					`.home-acc-image-outer:not(.is-mobile)[acc-id="${id}"]`
-				);
-				const targetClone = target.clone();
-				targetClone.addClass("is-mobile");
+                const id = subSelf.attr("acc-id");
+                const target = self.find(
+                    `.home-acc-image-outer:not(.is-mobile)[acc-id="${id}"]`
+                );
+                const targetClone = target.clone();
+                targetClone.addClass("is-mobile");
 
-				if (target.length) {
-					body.append(targetClone);
-				}
+                if (target.length) {
+                    body.append(targetClone);
+                }
 
-				head.click(function () {
-					if (subSelf.hasClass("active")) {
-						subSelf.removeClass("active");
-					} else {
-						accs.removeClass("active");
-						subSelf.addClass("active");
+                head.click(function () {
+                    if (subSelf.hasClass("active")) {
+                        subSelf.removeClass("active");
+                    } else {
+                        accs.removeClass("active");
+                        subSelf.addClass("active");
 
-						if (target.length) {
-							images.removeClass("active");
-							target.addClass("active");
-						}
-					}
+                        if (target.length) {
+                            images.removeClass("active");
+                            target.addClass("active");
+                        }
+                    }
 
-					if (!firstLoad) {
-						const elementHeight = subSelf.height();
-						const windowHeight = $(window).innerHeight();
-						let rawOffset = (windowHeight - elementHeight) / 2;
+                    if (!firstLoad) {
+                        const elementHeight = subSelf.height();
+                        const windowHeight = $(window).innerHeight();
+                        let rawOffset = (windowHeight - elementHeight) / 2;
                         let offsetAmount = rawOffset;
 
                         if (subSelf.is(':nth-last-child(2)') || subSelf.is(':last-child')) {
                             offsetAmount = rawOffset + (imageHeight / 3.2);
                         }
 
-						gsap.to(window, {
-							duration: 1,
-							scrollTo: {
-								y: subSelf,
-								offsetY: offsetAmount,
-								autoKill: true,
-							},
-							ease: Power1.easeInOut,
-							overwrite: true,
-						});
-					}
+                        gsap.to(window, {
+                            duration: 1,
+                            scrollTo: {
+                                y: subSelf,
+                                offsetY: offsetAmount,
+                                autoKill: true,
+                            },
+                            ease: Power1.easeInOut,
+                            overwrite: true,
+                        });
+                    }
 
-					ScrollTrigger.refresh();
-					firstLoad = false;
-				});
-			});
+                    ScrollTrigger.refresh();
+                    firstLoad = false;
+                });
+            });
 
-			accs.first().find(".home-acc-item-head").trigger("click");
-		});
-	};
+            accs.first().find(".home-acc-item-head").trigger("click");
+        });
+    };
 
     const handleSolutionAccDropdowns = () => {
         const els = $(".solutions-section");
@@ -1093,7 +1156,7 @@ $(document).ready(function () {
                 repeat: -1,
                 paused: true
             })
-    
+
             ScrollTrigger.create({
                 trigger: self,
                 end: "bottom top",
