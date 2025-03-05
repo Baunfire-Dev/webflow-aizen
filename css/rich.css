@@ -27,7 +27,7 @@ html {
 
             .gnav-item {
                 &.parent {
-                    &:hover {
+                    &.dd-active {
                         .gnav-dd {
                             @apply visible;
                         }

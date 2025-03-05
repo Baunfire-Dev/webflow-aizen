@@ -37,7 +37,6 @@ $(document).ready(function () {
                                     navbar.find('.gnav-dd.dd-active').not(dd).removeClass('dd-active');
                                     dd.addClass('dd-active');
                                 },
-            
                                 function () {
                                     const timer = setTimeout(function () {
                                         // Only remove active if the dd is not hovered
