@@ -1085,8 +1085,8 @@ $(document).ready(function () {
     
             ScrollTrigger.create({
                 trigger: self,
-                start: "top center",
-                end: "bottom 40%",
+                start: "top 80%",
+                end: "bottom top",
                 onEnter: function () {
                     logoCarouselTween.play();
                 },
