@@ -61,8 +61,8 @@ $(document).ready(function () {
                         }
 
                         if (isMobile) {
-                            inner.off("click");
-                            dd.off("click");
+                            inner.off("hover");
+                            dd.off("hover");
                         }
 
                         return () => { };
