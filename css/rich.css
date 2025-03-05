@@ -429,7 +429,7 @@ html {
 		transform: translateX(0);
 	}
 	100% {
-		transform: translateX(calc(-100% - 112px));
+		transform: translateX(-100%);
 	}
 }
 
