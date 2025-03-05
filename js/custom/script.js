@@ -791,67 +791,82 @@ $(document).ready(function () {
     };
 
     const handleHomeAccDropdowns = () => {
-        const els = $(".home-acc .home-acc-inner");
-        if (!els.length) return;
+		const els = $(".home-acc .home-acc-inner");
+		if (!els.length) return;
 
-        els.each(function () {
-            const self = $(this);
-            const accs = self.find(".home-acc-item");
-            if (!accs.length) return;
+		els.each(function () {
+			const self = $(this);
+			const accs = self.find(".home-acc-item");
+			if (!accs.length) return;
 
-            let firstLoad = true;
+			let firstLoad = true;
 
-            const images = self.find(".home-acc-image-outer:not(.is-mobile)");
-            images.first().addClass("active");
+			const images = self.find(".home-acc-image-outer:not(.is-mobile)");
+			const imageHeight = images.first().outerHeight();
+			images.first().addClass("active");
 
-            accs.each(function () {
-                const subSelf = $(this);
-                const head = subSelf.find(".home-acc-item-head");
-                const body = subSelf.find(".home-acc-item-body");
+			accs.each(function (index) {
+				const subSelf = $(this);
+				const head = subSelf.find(".home-acc-item-head");
+				const body = subSelf.find(".home-acc-item-body");
 
-                const id = subSelf.attr("acc-id");
-                const target = self.find(`.home-acc-image-outer:not(.is-mobile)[acc-id="${id}"]`);
-                const targetClone = target.clone();
-                targetClone.addClass("is-mobile");
+				const id = subSelf.attr("acc-id");
+				const target = self.find(
+					`.home-acc-image-outer:not(.is-mobile)[acc-id="${id}"]`
+				);
+				const targetClone = target.clone();
+				targetClone.addClass("is-mobile");
 
-                if (target.length) {
-                    body.append(targetClone);
-                }
+				if (target.length) {
+					body.append(targetClone);
+				}
 
-                head.click(function () {
-                    if (subSelf.hasClass("active")) {
-                        subSelf.removeClass("active");
-                    } else {
-                        accs.removeClass("active");
-                        subSelf.addClass("active");
+				head.click(function () {
+					if (subSelf.hasClass("active")) {
+						subSelf.removeClass("active");
+					} else {
+						accs.removeClass("active");
+						subSelf.addClass("active");
 
-                        if (target.length) {
-                            images.removeClass("active");
-                            target.addClass("active");
+						if (target.length) {
+							images.removeClass("active");
+							target.addClass("active");
+						}
+					}
+
+					if (!firstLoad) {
+						const elementHeight = subSelf.height();
+						const windowHeight = $(window).innerHeight();
+						let offsetAmount = (windowHeight - elementHeight) / 2;
+
+                        if (subSelf.is(':nth-last-child(2)') || subSelf.is(':last-child')) {
+                            offsetAmount =  offsetAmount + (imageHeight / 3);
                         }
-                    }
 
-                    if (!firstLoad) {
-                        const elementHeight = subSelf.height();
-                        const windowHeight = $(window).innerHeight();
-                        const offsetAmount = (windowHeight - elementHeight) / 2;
+                        if (subSelf.is(':first-child')) {
+                            offsetAmount =  offsetAmount - (imageHeight / 3);
+                        }
 
-                        gsap.to(window, {
-                            duration: 1,
-                            scrollTo: { y: subSelf, offsetY: offsetAmount, autoKill: true },
-                            ease: "circ.out",
-                            overwrite: true
-                        });
-                    }
+						gsap.to(window, {
+							duration: 1,
+							scrollTo: {
+								y: subSelf,
+								offsetY: offsetAmount,
+								autoKill: true,
+							},
+							ease: Power1.easeInOut,
+							overwrite: true,
+						});
+					}
 
-                    ScrollTrigger.refresh();
-                    firstLoad = false;
-                })
-            });
+					ScrollTrigger.refresh();
+					firstLoad = false;
+				});
+			});
 
-            accs.first().find(".home-acc-item-head").trigger("click");
-        });
-    };
+			accs.first().find(".home-acc-item-head").trigger("click");
+		});
+	};
 
     const handleSolutionAccDropdowns = () => {
         const els = $(".solutions-section");
@@ -1111,7 +1126,7 @@ $(document).ready(function () {
     handleIntegrationsSearch();
     heroDefaultAnimation();
     handleTableDropdowns();
-    // handleHomeAccDropdowns();
+    handleHomeAccDropdowns();
     handleSolutionAccDropdowns();
     formResizeRefresh();
     handleDiagramSteps();
