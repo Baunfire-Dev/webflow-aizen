@@ -40,6 +40,10 @@ html {
                         .gnav-item-arrow {
                             @apply rotate-180;
                         }
+
+                        .gnav-item-inner {
+                            @apply bg-tan;
+                        }
                     }
                 }
             }
