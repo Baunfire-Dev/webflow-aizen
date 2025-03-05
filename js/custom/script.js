@@ -1075,6 +1075,8 @@ $(document).ready(function () {
             const items = self.find(".lc-logos-group");
             if (!items.length) return;
 
+            console.log(items.first().outerWidth());
+
             const logoCarouselTween = gsap.to(items, {
                 x: () => `-${items.first().outerWidth()}px`,
                 duration: 40,
