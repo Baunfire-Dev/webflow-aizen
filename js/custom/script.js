@@ -1073,6 +1073,7 @@ $(document).ready(function () {
         els.each(function () {
             const self = $(this);
             const items = self.find(".lc-logos-group");
+            if (!items.length) return;
 
             const logoCarouselTween = gsap.to(items, {
                 x: () => `-${items.first().outerWidth()}px`,
