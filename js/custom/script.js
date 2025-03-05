@@ -1077,7 +1077,7 @@ $(document).ready(function () {
 
             const logoCarouselTween = gsap.to(items, {
                 x: () => `-${items.first().outerWidth()}px`,
-                duration: 3,
+                duration: 40,
                 ease: "linear",
                 repeat: -1,
                 paused: true
