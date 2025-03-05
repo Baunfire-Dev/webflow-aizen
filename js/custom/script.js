@@ -838,7 +838,7 @@ $(document).ready(function () {
 						const elementHeight = subSelf.height();
 						const windowHeight = $(window).innerHeight();
 						let rawOffset = (windowHeight - elementHeight) / 2;
-                        let offsetAmount =  0;
+                        let offsetAmount =  rawOffset;
 
                         if (subSelf.is(':nth-last-child(2)') || subSelf.is(':last-child')) {
                             offsetAmount =  rawOffset + (imageHeight / 3.5);
