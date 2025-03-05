@@ -416,30 +416,6 @@ html {
 	}
 }
 
-.lc-logos-group {
-	&.is-contact-us {
-		animation: infinite-scroll-v2 40s linear infinite;
-	}
-}
-
-@keyframes infinite-scroll {
-	0% {
-		transform: translateX(0);
-	}
-	100% {
-		transform: translateX(-100%);
-	}
-}
-
-@keyframes infinite-scroll-v2 {
-	0% {
-		transform: translateX(0);
-	}
-	100% {
-		transform: translateX(calc(-100% - 62px));
-	}
-}
-
 .text-with-logo-carousel-content-logos {
 	animation: tlc-infinite-scroll-desktop 40s linear infinite;
 
