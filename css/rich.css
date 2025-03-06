@@ -719,8 +719,12 @@ textarea {
 			@apply pl-[56px];
 		}
 
+        li {
+            @apply relative;
+        }
+
 		ul > li {
-			@apply list-none relative;
+			@apply list-none;
 
 			&::before {
 				content: "";
