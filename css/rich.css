@@ -671,3 +671,61 @@ textarea {
 .integ-icons {
     @apply items-stretch;
 }
+
+.post {
+    .post-content.WYSIWYG {
+        @apply flex flex-col gap-[16px];
+
+        &, p, li {
+            @apply text-dark-gray text-[16px] font-medium tracking-[-0.32px] leading-[160%];
+            font-family: Satoshi Variable, sans-serif; 
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            @apply mt-0 mb-0;
+
+            &:not(:first-child) {
+                @apply mt-[32px];
+            }
+        }
+
+        ul,
+		ol {
+			@apply flex flex-col gap-[16px];
+		}
+
+		ul {
+			list-style-type: disc;
+		}
+
+		ol {
+			list-style-type: decimal;
+		}
+
+		ul,
+		ol {
+			@apply ml-[28px];
+		}
+
+		ul ul,
+		ol ul {
+			list-style-type: circle;
+			@apply ml-[28px];
+		}
+
+		ol ol,
+		ul ol {
+			list-style-type: lower-latin;
+			@apply ml-[56px];
+		}
+
+		ul > li {
+			@apply list-none relative;
+
+			&::before {
+				content: "";
+				@apply absolute top-[6px] left-[16px] h-[4px] w-[4px] rounded-[50%] bg-pink;
+			}
+		}
+    }
+}
