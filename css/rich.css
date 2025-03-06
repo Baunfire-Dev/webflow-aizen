@@ -676,7 +676,7 @@ textarea {
     .post-content.WYSIWYG {
         @apply flex flex-col gap-[16px];
 
-        &, p, li {
+        &, p, li, a {
             @apply text-dark-gray text-[16px] font-medium tracking-[-0.32px] leading-[160%];
             font-family: Satoshi Variable, sans-serif; 
         }
@@ -727,5 +727,9 @@ textarea {
 				@apply absolute top-[6px] left-[16px] h-[4px] w-[4px] rounded-[50%] bg-pink;
 			}
 		}
+
+        a {
+            @apply no-underline text-navy;
+        }
     }
 }
