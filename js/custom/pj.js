@@ -3,18 +3,6 @@ $(document).ready(function () {
         window.print();
     });
 
-    function copyCurrentLink(buttonClass) {
-        $(buttonClass).on('click', function () {
-            const currentLink = window.location.href; // Get the current page URL
-
-            navigator.clipboard.writeText(currentLink).then(() => {
-                alert('Page link copied to clipboard!');
-            }).catch(err => {
-                console.error('Failed to copy link:', err);
-            });
-        });
-    }
-
     // Function to update opacity based on select value
     function updateSelectOpacity(className) {
         if ($(className).val() === "") {

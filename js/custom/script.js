@@ -42,11 +42,11 @@ $(document).ready(function () {
                                             dd.removeClass('dd-active');
                                         }
                                     }, 300);
-                                    
+
                                     dd.data('timer', timer);
                                 }
                             );
-            
+
                             dd.hover(
                                 function () {
                                     clearTimeout($(this).data('timer'));
@@ -66,7 +66,7 @@ $(document).ready(function () {
                     }
                 );
 
-                
+
             })
         }
 
@@ -1180,6 +1180,36 @@ $(document).ready(function () {
                 activeElement.blur();
             }
         });
+    };
+
+    const handlePostLinks = () => {
+        const els = $(".post-link");
+        if (!els.length) return;
+
+        els.each(function () {
+            const self = $(this);
+            const currentLink = window.location.href;
+
+            if (self.hasClass("copy")) {
+                self.click(function () {
+                    navigator.clipboard.writeText(currentLink).then(() => {
+                        alert('Page link copied to clipboard!');
+                    }).catch(err => {
+                        console.error('Failed to copy link:', err);
+                    });
+                })
+            }
+
+            if (self.hasClass("linkedin")) {
+                self.click(function () {
+                    const redirectLink = `https://www.linkedin.com/shareArticle?mini=true&url=${currentLink}`;
+                    var a = document.createElement('a');
+                    a.href = redirectLink;
+                    a.setAttribute('target', '_blank');
+                    a.click();
+                })
+            }
+        });
     }
 
     handleNav();
@@ -1197,6 +1227,7 @@ $(document).ready(function () {
     formResizeRefresh();
     handleDiagramSteps();
     closeActiveDropdowns();
+    handlePostLinks();
 
     if (window.matchMedia("(min-width: 992px)").matches) {
         // DTCTTabloopDesktop();
