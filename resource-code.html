@@ -1,0 +1,102 @@
+<script> 
+  document.addEventListener('contextmenu', event => event.preventDefault()); // Disable right-click
+  
+  document.onkeydown = function(e) { 
+    // Disable F12 (DevTools)
+    if (e.keyCode == 123) { 
+      return false; 
+    } 
+    // Disable Ctrl + Shift + I (DevTools)
+    if (e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)) { 
+      return false; 
+    } 
+    // Disable Ctrl + Shift + J (DevTools)
+    if (e.ctrlKey && e.shiftKey && e.keyCode == 'J'.charCodeAt(0)) { 
+      return false; 
+    } 
+    // Disable Ctrl + U (View Source)
+    if (e.ctrlKey && e.keyCode == 'U'.charCodeAt(0)) { 
+      return false; 
+    } 
+    // Disable Ctrl + P (Print)
+    if (e.ctrlKey && e.keyCode == 'P'.charCodeAt(0)) { 
+      e.preventDefault();
+      return false;
+    } 
+    // Disable Cmd + P (Mac Print)
+    if (e.metaKey && e.keyCode == 'P'.charCodeAt(0)) { 
+      e.preventDefault();
+      return false;
+    } 
+    // Disable Ctrl + S (Save As)
+    if (e.ctrlKey && e.keyCode == 'S'.charCodeAt(0)) { 
+      e.preventDefault();
+      return false;
+    } 
+    // Disable Cmd + S (Mac Save As)
+    if (e.metaKey && e.keyCode == 'S'.charCodeAt(0)) { 
+      e.preventDefault();
+      return false;
+    } 
+    // Disable Ctrl + C (Copy)
+    if (e.ctrlKey && e.keyCode == 'C'.charCodeAt(0)) { 
+      e.preventDefault();
+      return false;
+    } 
+    // Disable Cmd + C (Mac Copy)
+    if (e.metaKey && e.keyCode == 'C'.charCodeAt(0)) { 
+      e.preventDefault();
+      return false;
+    } 
+    // Disable Ctrl + V (Paste)
+    if (e.ctrlKey && e.keyCode == 'V'.charCodeAt(0)) { 
+      e.preventDefault();
+      return false;
+    } 
+    // Disable Cmd + V (Mac Paste)
+    if (e.metaKey && e.keyCode == 'V'.charCodeAt(0)) { 
+      e.preventDefault();
+      return false;
+    } 
+    // Disable Ctrl + X (Cut)
+    if (e.ctrlKey && e.keyCode == 'X'.charCodeAt(0)) { 
+      e.preventDefault();
+      return false;
+    } 
+    // Disable Cmd + X (Mac Cut)
+    if (e.metaKey && e.keyCode == 'X'.charCodeAt(0)) { 
+      e.preventDefault();
+      return false;
+    } 
+  }; 
+
+  // Disable print dialog via beforeprint and afterprint
+  window.onbeforeprint = function() {
+    alert("Printing is disabled on this page.");
+    return false;
+  };
+
+  // Disable Copy & Paste via mouse events
+  document.addEventListener('copy', (event) => {
+    event.preventDefault();
+    alert("Copying is disabled.");
+  });
+
+  document.addEventListener('paste', (event) => {
+    event.preventDefault();
+    alert("Pasting is disabled.");
+  });
+  
+  document.addEventListener("scroll", function () {
+      let gatedBg = document.querySelector("#gated-bg");
+
+      if (window.scrollY > 0) {
+          gatedBg.style.marginTop = "0";
+          gatedBg.style.borderRadius = "0";
+      } else {
+          gatedBg.style.marginTop = "";
+          gatedBg.style.borderRadius = "56px 56px 0 0";
+      }
+  });
+
+</script>

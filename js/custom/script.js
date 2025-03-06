@@ -32,19 +32,17 @@ $(document).ready(function () {
                         if (isDesktop) {
                             inner.hover(
                                 function () {
-                                    // Hover in: Clear any timer on the sibling dd, remove active from others, and add active to this dd
                                     clearTimeout(dd.data('timer'));
                                     navbar.find('.gnav-dd.dd-active').not(dd).removeClass('dd-active');
                                     dd.addClass('dd-active');
                                 },
                                 function () {
                                     const timer = setTimeout(function () {
-                                        // Only remove active if the dd is not hovered
                                         if (!dd.is(':hover')) {
                                             dd.removeClass('dd-active');
                                         }
                                     }, 300);
-                                    // Store the timer on the dd element for potential cancellation
+                                    
                                     dd.data('timer', timer);
                                 }
                             );
