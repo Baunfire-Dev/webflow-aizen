@@ -691,7 +691,7 @@ textarea {
 
         ul,
 		ol {
-			@apply flex flex-col gap-[16px];
+			@apply flex flex-col gap-[16px] p-0 m-0;
 		}
 
 		ul {
@@ -704,19 +704,19 @@ textarea {
 
 		ul,
 		ol {
-			@apply ml-[28px];
+			@apply pl-[28px];
 		}
 
 		ul ul,
 		ol ul {
 			list-style-type: circle;
-			@apply ml-[28px];
+			@apply pl-[28px];
 		}
 
 		ol ol,
 		ul ol {
 			list-style-type: lower-latin;
-			@apply ml-[56px];
+			@apply pl-[56px];
 		}
 
 		ul > li {
