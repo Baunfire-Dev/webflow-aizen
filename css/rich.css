@@ -673,7 +673,7 @@ textarea {
 }
 
 .post {
-    .post-content.WYSIWYG {
+    .post-content.wysiwyg {
         @apply flex flex-col gap-[16px];
 
         &, p, li, a {
