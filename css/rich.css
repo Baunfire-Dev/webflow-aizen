@@ -728,7 +728,7 @@ textarea {
 
 			&::before {
 				content: "";
-				@apply absolute top-[6px] left-[16px] h-[4px] w-[4px] rounded-[50%] bg-pink;
+				@apply absolute top-[9px] left-[18px] h-[6px] w-[6px] rounded-[50%] bg-pink;
 			}
 		}
 
