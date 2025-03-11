@@ -181,90 +181,83 @@ $(document).ready(function () {
     };
 
     const pageEntrance = () => {
-		const navbar = $(".navbar");
-		const heroContainer = $(".hero-container");
-		const heroDescriptionBlock = $(".hero-description-block:not(.is-default)");
-		const heroImage = $(".hero-image:not(.is-default)");
-		const logoCarouselContainer = $(".logo-carousel-inner");
-		const thinBannerSection = $(".thin-banner-block");
+        const navbar = $(".navbar");
+        const heroContainer = $(".hero-container");
+        const heroDescriptionBlock = $(".hero-description-block:not(.is-default)");
+        const heroImage = $(".hero-image:not(.is-default)");
 
-		const entranceTL = gsap.timeline({
-			defaults: {
-				ease: "power2.out",
-				duration: 0.8
-			}
-		});
+        const logoCarouselContainer = $(".logo-carousel-inner");
+        const thinBannerSection = $(".thin-banner-block");
 
-		if (navbar.length) {
-			entranceTL.fromTo(navbar,
-				{ y: -100, opacity: 0 },
-				{ y: 0, opacity: 1, delay: 0.4 }
-			);
-		}
+        const entranceTL = gsap.timeline({
+            defaults: {
+                ease: "power2.out",
+                duration: 0.8
+            }
+        })
 
-		// Only animate hero section if screen width is greater than 768px
-		if (window.innerWidth > 768) {
-			if (heroContainer.length) {
-				entranceTL.fromTo(heroContainer,
-					{ opacity: 0 },
-					{ opacity: 1 },
-					"<0.2"
-				);
-			}
+        if (navbar.length) {
+            entranceTL.fromTo(navbar,
+                { y: -100, opacity: 0 },
+                { y: 0, opacity: 1, delay: 0.4 }
+            );
+        }
 
-			if (heroDescriptionBlock.length) {
-				entranceTL.fromTo(heroDescriptionBlock,
-					{ y: 100, opacity: 0 },
-					{ y: 0, opacity: 1 },
-					"<0.2"
-				);
-			}
+        if (heroContainer.length) {
+            entranceTL.fromTo(heroContainer,
+                { opacity: 0 },
+                { opacity: 1 },
+                "<0.2"
+            );
+        }
 
-			if (heroImage.length) {
-				entranceTL.fromTo(heroImage,
-					{ y: 100, opacity: 0 },
-					{ y: 0, opacity: 1 },
-					"<0.2"
-				);
-			}
-		} else {
-			// Ensure hero elements are visible instantly on mobile
-			heroContainer.css({ opacity: 1 });
-			heroDescriptionBlock.css({ opacity: 1, transform: "translateY(0)" });
-			heroImage.css({ opacity: 1, transform: "translateY(0)" });
-		}
+        if (heroDescriptionBlock.length) {
+            entranceTL.fromTo(heroDescriptionBlock,
+                { y: 100, opacity: 0 },
+                { y: 0, opacity: 1 },
+                "<0.2"
+            );
+        }
 
-		if (logoCarouselContainer.length) {
-			entranceTL.fromTo(logoCarouselContainer,
-				{ y: 100, opacity: 0 },
-				{ y: 0, opacity: 1 },
-				"<0.4"
-			);
-		}
+        if (heroImage.length) {
+            entranceTL.fromTo(heroImage,
+                { y: 100, opacity: 0 },
+                { y: 0, opacity: 1 },
+                "<0.2"
+            );
+        }
 
-		if (thinBannerSection.length) {
-			gsap.fromTo(thinBannerSection,
-				{ opacity: 0 },
-				{ opacity: 1, duration: 1, delay: 0.8, ease: "power2.out" }
-			);
-		}
+        if (logoCarouselContainer.length) {
+            entranceTL.fromTo(logoCarouselContainer,
+                { y: 100, opacity: 0 },
+                { y: 0, opacity: 1 },
+                "<0.4"
+            );
+        }
 
-		// Navbar background color change on scroll
-		const navbar2 = document.querySelector(".navbar");
-		if (navbar2) {
-			gsap.to(navbar2, {
-				backgroundColor: "rgba(255, 253, 248, 0.80)",
-				backdropFilter: "blur(5.9px)",
-				ease: "power2.out",
-				scrollTrigger: {
-					trigger: "body",
-					start: "top -50px",
-					toggleActions: "play none none reverse",
-					scrub: true
-				}
-			});
-		}
-	};
+        if (thinBannerSection.length) {
+            gsap.fromTo(thinBannerSection,
+                { opacity: 0 },
+                { opacity: 1, duration: 1, delay: 0.8, ease: "power2.out" }
+            );
+        }
+
+        // Navbar background color change on scroll
+        const navbar2 = document.querySelector(".navbar");
+        if (navbar2) {
+            gsap.to(navbar2, {
+                backgroundColor: "rgba(255, 253, 248, 0.80)",
+                backdropFilter: "blur(5.9px)",
+                ease: "power2.out",
+                scrollTrigger: {
+                    trigger: "body",
+                    start: "top -50px",
+                    toggleActions: "play none none reverse",
+                    scrub: true
+                }
+            });
+        }
+    };
 
     const heroDefaultAnimation = () => {
         const els = $(".h-anim");
