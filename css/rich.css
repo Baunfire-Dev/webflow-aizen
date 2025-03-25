@@ -317,6 +317,9 @@ html {
 .thin-banner-block {
 	@apply opacity-0;
 }
+.hero-container{
+	@apply opacity-[1];
+}
 
 .footer {
     @media screen and (max-width: 767px) {
