@@ -183,8 +183,8 @@ $(document).ready(function () {
     const pageEntrance = () => {
         const navbar = $(".navbar");
         const heroContainer = $(".hero-container:not(.static)");
-        const heroDescriptionBlock = $(".hero-description-block:not(.is-default)");
-        const heroImage = $(".hero-image:not(.is-default)");
+        const heroDescriptionBlock = $(".hero-description-block:not(.is-default):not(.static)");
+        const heroImage = $(".hero-image:not(.is-default):not(.static)");
 
         const logoCarouselContainer = $(".logo-carousel-inner");
         const thinBannerSection = $(".thin-banner-block");
