@@ -116,7 +116,7 @@ html {
 			}
 
 			.gnav-dd-feature-content a {
-				@apply bg-cream rounded-[8px] overflow-hidden px-[12px] py-[24px] w-full flex justify-between items-center;
+				@apply rounded-[8px] overflow-hidden px-[12px] py-[24px] w-full flex justify-between items-center;
                 @apply transition-colors duration-[0.3s] ease-in-out;
 
 				.link-text {
