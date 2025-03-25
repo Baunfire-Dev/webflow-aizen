@@ -191,3 +191,13 @@ img {
 		@apply text-[length:inherit] leading-[165%];
 	}
 }
+.cms-rich-text {
+	li {
+		@apply text-[length:inherit] leading-[165%];
+	}
+}
+.post-content.wysiwyg {
+	li {
+		@apply text-[length:inherit] leading-[165%];
+	}
+}
