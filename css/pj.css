@@ -185,3 +185,9 @@ img {
 		@apply  flex;
 	}
 }
+
+.cms-rich-text {
+	li {
+		@apply text-[length:inherit] leading-[165%];
+	}
+}
