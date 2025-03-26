@@ -185,18 +185,15 @@ img {
 		@apply  flex;
 	}
 }
-
-.cms-rich-text {
-	li {
-		@apply text-[length:inherit] leading-[165%];
-	}
-}
 .cms-rich-text {
 	ul{
 		@apply flex flex-col gap-[10px];
 	}
 	li {
-		@apply text-[length:inherit] leading-[130%];
+		@apply text-[16px] leading-[130%];
+		strong {
+			@apply text-[14px];
+		}
 	}
 }
 .post-content.wysiwyg {
@@ -204,7 +201,7 @@ img {
 		@apply !gap-[10px];
 	}
 	li {
-		@apply text-[length:inherit] leading-[130%];
+		@apply text-[16px] leading-[130%];
 		strong {
 			@apply text-[14px];
 		}
