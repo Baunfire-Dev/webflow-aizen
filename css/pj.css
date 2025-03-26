@@ -201,7 +201,7 @@ img {
 }
 .post-content.wysiwyg {
 	ul{
-		@apply flex flex-col gap-[10px];
+		@apply !gap-[10px];
 	}
 	li {
 		@apply text-[length:inherit] leading-[130%];
