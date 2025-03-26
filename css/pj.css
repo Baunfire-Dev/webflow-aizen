@@ -192,12 +192,18 @@ img {
 	}
 }
 .cms-rich-text {
+	ul{
+		@apply flex flex-col gap-[10px];
+	}
 	li {
-		@apply text-[length:inherit] leading-[165%];
+		@apply text-[length:inherit] leading-[130%];
 	}
 }
 .post-content.wysiwyg {
+	ul{
+		@apply flex flex-col gap-[10px];
+	}
 	li {
-		@apply text-[length:inherit] leading-[165%];
+		@apply text-[length:inherit] leading-[130%];
 	}
 }
