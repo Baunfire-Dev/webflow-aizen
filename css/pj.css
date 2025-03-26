@@ -205,5 +205,8 @@ img {
 	}
 	li {
 		@apply text-[length:inherit] leading-[130%];
+		strong {
+			@apply text-[14px];
+		}
 	}
 }
