@@ -1121,6 +1121,7 @@ $(document).ready(function () {
                 const imageContainer = subSelf.find(".team-member-image-outer");
                 const dialog = subSelf.find(".team-member-popup");
                 const closeBtn = subSelf.find(".team-popup-close");
+                const meminfo = subSelf.find(".team-member-info");
 
                 imageContainer.click(function () {
                     dialog[0].showModal();
@@ -1128,7 +1129,7 @@ $(document).ready(function () {
                     dialog.children('div:first').scrollTop(0);
                 });
 
-                teamMembers.click(function () {
+                meminfo.click(function () {
                     dialog[0].showModal();
                     dialog.scrollTop(0);
                     dialog.children('div:first').scrollTop(0);
