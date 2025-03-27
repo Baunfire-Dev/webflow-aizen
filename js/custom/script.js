@@ -1128,6 +1128,12 @@ $(document).ready(function () {
                     dialog.children('div:first').scrollTop(0);
                 });
 
+                teamMembers.click(function () {
+                    dialog[0].showModal();
+                    dialog.scrollTop(0);
+                    dialog.children('div:first').scrollTop(0);
+                });
+
                 closeBtn.click(function () {
                     dialog[0].close();
                 });
