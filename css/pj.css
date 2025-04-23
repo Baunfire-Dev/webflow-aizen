@@ -208,7 +208,7 @@ img {
 	}
 }
 @media (max-width: 1025px) {
-	.post-toc-col {
+	.post-tc {
 		@apply !hidden;
 	}
 }
