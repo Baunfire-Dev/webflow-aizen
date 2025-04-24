@@ -216,7 +216,7 @@ img {
   }
 }
 
-.toc-menu-text.active {
+.toc-menu-text.active, .tocitem.active {
     color: var(--navy);
 }
 
