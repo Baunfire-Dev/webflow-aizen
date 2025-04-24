@@ -207,8 +207,18 @@ img {
 		}
 	}
 }
-._3-col-with-highlight-animation.section-animation {
+@keyframes fadeIn {
+  from {
     opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+._3-col-with-highlight-animation.section-animation {
+  opacity: 0;
+  animation: fadeIn 1s ease-in-out forwards;
 }
 @media (max-width: 1025px) {
 	.post-tc {
