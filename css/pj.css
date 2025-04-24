@@ -207,6 +207,9 @@ img {
 		}
 	}
 }
+._3-col-with-highlight-animation.section-animation {
+    opacity: 0;
+}
 @media (max-width: 1025px) {
 	.post-tc {
 		@apply !hidden;
