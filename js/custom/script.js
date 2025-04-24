@@ -476,54 +476,39 @@ $(document).ready(function () {
     };
 
     const handlePrivacyPolicyTOC = () => {
-		const els = $(".privacy-policy-container");
-		if (!els.length) return;
+        const els = $(".privacy-policy-container");
+        if (!els.length) return;
 
-		els.each(function () {
-			const self = $(this);
-			const menuItems = self.find(".toc-menu");
-			const contentItems = self.find(".pp-content-container");
+        els.each(function () {
+            const self = $(this);
+            const menuItems = self.find(".toc-menu");
+            const contentItems = self.find(".pp-content-container");
 
-			contentItems.each(function () {
-				const subSelf = $(this);
-				const id = subSelf.attr("id");
-				const target = self.find(`.toc-menu[href='#${id}']`);
+            contentItems.each(function () {
+                const subSelf = $(this);
+                const id = subSelf.attr("id");
+                const target = self.find(`.toc-menu[href='#${id}']`);
 
-				if (!id || !target.length) return;
+                if (!id || !target.length) return;
 
-				ScrollTrigger.create({
-					trigger: subSelf[0],
-					start: "top 20%",
-					end: "bottom 20%",
-					onEnter: () => handleMenuState(target, menuItems),
-					onEnterBack: () => handleMenuState(target, menuItems)
-				});
-			});
+                ScrollTrigger.create({
+                    trigger: subSelf,
+                    start: "top 20%",
+                    end: "bottom 20%",
+                    // markers: true,
+                    onEnter: () => handleMenuState(target, menuItems),
+                    onEnterBack: () => handleMenuState(target, menuItems)
+                });
+            });
 
-			// Optional: Smooth scroll on click
-			menuItems.on("click", function (e) {
-				e.preventDefault();
-				const href = $(this).attr("href");
-				const target = $(href);
-				if (target.length) {
-					gsap.to(window, {
-						duration: 1,
-						scrollTo: { y: target.offset().top - window.innerHeight * 0.2 },
-						ease: "power2.out"
-					});
-				}
-			});
+            menuItems.first().addClass("active");
+        });
 
-			// Set the first item active by default
-			menuItems.first().addClass("active");
-		});
-
-		const handleMenuState = (btn, buttons) => {
-			buttons.removeClass("active");
-			btn.addClass("active");
-		}
-	};
-
+        const handleMenuState = (btn, buttons) => {
+            buttons.removeClass("active");
+            btn.addClass("active");
+        }
+    };
 
     const scrollTextReveal = () => {
         const textReveals = $('.reveal-type');
