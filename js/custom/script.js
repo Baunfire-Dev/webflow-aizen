@@ -476,39 +476,55 @@ $(document).ready(function () {
     };
 
     const handlePrivacyPolicyTOC = () => {
-        const els = $(".privacy-policy-container");
-        if (!els.length) return;
+		const containers = $(".privacy-policy-container");
+		if (!containers.length) return;
 
-        els.each(function () {
-            const self = $(this);
-            const menuItems = self.find(".toc-menu");
-            const contentItems = self.find(".pp-content-container");
+		containers.each(function () {
+			const container = $(this);
+			const menuItems = container.find(".toc-menu");
+			const contentItems = container.find(".pp-content-container");
 
-            contentItems.each(function () {
-                const subSelf = $(this);
-                const id = subSelf.attr("id");
-                const target = self.find(`.toc-menu[href='#${id}']`);
+			// Set ScrollTriggers for each section
+			contentItems.each(function () {
+				const section = $(this);
+				const id = section.attr("id");
+				const targetLink = container.find(`.toc-menu[href='#${id}']`);
 
-                if (!id || !target.length) return;
+				if (!id || !targetLink.length) return;
 
-                ScrollTrigger.create({
-                    trigger: subSelf,
-                    start: "top 20%",
-                    end: "bottom 20%",
-                    // markers: true,
-                    onEnter: () => handleMenuState(target, menuItems),
-                    onEnterBack: () => handleMenuState(target, menuItems)
-                });
-            });
+				ScrollTrigger.create({
+					trigger: section[0],
+					start: "top 20%",
+					end: "bottom 20%",
+					onEnter: () => setActiveLink(targetLink, menuItems),
+					onEnterBack: () => setActiveLink(targetLink, menuItems),
+				});
+			});
 
-            menuItems.first().addClass("active");
-        });
+			// Optional: Smooth scroll on click
+			menuItems.on("click", function (e) {
+				e.preventDefault();
+				const href = $(this).attr("href");
+				const target = $(href);
 
-        const handleMenuState = (btn, buttons) => {
-            buttons.removeClass("active");
-            btn.addClass("active");
-        }
-    };
+				if (target.length) {
+					gsap.to(window, {
+						duration: 1,
+						scrollTo: { y: target.offset().top - window.innerHeight * 0.2 },
+						ease: "power2.out"
+					});
+				}
+			});
+
+			// Set first item as active initially
+			menuItems.first().addClass("active");
+		});
+
+		const setActiveLink = (activeItem, allItems) => {
+			allItems.removeClass("active");
+			activeItem.addClass("active");
+		};
+	};
 
     const scrollTextReveal = () => {
         const textReveals = $('.reveal-type');
@@ -624,7 +640,7 @@ $(document).ready(function () {
                                 break;
                             }
                         }
-                        if (!blockFree) break;
+                        if (!blockFree) break;z
                     }
                     if (blockFree) {
                         startCol = c + 1;
