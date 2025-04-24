@@ -216,6 +216,10 @@ img {
   }
 }
 
+.toc-menu-text.active {
+    color: var(--navy);
+}
+
 ._3-col-with-highlight-animation.section-animation {
   opacity: 0;
   animation: fadeIn 1s ease-in-out forwards;
