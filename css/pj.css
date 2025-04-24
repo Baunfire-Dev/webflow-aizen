@@ -229,3 +229,20 @@ img {
 		@apply !hidden;
 	}
 }
+
+.tocitem {
+    opacity: .5;
+    color: var(--gray);
+    letter-spacing: -.36px;
+    justify-content: space-between;
+    margin-bottom: 0px;
+    padding: 0;
+    font-family: Satoshi Variable, sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 120%;
+    text-decoration: none;
+    transition: color .2s, background-color .2s, color .2s;
+    display: flex
+;
+}
