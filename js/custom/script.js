@@ -476,28 +476,27 @@ $(document).ready(function () {
     };
 
     const handlePrivacyPolicyTOC = () => {
-		const containers = $(".privacy-policy-container");
-		if (!containers.length) return;
+		const els = $(".privacy-policy-container");
+		if (!els.length) return;
 
-		containers.each(function () {
-			const container = $(this);
-			const menuItems = container.find(".toc-menu");
-			const contentItems = container.find(".pp-content-container");
+		els.each(function () {
+			const self = $(this);
+			const menuItems = self.find(".toc-menu");
+			const contentItems = self.find(".pp-content-container");
 
-			// Set ScrollTriggers for each section
 			contentItems.each(function () {
-				const section = $(this);
-				const id = section.attr("id");
-				const targetLink = container.find(`.toc-menu[href='#${id}']`);
+				const subSelf = $(this);
+				const id = subSelf.attr("id");
+				const target = self.find(`.toc-menu[href='#${id}']`);
 
-				if (!id || !targetLink.length) return;
+				if (!id || !target.length) return;
 
 				ScrollTrigger.create({
-					trigger: section[0],
+					trigger: subSelf[0],
 					start: "top 20%",
 					end: "bottom 20%",
-					onEnter: () => setActiveLink(targetLink, menuItems),
-					onEnterBack: () => setActiveLink(targetLink, menuItems),
+					onEnter: () => handleMenuState(target, menuItems),
+					onEnterBack: () => handleMenuState(target, menuItems)
 				});
 			});
 
@@ -506,7 +505,6 @@ $(document).ready(function () {
 				e.preventDefault();
 				const href = $(this).attr("href");
 				const target = $(href);
-
 				if (target.length) {
 					gsap.to(window, {
 						duration: 1,
@@ -516,15 +514,16 @@ $(document).ready(function () {
 				}
 			});
 
-			// Set first item as active initially
+			// Set the first item active by default
 			menuItems.first().addClass("active");
 		});
 
-		const setActiveLink = (activeItem, allItems) => {
-			allItems.removeClass("active");
-			activeItem.addClass("active");
-		};
+		const handleMenuState = (btn, buttons) => {
+			buttons.removeClass("active");
+			btn.addClass("active");
+		}
 	};
+
 
     const scrollTextReveal = () => {
         const textReveals = $('.reveal-type');
